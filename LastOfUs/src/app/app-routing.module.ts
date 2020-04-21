@@ -8,8 +8,6 @@ const routes: Routes = [
   { path: '', component: EventsComponent },
   { path: 'details/:eventID', component: DetailsComponent },
   { path: 'bucket-list', component: BucketListComponent },
-];
-
   { path: 'details/:eventId', component: DetailsComponent },
 ];
 
