@@ -1,0 +1,15 @@
+<div class="card-container">
+  <h3>{{ event.name }}</h3>
+  <p>
+    <a routerLink="details/{{ event.id }}">more details</a>
+  </p>
+  <p>
+    {{ event._embedded.venues[0].city.name }}
+  </p>
+  <span (click)="addToList()" class="material-icons">
+    favorite
+  </span>
+  <span (click)="removeFromList()" class="material-icons">
+    highlight_off
+  </span>
+</div>
