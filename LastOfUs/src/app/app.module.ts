@@ -9,10 +9,23 @@ import { DetailsComponent } from './components/details/details.component';
 import { EventCardComponent } from './components/event-card/event-card.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BucketListComponent } from './components/bucket-list/bucket-list.component';
+import { SearchCriteriaComponent } from './components/search-criteria/search-criteria.component';
 
 @NgModule({
-  declarations: [AppComponent, EventsComponent, DetailsComponent, EventCardComponent, BucketListComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, BrowserAnimationsModule],
+  declarations: [
+    AppComponent,
+    EventsComponent,
+    DetailsComponent,
+    EventCardComponent,
+    BucketListComponent,
+    SearchCriteriaComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
