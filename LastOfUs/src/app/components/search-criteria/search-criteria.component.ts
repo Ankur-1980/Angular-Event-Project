@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { TMapiService } from '../../services/tmapi.service';
 import { ActivatedRoute } from '@angular/router';
-import { Subject } from 'rxjs/Subject';
 import { Catergories } from 'src/app/interfaces/catergories';
+import { PAGESIZE } from 'src/app/data/page-size';
+import { COUNTRIES } from 'src/app/data/countries';
+import { STATES } from 'src/app/data/state';
+import { CATEGORIES } from 'src/app/data/catergories';
+
 
 @Component({
   selector: 'app-search-criteria',
@@ -15,6 +19,11 @@ export class SearchCriteriaComponent implements OnInit {
   artsTheatre: Catergories[];
   music: Catergories[];
   films: Catergories[];
+
+  states: States[] = STATES;
+  countries: Countries[] = COUNTRIES;
+  pageSize: number[] = PAGESIZE;
+  categories: Catergories[] = CATEGORIES;
 
   constructor(private api: TMapiService, private route: ActivatedRoute) { }
 
