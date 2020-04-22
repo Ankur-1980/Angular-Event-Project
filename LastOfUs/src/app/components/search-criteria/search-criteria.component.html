@@ -8,14 +8,40 @@
   <button (click)="searchKeywords('hello')">
     Search
   </button>
+
   <!-- misc dropdown -->
   <select name="misc" id="misc" (change)="optionValue($event.target.value)">
     <option value="">CHOOSE GENRE</option>
     <option *ngFor="let x of misc" value="{{ x.id }}">{{ x.name }}</option>
   </select>
 
+  <!-- sports dropdown -->
   <select name="sports" id="sports" (change)="optionValue($event.target.value)">
     <option value="">CHOOSE GENRE</option>
     <option *ngFor="let x of sports" value="{{ x.id }}">{{ x.name }}</option>
+  </select>
+
+  <!-- music dropdown -->
+  <select name="music" id="music" (change)="optionValue($event.target.value)">
+    <option value="">CHOOSE GENRE</option>
+    <option *ngFor="let x of music" value="{{ x.id }}">{{ x.name }}</option>
+  </select>
+
+  <!-- arts & theatre dropdown -->
+  <select
+    name="artsTheatre"
+    id="artsTheatre"
+    (change)="optionValue($event.target.value)"
+  >
+    <option value="">CHOOSE GENRE</option>
+    <option *ngFor="let x of artsTheatre" value="{{ x.id }}">{{
+      x.name
+    }}</option>
+  </select>
+
+  <!-- films dropdown -->
+  <select name="films" id="films" (change)="optionValue($event.target.value)">
+    <option value="">CHOOSE GENRE</option>
+    <option *ngFor="let x of films" value="{{ x.id }}">{{ x.name }}</option>
   </select>
 </div>

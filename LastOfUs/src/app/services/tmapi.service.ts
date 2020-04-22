@@ -27,6 +27,12 @@ export class TMapiService {
   }
 
   getDetails(eventID) {
+    `${this.baseUrl}${this.events}/${eventID}${this.API_KEY}${this.global}`;
+
     return this.http.get(`${this.baseUrl}/${eventID}${this.API_KEY}`);
+  }
+
+  keyWordsSearch(searchTerm): any {
+    return `${this.baseUrl}${this.events}${this.API_KEY}&keyword=${searchTerm}`;
   }
 }

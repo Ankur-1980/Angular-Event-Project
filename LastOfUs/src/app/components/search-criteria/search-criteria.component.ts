@@ -33,7 +33,7 @@ export class SearchCriteriaComponent implements OnInit {
   }
 
   searchKeywords(x) {
-    console.log(x);
+    return this.api.keyWordsSearch(x).subscribe((data) => console.log(data));
   }
 
   optionValue(x) {
