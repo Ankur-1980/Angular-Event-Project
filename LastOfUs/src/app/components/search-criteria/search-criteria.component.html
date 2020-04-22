@@ -1,0 +1,6 @@
+<p>search-criteria works!</p>
+<div class="search">
+  <input type="text" (keyup)="searchTerms.next($event.target.value)" class="form-control search-box"
+    placeholder="search">
+  <button (eventSearch)="getEvents()">Submit</button>
+</div>
