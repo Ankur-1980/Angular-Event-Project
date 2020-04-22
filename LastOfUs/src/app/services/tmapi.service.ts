@@ -10,27 +10,26 @@ import 'rxjs/add/operator/switchMap';
   providedIn: 'root',
 })
 export class TMapiService {
-  baseUrl = 'https://app.ticketmaster.com/discovery/v2/events';
+  events = 'events';
+  classifications = 'classifications';
+
+  baseUrl = 'https://app.ticketmaster.com/discovery/v2/';
   API_KEY = '.json?apikey=zMf7gfbAyAigJLCB0a1iMrDv6OK8IDz9';
-  url = `${this.baseUrl}${this.API_KEY}`;
+  global = '&locale=*';
 
   constructor(private http: HttpClient) { }
 
   getEvents() {
-    return this.http.get(this.url);
+    return this.http.get(
+      `${this.baseUrl}${this.events}${this.API_KEY}${this.global}`
+    );
   }
 
   getDetails(eventID) {
     return this.http.get(`${this.baseUrl}/${eventID}${this.API_KEY}`);
   }
 
-  search(terms: Observable<string>) {
-    return terms.debounceTime(400)
-      .distinctUntilChanged()
-      .switchMap(term => this.searchEntries(term));
-  }
-
-  searchEntries(term) {
-    return this.http.get(this.API_KEY);
+  getClassifications() {
+    return this.http.get(`${this.baseUrl}${this.classifications}${this.API_KEY}${this.global}`)
   }
 }

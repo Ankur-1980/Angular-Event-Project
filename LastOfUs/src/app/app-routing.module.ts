@@ -3,14 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { EventsComponent } from './components/events/events.component';
 import { DetailsComponent } from './components/details/details.component';
 import { BucketListComponent } from './components/bucket-list/bucket-list.component';
-import { SearchCriteriaComponent } from './components/search-criteria/search-criteria.component';
 
 const routes: Routes = [
   { path: '', component: EventsComponent },
   { path: 'details/:eventID', component: DetailsComponent },
   { path: 'bucket-list', component: BucketListComponent },
   { path: 'details/:eventId', component: DetailsComponent },
-  { path: 'search', component: SearchCriteriaComponent },
 ];
 
 @NgModule({

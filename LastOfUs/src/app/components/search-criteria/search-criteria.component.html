@@ -1,6 +1,30 @@
 <p>search-criteria works!</p>
-<div class="search">
-  <input type="text" (keyup)="searchTerms.next($event.target.value)" class="form-control search-box"
-    placeholder="search">
-  <button (eventSearch)="getEvents()">Submit</button>
+<div class=container>
+  <input name="search" type="text" (keyup.enter)="searchKeys('blah')" placeholder="searchEvents">
+  <button (click)="searchKeys('duh')"></button>
+
+  <select name="misc" id="misc" (change)="opValue($event.target.value)">
+    <option value="">Choose Genre</option>
+    <option *ngFor="let x of misc" value="{{x.id}}">{{x.name}}</option>
+  </select>
+
+  <select name="sports" id="sports" (change)="opValue($event.target.value)">
+    <option value="">Choose Sport</option>
+    <option *ngFor="let x of sports" value="{{x.id}}">{{x.name}}</option>
+  </select>
+
+  <select name="artTheatre" id="artTheatre" (change)="opValue($event.target.value)">
+    <option value="">Choose Art Theatre</option>
+    <option *ngFor="let x of artsTheatre" value="{{x.id}}">{{x.name}}</option>
+  </select>
+
+  <select name="music" id="music" (change)="opValue($event.target.value)">
+    <option value="">Choose Genre</option>
+    <option *ngFor="let x of music" value="{{x.id}}">{{x.name}}</option>
+  </select>
+
+  <select name="films" id="films" (change)="opValue($event.target.value)">
+    <option value="">Choose Film</option>
+    <option *ngFor="let x of films" value="{{x.id}}">{{x.name}}</option>
+  </select>
 </div>
