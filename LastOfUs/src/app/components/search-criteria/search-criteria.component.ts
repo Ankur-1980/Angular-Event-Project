@@ -21,6 +21,8 @@ export class SearchCriteriaComponent implements OnInit {
   films: Categories[];
   searchTerm: string;
 
+  events: any[];
+
   states: States[] = STATES;
   countries: Countries[] = COUNTRIES;
   pageSize: number[] = PAGESIZE;
@@ -54,9 +56,11 @@ export class SearchCriteriaComponent implements OnInit {
   }
 
   searchKeywords() {
-    return this.api
-      .keyWordsSearch(this.searchTerm)
-      .subscribe((data) => console.log(data));
+    return this.api.keyWordsSearch(this.searchTerm).subscribe((data) => {
+      // console.log(data);
+      this.events = data['_embedded'].events;
+      console.log(this.events);
+    });
   }
 
   optionValue(x) {
