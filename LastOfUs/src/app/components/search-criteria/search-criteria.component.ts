@@ -19,6 +19,7 @@ export class SearchCriteriaComponent implements OnInit {
   music: Categories[];
   artsTheatre: Categories[];
   films: Categories[];
+  searchTerm: string;
 
   states: States[] = STATES;
   countries: Countries[] = COUNTRIES;
@@ -52,8 +53,10 @@ export class SearchCriteriaComponent implements OnInit {
     });
   }
 
-  searchKeywords(x) {
-    return this.api.keyWordsSearch(x).subscribe((data) => console.log(data));
+  searchKeywords() {
+    return this.api
+      .keyWordsSearch(this.searchTerm)
+      .subscribe((data) => console.log(data));
   }
 
   optionValue(x) {

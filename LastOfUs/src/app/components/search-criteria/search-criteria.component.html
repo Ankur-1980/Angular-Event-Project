@@ -1,8 +1,9 @@
 <div class="container">
   <input
+    [(ngModel)]="searchTerm"
     name="search"
     placeholder="Search Events..."
-    (keyup.enter)="searchKeywords('asdflksjad')"
+    (keyup.enter)="searchKeywords()"
     type="text"
   />
   <button (click)="searchKeywords('hello')">
