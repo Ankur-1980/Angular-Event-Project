@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { TMapiService } from '../../services/tmapi.service';
 import { Categories } from 'src/app/interfaces/categories';
 import { STATES } from '../../data/states';
@@ -21,14 +21,15 @@ export class SearchCriteriaComponent implements OnInit {
   films: Categories[];
   searchTerm: string;
 
-  events: any[];
-
   states: States[] = STATES;
   countries: Countries[] = COUNTRIES;
   pageSize: number[] = PAGESIZE;
   categories: Categories[] = CATEGORIES;
   segments: any;
   show: any;
+  filterResults: string[];
+
+  @Output() filterSearch = new EventEmitter<string[]>();
 
   constructor(private api: TMapiService) {}
 
@@ -56,11 +57,11 @@ export class SearchCriteriaComponent implements OnInit {
   }
 
   searchKeywords() {
-    return this.api.keyWordsSearch(this.searchTerm).subscribe((data) => {
-      // console.log(data);
-      this.events = data['_embedded'].events;
-      console.log(this.events);
-    });
+    this.api
+      .keyWordsSearch(this.searchTerm)
+      .subscribe((data) => (this.filterResults = data['_embedded'].events));
+
+    return this.filterSearch.emit(this.filterResults);
   }
 
   optionValue(x) {
