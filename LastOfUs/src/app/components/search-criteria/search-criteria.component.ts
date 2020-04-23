@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { TMapiService } from '../../services/tmapi.service';
 import { ActivatedRoute } from '@angular/router';
 import { Catergories } from 'src/app/interfaces/catergories';
+import { Countries } from 'src/app/interfaces/countries';
+import { States } from 'src/app/interfaces/states';
 import { PAGESIZE } from 'src/app/data/page-size';
 import { COUNTRIES } from 'src/app/data/countries';
 import { STATES } from 'src/app/data/state';

@@ -27,4 +27,17 @@
     <option value="">Choose Film</option>
     <option *ngFor="let x of films" value="{{x.id}}">{{x.name}}</option>
   </select>
+
+  <select name="states" id="states" (change)="opValue($event.target.value)">
+    <option *ngFor="let x of states" value="{{x.abbreviation}}">{{x.name}}</option>
+  </select>
+
+  <select name="countries" id="countries" (change)="opValue($event.target.value)">
+    <option *ngFor="let x of countries" value="{{x.Code}}">{{x.Name}}</option>
+  </select>
+
+  <select name="page" id="page" (change)="opValue($event.target.value)">
+    <option value="">Choose Page</option>
+    <option *ngFor="let pg of pageSize" value="{{pg}}">{{pg}}</option>
+  </select>
 </div>
