@@ -24,7 +24,9 @@
   <!-- music dropdown -->
   <select name="music" id="music" (change)="optionValue($event.target.value)">
     <option value="">CHOOSE GENRE</option>
-    <option *ngFor="let x of music" value="{{ x.id }}">{{ x.name }}</option>
+    <option *ngFor="let muse of music" value="{{ muse.id }}">{{
+      muse.name
+    }}</option>
   </select>
 
   <!-- arts & theatre dropdown -->
@@ -34,14 +36,44 @@
     (change)="optionValue($event.target.value)"
   >
     <option value="">CHOOSE GENRE</option>
-    <option *ngFor="let x of artsTheatre" value="{{ x.id }}">{{
-      x.name
+    <option *ngFor="let art of artsTheatre" value="{{ art.id }}">{{
+      art.name
     }}</option>
   </select>
 
   <!-- films dropdown -->
   <select name="films" id="films" (change)="optionValue($event.target.value)">
     <option value="">CHOOSE GENRE</option>
-    <option *ngFor="let x of films" value="{{ x.id }}">{{ x.name }}</option>
+    <option *ngFor="let film of films" value="{{ film.id }}">{{
+      film.name
+    }}</option>
+  </select>
+
+  <!-- states dropdown -->
+  <select (change)="optionValue($event.target.value)" name="states" id="states">
+    <option *ngFor="let state of states" value="{{ state.abbreviation }}">
+      {{ state.name }}
+    </option>
+  </select>
+
+  <!-- countries dropdown -->
+  <select
+    (change)="optionValue($event.target.value)"
+    name="countries"
+    id="countries"
+  >
+    <option *ngFor="let country of countries" value="{{ country.Code }}">{{
+      country.Name
+    }}</option>
+  </select>
+
+  <select
+    (change)="optionValue($event.target.value)"
+    name="countries"
+    id="countries"
+  >
+    <option *ngFor="let number of pageSize" value="{{ number }}">{{
+      number
+    }}</option>
   </select>
 </div>
