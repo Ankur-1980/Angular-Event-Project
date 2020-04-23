@@ -33,6 +33,8 @@ export class TMapiService {
   }
 
   keyWordsSearch(searchTerm): any {
-    return `${this.baseUrl}${this.events}${this.API_KEY}&keyword=${searchTerm}`;
+    return this.http.get(
+      `${this.baseUrl}${this.events}${this.API_KEY}&keyword=${searchTerm}`
+    );
   }
 }
