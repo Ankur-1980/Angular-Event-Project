@@ -10,19 +10,34 @@
   </button>
 
   <!-- misc dropdown -->
-  <select name="misc" id="misc" (change)="optionValue($event.target.value)">
+  <select
+    *ngIf="show === 'Miscellaneous'"
+    name="misc"
+    id="misc"
+    (change)="optionValue($event.target.value)"
+  >
     <option value="">CHOOSE GENRE</option>
     <option *ngFor="let x of misc" value="{{ x.id }}">{{ x.name }}</option>
   </select>
 
   <!-- sports dropdown -->
-  <select name="sports" id="sports" (change)="optionValue($event.target.value)">
+  <select
+    *ngIf="show === 'Sports'"
+    name="sports"
+    id="sports"
+    (change)="optionValue($event.target.value)"
+  >
     <option value="">CHOOSE GENRE</option>
     <option *ngFor="let x of sports" value="{{ x.id }}">{{ x.name }}</option>
   </select>
 
   <!-- music dropdown -->
-  <select name="music" id="music" (change)="optionValue($event.target.value)">
+  <select
+    *ngIf="show === 'Music'"
+    name="music"
+    id="music"
+    (change)="optionValue($event.target.value)"
+  >
     <option value="">CHOOSE GENRE</option>
     <option *ngFor="let muse of music" value="{{ muse.id }}">{{
       muse.name
@@ -31,6 +46,7 @@
 
   <!-- arts & theatre dropdown -->
   <select
+    *ngIf="show === 'Arts & Theatre'"
     name="artsTheatre"
     id="artsTheatre"
     (change)="optionValue($event.target.value)"
@@ -42,7 +58,12 @@
   </select>
 
   <!-- films dropdown -->
-  <select name="films" id="films" (change)="optionValue($event.target.value)">
+  <select
+    *ngIf="show === 'Film'"
+    name="films"
+    id="films"
+    (change)="optionValue($event.target.value)"
+  >
     <option value="">CHOOSE GENRE</option>
     <option *ngFor="let film of films" value="{{ film.id }}">{{
       film.name
@@ -67,6 +88,7 @@
     }}</option>
   </select>
 
+  <!-- pagesize dropdown -->
   <select
     (change)="optionValue($event.target.value)"
     name="countries"
@@ -76,4 +98,14 @@
       number
     }}</option>
   </select>
+  <div *ngFor="let segment of segments" class="checkboxes">
+    <input
+      (change)="toggleDropDown($event.target)"
+      type="checkbox"
+      id="{{ segment.segment.id }}"
+      name="{{ segment.segment.name }}"
+      value="{{ segment.segment.id }}"
+    />
+    <label for="{{ segment.segment.id }}">{{ segment.segment.name }}</label>
+  </div>
 </div>

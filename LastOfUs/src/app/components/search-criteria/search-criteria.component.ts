@@ -24,6 +24,8 @@ export class SearchCriteriaComponent implements OnInit {
   countries: Countries[] = COUNTRIES;
   pageSize: number[] = PAGESIZE;
   categories: Categories[] = CATEGORIES;
+  segments: any;
+  show: any;
 
   constructor(private api: TMapiService) {}
 
@@ -41,6 +43,13 @@ export class SearchCriteriaComponent implements OnInit {
       this.artsTheatre = genresArray[3];
       this.films = genresArray[5];
     });
+
+    this.api.getClassifications().subscribe((data) => {
+      this.segments = data['_embedded'].classifications.filter(
+        (x) => x.segment
+      );
+      this.segments.splice(4, 1);
+    });
   }
 
   searchKeywords(x) {
@@ -49,5 +58,10 @@ export class SearchCriteriaComponent implements OnInit {
 
   optionValue(x) {
     console.log(x);
+  }
+
+  toggleDropDown(checked) {
+    this.show = checked.name;
+    console.log(this.show);
   }
 }
