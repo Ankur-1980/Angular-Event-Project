@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { TMapiService } from '../../services/tmapi.service';
 import { ActivatedRoute } from '@angular/router';
 import { Catergories } from 'src/app/interfaces/catergories';
@@ -8,6 +8,7 @@ import { PAGESIZE } from 'src/app/data/page-size';
 import { COUNTRIES } from 'src/app/data/countries';
 import { STATES } from 'src/app/data/state';
 import { CATEGORIES } from 'src/app/data/catergories';
+import { BucketListService } from 'src/app/services/bucket-list.service';
 
 
 @Component({
@@ -21,13 +22,21 @@ export class SearchCriteriaComponent implements OnInit {
   artsTheatre: Catergories[];
   music: Catergories[];
   films: Catergories[];
+  searchTerm: string;
 
   states: States[] = STATES;
   countries: Countries[] = COUNTRIES;
   pageSize: number[] = PAGESIZE;
   categories: Catergories[] = CATEGORIES;
+  segments: any;
+  show: any;
 
-  constructor(private api: TMapiService, private route: ActivatedRoute) { }
+  filterResults: string[];
+
+  @Output() filterSearch = new EventEmitter<string[]>()
+
+
+  constructor(private api: TMapiService, private route: ActivatedRoute, private buck: BucketListService) { }
 
   ngOnInit(): void {
     this.api.getClassifications().subscribe((data) => {
@@ -43,13 +52,32 @@ export class SearchCriteriaComponent implements OnInit {
       this.artsTheatre = genresArray[3];
       this.films = genresArray[5];
     });
-  }
 
-  searchKeys(x) {
-    console.log(x);
+    this.api.getClassifications().subscribe((data) => {
+      this.segments = data['_embedded'].classifications.filter(
+        (x) => x.segment
+      );
+      this.segments.splice(4, 1);
+    })
   }
 
   opValue(g) {
     console.log(g);
   }
+
+  toggleDropDown(checked) {
+    this.show = checked.name;
+    console.log(this.show);
+
+  }
+
+  searchKeys() {
+    this.api
+      .searchKeys(this.searchTerm)
+      .subscribe((data) => (this.filterResults = data['_embedded'].events));
+    console.log('SearchKeys working?');
+
+    return this.filterSearch.emit(this.filterResults);
+  }
 }
+

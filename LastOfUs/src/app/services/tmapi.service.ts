@@ -26,10 +26,18 @@ export class TMapiService {
   }
 
   getDetails(eventID) {
-    return this.http.get(`${this.baseUrl}/${eventID}${this.API_KEY}`);
+    return this.http.get(`${this.baseUrl}${this.events}/${eventID}${this.API_KEY}${this.global}`);
   }
 
   getClassifications() {
     return this.http.get(`${this.baseUrl}${this.classifications}${this.API_KEY}${this.global}`)
   }
+
+  searchKeys(searchTerm): any {
+    console.log('service working?');
+
+    return this.http.get(`${this.baseUrl}${this.events}${this.API_KEY}&keyword=${searchTerm}`
+    );
+  }
+
 }

@@ -1,31 +1,36 @@
 <p>search-criteria works!</p>
 <div class=container>
-  <input name="search" type="text" (keyup.enter)="searchKeys('blah')" placeholder="searchEvents">
-  <button (click)="searchKeys('duh')"></button>
+  <input [(ngModel)]="searchTerm" name="search" type="text" (keyup.enter)="searchKeys()" placeholder="searchEvents">
+  <button (click)="searchKeys()"></button>
 
-  <select name="misc" id="misc" (change)="opValue($event.target.value)">
+  <select *ngIf="show === 'Miscellaneous'" name="misc" id="misc" (change)="opValue($event.target.value)">
     <option value="">Choose Genre</option>
     <option *ngFor="let x of misc" value="{{x.id}}">{{x.name}}</option>
+
   </select>
 
-  <select name="sports" id="sports" (change)="opValue($event.target.value)">
+  <select *ngIf="show === 'sports'" name="sports" id="sports" (change)="opValue($event.target.value)">
     <option value="">Choose Sport</option>
     <option *ngFor="let x of sports" value="{{x.id}}">{{x.name}}</option>
+
   </select>
 
-  <select name="artTheatre" id="artTheatre" (change)="opValue($event.target.value)">
+  <select *ngIf="show ==='Arts & Theatre'" name="artTheatre" id="artTheatre" (change)="opValue($event.target.value)">
     <option value="">Choose Art Theatre</option>
     <option *ngFor="let x of artsTheatre" value="{{x.id}}">{{x.name}}</option>
+
   </select>
 
-  <select name="music" id="music" (change)="opValue($event.target.value)">
+  <select *ngIf="show ==='Music'" name="music" id="music" (change)="opValue($event.target.value)">
     <option value="">Choose Genre</option>
     <option *ngFor="let x of music" value="{{x.id}}">{{x.name}}</option>
+
   </select>
 
-  <select name="films" id="films" (change)="opValue($event.target.value)">
+  <select *ngIf="show === 'Film'" name="films" id="films" (change)="opValue($event.target.value)">
     <option value="">Choose Film</option>
     <option *ngFor="let x of films" value="{{x.id}}">{{x.name}}</option>
+
   </select>
 
   <select name="states" id="states" (change)="opValue($event.target.value)">
@@ -40,4 +45,10 @@
     <option value="">Choose Page</option>
     <option *ngFor="let pg of pageSize" value="{{pg}}">{{pg}}</option>
   </select>
+</div>
+
+<div *ngFor="let segment of segments" class="checkboxes">
+  <input (change)="toggleDropDown($event.target)" type="checkbox" id="{{segment.segment.id}}"
+    name="{{segment.segment.name}}" value="{{segment.segment.id}}">
+  <label for="{{segment.segment.id}}">{{segment.segment.name}}</label>
 </div>

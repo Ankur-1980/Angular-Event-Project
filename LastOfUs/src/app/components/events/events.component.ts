@@ -9,7 +9,7 @@ import { TMapiService } from 'src/app/services/tmapi.service';
 export class EventsComponent implements OnInit {
   events;
 
-  constructor(private tmAPI: TMapiService) {}
+  constructor(private tmAPI: TMapiService) { }
 
   ngOnInit(): void {
     this.tmAPI.getEvents().subscribe((data) => {
@@ -17,5 +17,10 @@ export class EventsComponent implements OnInit {
       this.events = data['_embedded'].events;
       console.log(this.events);
     });
+  }
+
+  getAPI(filterResults) {
+    this.events = filterResults
+    console.log('getApi working?');
   }
 }

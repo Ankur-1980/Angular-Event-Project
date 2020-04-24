@@ -11,7 +11,6 @@ export class BucketListService {
   addToBucketList(event) {
     this.bucketList.push(event);
     console.log(this.bucketList);
-
     return this.bucketList;
   }
 
@@ -25,4 +24,5 @@ export class BucketListService {
   getBucketList() {
     return this.bucketList;
   }
+
 }
