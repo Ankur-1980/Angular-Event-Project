@@ -6,6 +6,8 @@
   <p>
     {{ event._embedded.venues[0].city.name }}
   </p>
+  <img src="{{ event.images[8].url }}" alt="" />
+
   <span (click)="addToList()" class="material-icons">
     favorite
   </span>

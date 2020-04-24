@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EventsComponent } from './components/events/events.component';
@@ -12,8 +12,21 @@ import { BucketListComponent } from './components/bucket-list/bucket-list.compon
 import { SearchCriteriaComponent } from './components/search-criteria/search-criteria.component';
 
 @NgModule({
-  declarations: [AppComponent, EventsComponent, DetailsComponent, EventCardComponent, BucketListComponent, SearchCriteriaComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, BrowserAnimationsModule],
+  declarations: [
+    AppComponent,
+    EventsComponent,
+    DetailsComponent,
+    EventCardComponent,
+    BucketListComponent,
+    SearchCriteriaComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    FormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -5,17 +5,36 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class TMapiService {
-  baseUrl = 'https://app.ticketmaster.com/discovery/v2/events';
+  events = 'events';
+  classifications = 'classifications';
+
+  baseUrl = 'https://app.ticketmaster.com/discovery/v2/';
   API_KEY = '.json?apikey=zMf7gfbAyAigJLCB0a1iMrDv6OK8IDz9';
-  url = `${this.baseUrl}${this.API_KEY}`;
+  global = '&locale=*';
 
   constructor(private http: HttpClient) {}
 
   getEvents() {
-    return this.http.get(this.url);
+    return this.http.get(
+      `${this.baseUrl}${this.events}${this.API_KEY}${this.global}`
+    );
+  }
+
+  getClassifications() {
+    return this.http.get(
+      `${this.baseUrl}${this.classifications}${this.API_KEY}${this.global}`
+    );
   }
 
   getDetails(eventID) {
-    return this.http.get(`${this.baseUrl}/${eventID}${this.API_KEY}`);
+    return this.http.get(
+      `${this.baseUrl}${this.events}/${eventID}${this.API_KEY}${this.global}`
+    );
+  }
+
+  keyWordsSearch(searchTerm): any {
+    return this.http.get(
+      `${this.baseUrl}${this.events}${this.API_KEY}&keyword=${searchTerm}`
+    );
   }
 }
