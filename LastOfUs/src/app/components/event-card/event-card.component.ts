@@ -9,9 +9,9 @@ import { BucketListService } from '../../services/bucket-list.service';
 export class EventCardComponent implements OnInit {
   @Input() event;
 
-  constructor(private bucket: BucketListService) {}
+  constructor(public bucket: BucketListService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   addToList() {
     this.bucket.addToBucketList(this.event);
@@ -19,5 +19,13 @@ export class EventCardComponent implements OnInit {
 
   removeFromList() {
     this.bucket.removeFromBucketList(this.event);
+  }
+
+  toggleAddRemove() {
+    if (this.bucket.containsEvent(this.event)) {
+      this.bucket.removeFromBucketList(this.event);
+    } else {
+      this.bucket.addToBucketList(this.event)
+    }
   }
 }

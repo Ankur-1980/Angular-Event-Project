@@ -6,31 +6,26 @@
   <select *ngIf="show === 'Miscellaneous'" name="misc" id="misc" (change)="opValue($event.target.value)">
     <option value="">Choose Genre</option>
     <option *ngFor="let x of misc" value="{{x.id}}">{{x.name}}</option>
-
   </select>
 
   <select *ngIf="show === 'sports'" name="sports" id="sports" (change)="opValue($event.target.value)">
     <option value="">Choose Sport</option>
     <option *ngFor="let x of sports" value="{{x.id}}">{{x.name}}</option>
-
   </select>
 
   <select *ngIf="show ==='Arts & Theatre'" name="artTheatre" id="artTheatre" (change)="opValue($event.target.value)">
     <option value="">Choose Art Theatre</option>
     <option *ngFor="let x of artsTheatre" value="{{x.id}}">{{x.name}}</option>
-
   </select>
 
-  <select *ngIf="show ==='Music'" name="music" id="music" (change)="opValue($event.target.value)">
+  <select *ngIf="show ==='Music'" name="music" id="music" (change)="getGenreId($event.target.value)">
     <option value="">Choose Genre</option>
     <option *ngFor="let x of music" value="{{x.id}}">{{x.name}}</option>
-
   </select>
 
   <select *ngIf="show === 'Film'" name="films" id="films" (change)="opValue($event.target.value)">
     <option value="">Choose Film</option>
     <option *ngFor="let x of films" value="{{x.id}}">{{x.name}}</option>
-
   </select>
 
   <select name="states" id="states" (change)="opValue($event.target.value)">

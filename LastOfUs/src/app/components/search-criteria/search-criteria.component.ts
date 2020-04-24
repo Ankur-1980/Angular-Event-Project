@@ -22,7 +22,14 @@ export class SearchCriteriaComponent implements OnInit {
   artsTheatre: Catergories[];
   music: Catergories[];
   films: Catergories[];
+
+  countryId = '';
+  segment = '';
   searchTerm: string;
+  genreId = '';
+  stateId = '';
+  getCategoryId: string;
+  eventPost: number = 25;
 
   states: States[] = STATES;
   countries: Countries[] = COUNTRIES;
@@ -36,7 +43,7 @@ export class SearchCriteriaComponent implements OnInit {
   @Output() filterSearch = new EventEmitter<string[]>()
 
 
-  constructor(private api: TMapiService, private route: ActivatedRoute, private buck: BucketListService) { }
+  constructor(private api: TMapiService, private route: ActivatedRoute, ) { }
 
   ngOnInit(): void {
     this.api.getClassifications().subscribe((data) => {
@@ -72,12 +79,22 @@ export class SearchCriteriaComponent implements OnInit {
   }
 
   searchKeys() {
-    this.api
-      .searchKeys(this.searchTerm)
-      .subscribe((data) => (this.filterResults = data['_embedded'].events));
+    this.api.searchKeys(this.searchTerm).subscribe((data) => (this.filterResults = data['_embedded'].events));
     console.log('SearchKeys working?');
-
     return this.filterSearch.emit(this.filterResults);
   }
+
+  getGenreId(value) {
+    this.genreId = value;
+  }
+
+  getStateId(value) {
+    this.stateId = value;
+  }
+
+  filterState(state): any {
+  }
+
+
 }
 

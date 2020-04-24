@@ -40,4 +40,8 @@ export class TMapiService {
     );
   }
 
+  filterSearch(): any {
+    return this.http.get('')
+  }
+
 }
