@@ -24,4 +24,9 @@ export class BucketListService {
   getBucketList() {
     return this.bucketList;
   }
+  containsEvent(event): boolean {
+    console.log(this.bucketList.includes(event));
+
+    return this.bucketList.includes(event)
+  }
 }

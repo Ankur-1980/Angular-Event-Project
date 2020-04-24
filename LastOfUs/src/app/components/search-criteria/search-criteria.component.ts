@@ -20,6 +20,8 @@ export class SearchCriteriaComponent implements OnInit {
   artsTheatre: Categories[];
   films: Categories[];
   searchTerm: string;
+  getCategoryID: string;
+  stateID: string;
 
   states: States[] = STATES;
   countries: Countries[] = COUNTRIES;
@@ -27,7 +29,8 @@ export class SearchCriteriaComponent implements OnInit {
   categories: Categories[] = CATEGORIES;
   segments: any;
   show: any;
-filterResults: string[];
+  filterResults: string[];
+
   @Output() filterSearch = new EventEmitter<string[]>();
   constructor(private api: TMapiService) {}
 
@@ -58,7 +61,7 @@ filterResults: string[];
       .subscribe((data) => (this.filterResults = data['_embedded'].events));
 
     return this.filterSearch.emit(this.filterResults);
-  } 
+  }
 
   optionValue(x) {
     console.log(x);
@@ -67,5 +70,34 @@ filterResults: string[];
   toggleDropDown(checked) {
     this.show = checked.name;
     console.log(this.show);
+  }
+  filterList(paraMeter) {}
+
+  getCategoryId(value) {
+    this.genre(value);
+  }
+
+  getStateId(value) {
+    this.stateID = value;
+    console.log(this.stateID);
+  }
+  getGenreId(value) {
+    this.genreID = value;
+    this.searchFilter();
+  }
+
+  getCountry(value) {}
+  searchFilter() {
+    this.api
+      .filterSearch(
+        this.searchTerm,
+        this.genreID,
+        this.stateID,
+        this.posts,
+        this.countryID,
+        this.segment
+      )
+      .subscribe((data) => (this.filterResults = data['_embedded'].events));
+    return this.filterSearch.emit;
   }
 }

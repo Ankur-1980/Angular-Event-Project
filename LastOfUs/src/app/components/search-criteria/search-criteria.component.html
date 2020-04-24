@@ -60,13 +60,14 @@
     }}</option>
   </select>
 
-  <select name="states" id="states" (change)="optionValue($event.target.value)">
+  <select (change)="getStateId($event.target.value)"name="states" id="states" (change)="optionValue($event.target.value)">
     <option *ngFor="let state of states" value="{{ state.abbreviation }}">{{
       state.name
     }}</option>
   </select>
 
   <select
+  (change)="optionValue($event.target.value)"
     name="countries"
     id="countries"
     (change)="optionValue($event.target.value)"
