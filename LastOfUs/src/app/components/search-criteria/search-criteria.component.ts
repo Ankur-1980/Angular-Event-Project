@@ -27,6 +27,7 @@ export class SearchCriteriaComponent implements OnInit {
   categories: Categories[] = CATEGORIES;
   segments: any;
   show: any;
+
   filterResults: string[];
 
   @Output() filterSearch = new EventEmitter<string[]>();
@@ -70,6 +71,10 @@ export class SearchCriteriaComponent implements OnInit {
 
   toggleDropDown(checked) {
     this.show = checked.name;
+    console.log(checked.id);
+
     console.log(this.show);
   }
+
+  filterList(paraMeter) {}
 }
