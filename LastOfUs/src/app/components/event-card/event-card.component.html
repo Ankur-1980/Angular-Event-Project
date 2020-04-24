@@ -8,10 +8,12 @@
   </p>
   <img src="{{ event.images[8].url }}" alt="" />
 
-  <span (click)="addToList()" class="material-icons">
-    favorite
-  </span>
-  <span (click)="removeFromList()" class="material-icons">
-    highlight_off
-  </span>
+  <div (click)="toggleAddRemove()">
+    <span *ngIf="!bucket.containsEvent(event)" class="material-icons">
+      favorite
+    </span>
+    <span *ngIf="bucket.containsEvent(event)" class="material-icons">
+      highlight_off
+    </span>
+  </div>
 </div>

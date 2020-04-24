@@ -1,44 +1,35 @@
 <div class="container">
-  <input
-    [(ngModel)]="searchTerm"
-    name="search"
-    placeholder="Search Events..."
-    (keyup.enter)="searchKeywords()"
-    type="text"
-  />
-  <button (click)="searchKeywords()">
-    Search
-  </button>
+  <form action="">
+    <input
+      [(ngModel)]="searchTerm"
+      name="search"
+      placeholder="Search Events..."
+      (keyup.enter)="searchKeywords()"
+      type="text"
+    />
+    <button (click)="searchKeywords()">
+      Search
+    </button>
+  </form>
 
   <!-- misc dropdown -->
-  <select
-    *ngIf="show === 'Miscellaneous'"
-    name="misc"
-    id="misc"
-    (change)="optionValue($event.target.value)"
-  >
+  <select name="misc" id="misc" (change)="getCategoryId($event.target.value)">
     <option value="">CHOOSE GENRE</option>
     <option *ngFor="let x of misc" value="{{ x.id }}">{{ x.name }}</option>
   </select>
 
   <!-- sports dropdown -->
   <select
-    *ngIf="show === 'Sports'"
     name="sports"
     id="sports"
-    (change)="optionValue($event.target.value)"
+    (change)="getCategoryId($event.target.value)"
   >
     <option value="">CHOOSE GENRE</option>
     <option *ngFor="let x of sports" value="{{ x.id }}">{{ x.name }}</option>
   </select>
 
   <!-- music dropdown -->
-  <select
-    *ngIf="show === 'Music'"
-    name="music"
-    id="music"
-    (change)="optionValue($event.target.value)"
-  >
+  <select name="music" id="music" (change)="getCategoryId($event.target.value)">
     <option value="">CHOOSE GENRE</option>
     <option *ngFor="let muse of music" value="{{ muse.id }}">{{
       muse.name
@@ -47,10 +38,9 @@
 
   <!-- arts & theatre dropdown -->
   <select
-    *ngIf="show === 'Arts & Theatre'"
     name="artsTheatre"
     id="artsTheatre"
-    (change)="optionValue($event.target.value)"
+    (change)="getCategoryId($event.target.value)"
   >
     <option value="">CHOOSE GENRE</option>
     <option *ngFor="let art of artsTheatre" value="{{ art.id }}">{{
@@ -59,12 +49,7 @@
   </select>
 
   <!-- films dropdown -->
-  <select
-    *ngIf="show === 'Film'"
-    name="films"
-    id="films"
-    (change)="optionValue($event.target.value)"
-  >
+  <select name="films" id="films" (change)="getCategoryId($event.target.value)">
     <option value="">CHOOSE GENRE</option>
     <option *ngFor="let film of films" value="{{ film.id }}">{{
       film.name
@@ -72,7 +57,7 @@
   </select>
 
   <!-- states dropdown -->
-  <select (change)="optionValue($event.target.value)" name="states" id="states">
+  <select (change)="getStateId($event.target.value)" name="states" id="states">
     <option *ngFor="let state of states" value="{{ state.abbreviation }}">
       {{ state.name }}
     </option>
@@ -91,7 +76,7 @@
 
   <!-- pagesize dropdown -->
   <select
-    (change)="optionValue($event.target.value)"
+    (change)="getCategoryId($event.target.value)"
     name="countries"
     id="countries"
   >
