@@ -17,8 +17,6 @@ export class DetailsComponent implements OnInit {
     this.eventID = this.route.snapshot.params.eventID;
 
     this.api.getDetails(this.eventID).subscribe((data) => {
-      console.log(data);
-
       this.details = data;
     });
   }
