@@ -19,7 +19,6 @@ export class SearchCriteriaComponent implements OnInit {
   music: Categories[];
   artsTheatre: Categories[];
   films: Categories[];
-  searchTerm: string;
 
   states: States[] = STATES;
   countries: Countries[] = COUNTRIES;
@@ -29,6 +28,13 @@ export class SearchCriteriaComponent implements OnInit {
   show: any;
 
   filterResults: string[];
+
+  searchTerm: string;
+  genreID: string = '';
+  stateID: string = '';
+  posts: number = 25;
+  countryID: string = '';
+  segmentID: string = '';
 
   @Output() filterSearch = new EventEmitter<string[]>();
 
@@ -76,5 +82,38 @@ export class SearchCriteriaComponent implements OnInit {
     console.log(this.show);
   }
 
-  filterList(paraMeter) {}
+  getCategoryId(value) {
+    this.segmentID = value;
+    this.searchFilter();
+  }
+
+  getStateId(value) {
+    this.stateID = value;
+    console.log(this.stateID);
+    this.searchFilter();
+  }
+
+  getGenreID(value) {
+    this.genreID = value;
+    this.searchFilter();
+  }
+
+  getCountryID(value) {
+    this.countryID = value;
+    this.searchFilter();
+  }
+
+  searchFilter() {
+    this.api
+      .filterSearch(
+        this.genreID,
+        this.stateID,
+        this.posts,
+        this.countryID,
+        this.segmentID
+      )
+      .subscribe((data) => (this.filterResults = data['_embedded'].events));
+
+    return this.filterSearch.emit(this.filterResults);
+  }
 }
