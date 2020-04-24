@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { TMapiService } from 'src/app/services/tmapi.service';
 import { Categories } from 'src/app/interfaces/categories';
 import { STATES } from 'src/app/data/states';
@@ -7,6 +7,7 @@ import { COUNTRIES } from 'src/app/data/countries';
 import { CATEGORIES } from 'src/app/data/categories';
 import { Countries } from 'src/app/interfaces/countries';
 import { States } from 'src/app/interfaces/states';
+
 @Component({
   selector: 'app-search-criteria',
   templateUrl: './search-criteria.component.html',
@@ -18,12 +19,16 @@ export class SearchCriteriaComponent implements OnInit {
   misc: Categories[];
   artsTheatre: Categories[];
   films: Categories[];
+  searchTerm: string;
 
   states: States[] = STATES;
   countries: Countries[] = COUNTRIES;
   pageSize: number[] = PAGESIZE;
   categories: Categories[] = CATEGORIES;
-
+  segments: any;
+  show: any;
+filterResults: string[];
+  @Output() filterSearch = new EventEmitter<string[]>();
   constructor(private api: TMapiService) {}
 
   ngOnInit(): void {
@@ -40,12 +45,27 @@ export class SearchCriteriaComponent implements OnInit {
       this.artsTheatre = genresArray[3];
       this.films = genresArray[5];
     });
+    this.api.getClassifications().subscribe((data) => {
+      this.segments = data['_embedded'].classifications.filter(
+        (x) => x.segment
+      );
+      this.segments.splice(4, 1);
+    });
   }
-  searchKeywords(x) {
-    console.log(x);
-  }
+  searchKeywords() {
+    this.api
+      .keyWordsSearch(this.searchTerm)
+      .subscribe((data) => (this.filterResults = data['_embedded'].events));
+
+    return this.filterSearch.emit(this.filterResults);
+  } 
 
   optionValue(x) {
     console.log(x);
+  }
+
+  toggleDropDown(checked) {
+    this.show = checked.name;
+    console.log(this.show);
   }
 }

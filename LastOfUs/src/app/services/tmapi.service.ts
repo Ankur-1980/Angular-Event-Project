@@ -14,7 +14,6 @@ export class TMapiService {
 
   constructor(private http: HttpClient) {}
 
-
   getEvents() {
     return this.http.get(
       `${this.baseUrl}${this.events}${this.API_KEY}${this.global}`
@@ -28,6 +27,11 @@ export class TMapiService {
   }
 
   getDetails(eventID) {
-    return this.http.get(`${this.baseUrl}/${eventID}${this.API_KEY}`);
+    return this.http.get(
+      `${this.baseUrl}${this.events}/${eventID}${this.API_KEY}${this.global}`
+    );
   }
-} 
+  keyWordsSearch(searchTerm): any {
+    return this.http.get(`${this.baseUrl}${this.events}${this.API_KEY}&keyword=${searchTerm}`);
+  }
+}
