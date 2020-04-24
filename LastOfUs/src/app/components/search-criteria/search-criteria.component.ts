@@ -82,15 +82,24 @@ export class SearchCriteriaComponent implements OnInit {
     console.log(this.show);
   }
 
-  filterList(paraMeter) {}
-
   getCategoryId(value) {
     this.segmentID = value;
+    this.searchFilter();
   }
 
   getStateId(value) {
     this.stateID = value;
     console.log(this.stateID);
+    this.searchFilter();
+  }
+
+  getGenreID(value) {
+    this.genreID = value;
+    this.searchFilter();
+  }
+
+  getCountryID(value) {
+    this.countryID = value;
     this.searchFilter();
   }
 

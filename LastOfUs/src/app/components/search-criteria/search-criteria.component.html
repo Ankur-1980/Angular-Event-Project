@@ -13,23 +13,19 @@
   </form>
 
   <!-- misc dropdown -->
-  <select name="misc" id="misc" (change)="getCategoryId($event.target.value)">
+  <select name="misc" id="misc" (change)="getGenreID($event.target.value)">
     <option value="">CHOOSE GENRE</option>
     <option *ngFor="let x of misc" value="{{ x.id }}">{{ x.name }}</option>
   </select>
 
   <!-- sports dropdown -->
-  <select
-    name="sports"
-    id="sports"
-    (change)="getCategoryId($event.target.value)"
-  >
+  <select name="sports" id="sports" (change)="getGenreID($event.target.value)">
     <option value="">CHOOSE GENRE</option>
     <option *ngFor="let x of sports" value="{{ x.id }}">{{ x.name }}</option>
   </select>
 
   <!-- music dropdown -->
-  <select name="music" id="music" (change)="getCategoryId($event.target.value)">
+  <select name="music" id="music" (change)="getGenreID($event.target.value)">
     <option value="">CHOOSE GENRE</option>
     <option *ngFor="let muse of music" value="{{ muse.id }}">{{
       muse.name
@@ -40,7 +36,7 @@
   <select
     name="artsTheatre"
     id="artsTheatre"
-    (change)="getCategoryId($event.target.value)"
+    (change)="getGenreID($event.target.value)"
   >
     <option value="">CHOOSE GENRE</option>
     <option *ngFor="let art of artsTheatre" value="{{ art.id }}">{{
@@ -49,7 +45,7 @@
   </select>
 
   <!-- films dropdown -->
-  <select name="films" id="films" (change)="getCategoryId($event.target.value)">
+  <select name="films" id="films" (change)="getGenreID($event.target.value)">
     <option value="">CHOOSE GENRE</option>
     <option *ngFor="let film of films" value="{{ film.id }}">{{
       film.name
@@ -65,7 +61,7 @@
 
   <!-- countries dropdown -->
   <select
-    (change)="optionValue($event.target.value)"
+    (change)="getCountryID($event.target.value)"
     name="countries"
     id="countries"
   >
@@ -77,8 +73,8 @@
   <!-- pagesize dropdown -->
   <select
     (change)="getCategoryId($event.target.value)"
-    name="countries"
-    id="countries"
+    name="numberOfPosts"
+    id="numberOfPosts"
   >
     <option *ngFor="let number of pageSize" value="{{ number }}">{{
       number
@@ -86,7 +82,7 @@
   </select>
   <div *ngFor="let segment of segments" class="checkboxes">
     <input
-      (change)="toggleDropDown($event.target)"
+      (change)="getCategoryId($event.target)"
       type="checkbox"
       id="{{ segment.segment.id }}"
       name="{{ segment.segment.name }}"
