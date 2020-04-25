@@ -110,7 +110,7 @@
       <mat-form-field class="form-group">
         <mat-label>Choose an State</mat-label>
         <mat-select
-          (change)="optionValue()"
+          (selectionChange)="searchFilter()"
           matNativeControl
           formControlName="stateID"
           name="states"
