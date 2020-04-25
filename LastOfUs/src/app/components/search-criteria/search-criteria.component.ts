@@ -23,7 +23,7 @@ export class SearchCriteriaComponent implements OnInit {
 
   states: States[] = STATES;
   countries: Countries[] = COUNTRIES;
-  pageSize: number[] = PAGESIZE;
+  pageSize: string[] = PAGESIZE;
   categories: Categories[] = CATEGORIES;
   segments: any;
   show: any;
@@ -35,7 +35,7 @@ export class SearchCriteriaComponent implements OnInit {
   searchTerm: string;
   genreID: string = '';
   stateID: string = '';
-  posts: number = 25;
+  posts: string = '25';
   countryID: string = '';
   segmentID: string = '';
 

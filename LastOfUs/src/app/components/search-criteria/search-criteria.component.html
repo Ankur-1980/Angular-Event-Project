@@ -1,3 +1,25 @@
+<form [formGroup]="filterForm">
+  <!-- form wrapper-->
+  <div class="form-container">
+    <!-- form header -->
+    <div class="form-header">
+      <h3>Search Filters</h3>
+    </div>
+    <!-- all the search criteria -->
+    <div class="form-body">
+      <div class="form-group">
+        <label for="searchBar">Search Bar</label>
+        <input
+          type="text"
+          id="searchBar"
+          class="formControl"
+          formControlName="searchBar"
+        />
+      </div>
+    </div>
+  </div>
+</form>
+
 <div class="container">
   <form action="">
     <input
