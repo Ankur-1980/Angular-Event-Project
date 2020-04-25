@@ -31,12 +31,51 @@
 
       <!-- genre dropdowns -->
       <div class="form-group">
+        <!-- misc dropdown -->
         <div class="misc-dropdown">
-          <!-- misc dropdown -->
           <select name="misc" id="misc" formControlName="genreID">
             <option value="">CHOOSE GENRE</option>
-            <option *ngFor="let x of misc" value="{{ x.id }}">{{
-              x.name
+            <option *ngFor="let mis of misc" value="{{ mis.id }}">{{
+              mis.name
+            }}</option>
+          </select>
+        </div>
+        <!-- sports dropdown -->
+        <div class="sports-dropdown">
+          <select name="sports" id="sports" formControlName="genreID">
+            <option value="">CHOOSE GENRE</option>
+            <option *ngFor="let sport of sports" value="{{ sport.id }}">{{
+              sport.name
+            }}</option>
+          </select>
+        </div>
+
+        <!-- music dropdown -->
+        <div class="music-dropdown">
+          <select name="music" id="music" formControlName="genreID">
+            <option value="">CHOOSE GENRE</option>
+            <option *ngFor="let muse of music" value="{{ muse.id }}">{{
+              muse.name
+            }}</option>
+          </select>
+        </div>
+        <!-- arts & theatre dropdown -->
+        <div class="artsTheatre-dropdown">
+          <select name="artsTheatre" id="artsTheatre" formControlName="genreID">
+            <option value="">CHOOSE GENRE</option>
+            <option
+              *ngFor="let theatre of artsTheatre"
+              value="{{ theatre.id }}"
+              >{{ theatre.name }}</option
+            >
+          </select>
+        </div>
+        <!-- films dropdown -->
+        <div class="films-dropdown">
+          <select name="films" id="films" formControlName="genreID">
+            <option value="">CHOOSE GENRE</option>
+            <option *ngFor="let film of films" value="{{ film.id }}">{{
+              film.name
             }}</option>
           </select>
         </div>
