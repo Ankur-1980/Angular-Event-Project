@@ -12,12 +12,9 @@ export class EventsComponent implements OnInit {
   constructor(private tmAPI: TMapiService) {}
 
   ngOnInit(): void {
-    this.tmAPI
-      .getEvents()
-      .subscribe((data) => {
-        this.events = data['_embedded'].events;
-      })
-      .unsubscribe();
+    this.tmAPI.getEvents().subscribe((data) => {
+      this.events = data['_embedded'].events;
+    }).unsubscribe;
   }
 
   getFilterResults(filterResults) {

@@ -11,6 +11,7 @@
       <div class="form-group">
         <label for="searchBar">Search Bar</label>
         <input
+          (keyup)="searchFilter()"
           type="text"
           id="searchBar"
           class="form-control"
@@ -33,7 +34,12 @@
       <div class="form-group">
         <!-- misc dropdown -->
         <div class="misc-dropdown">
-          <select name="misc" id="misc" formControlName="genreID">
+          <select
+            (change)="searchFilter()"
+            name="misc"
+            id="misc"
+            formControlName="genreID"
+          >
             <option value="">CHOOSE GENRE</option>
             <option *ngFor="let mis of misc" value="{{ mis.id }}">{{
               mis.name
@@ -42,7 +48,12 @@
         </div>
         <!-- sports dropdown -->
         <div class="sports-dropdown">
-          <select name="sports" id="sports" formControlName="genreID">
+          <select
+            (change)="searchFilter()"
+            name="sports"
+            id="sports"
+            formControlName="genreID"
+          >
             <option value="">CHOOSE GENRE</option>
             <option *ngFor="let sport of sports" value="{{ sport.id }}">{{
               sport.name
@@ -51,7 +62,12 @@
         </div>
         <!-- music dropdown -->
         <div class="music-dropdown">
-          <select name="music" id="music" formControlName="genreID">
+          <select
+            (change)="searchFilter()"
+            name="music"
+            id="music"
+            formControlName="genreID"
+          >
             <option value="">CHOOSE GENRE</option>
             <option *ngFor="let muse of music" value="{{ muse.id }}">{{
               muse.name
@@ -60,7 +76,12 @@
         </div>
         <!-- arts & theatre dropdown -->
         <div class="artsTheatre-dropdown">
-          <select name="artsTheatre" id="artsTheatre" formControlName="genreID">
+          <select
+            (change)="searchFilter()"
+            name="artsTheatre"
+            id="artsTheatre"
+            formControlName="genreID"
+          >
             <option value="">CHOOSE GENRE</option>
             <option
               *ngFor="let theatre of artsTheatre"
@@ -71,7 +92,12 @@
         </div>
         <!-- films dropdown -->
         <div class="films-dropdown">
-          <select name="films" id="films" formControlName="genreID">
+          <select
+            (change)="searchFilter()"
+            name="films"
+            id="films"
+            formControlName="genreID"
+          >
             <option value="">CHOOSE GENRE</option>
             <option *ngFor="let film of films" value="{{ film.id }}">{{
               film.name
@@ -84,6 +110,7 @@
       <mat-form-field class="form-group">
         <mat-label>Choose an State</mat-label>
         <mat-select
+          (change)="optionValue()"
           matNativeControl
           formControlName="stateID"
           name="states"
@@ -101,10 +128,15 @@
 
       <!-- country dropdowns -->
       <div class="form-group">
-        <select formControlName="countryID" name="countries" id="countries">
+        <select
+          (change)="searchFilter()"
+          formControlName="countryID"
+          name="countries"
+          id="countries"
+        >
           <option
             *ngFor="let country of countries"
-            value="{{ country.Code }}"
+            value="{{ country.Code | lowercase }}"
             >{{ country.Name }}</option
           >
         </select>
@@ -112,6 +144,7 @@
       <!-- number of posts dropdown -->
       <div class="form-group">
         <select
+          (change)="searchFilter()"
           formControlName="numberOfPosts"
           name="numberOfPosts"
           id="numberOfPosts"
@@ -124,7 +157,7 @@
     </div>
     <div class="form-footer">
       <button>Reset Form</button>
-      <button (click)="optionValue()">Testing Form Values</button>
+      <button>Testing Form Values</button>
     </div>
   </div>
 </form>

@@ -84,28 +84,8 @@ export class SearchCriteriaComponent implements OnInit {
     //   .valueChanges.subscribe((value) => console.log(value));
   }
 
-  getGenres() {
-    const genresArray = this.segments.map((x) => {
-      const { _embedded } = x.segment;
-      return _embedded.genres;
-    });
-    this.misc = genresArray[0];
-    this.sports = genresArray[1];
-    this.music = genresArray[2];
-    this.artsTheatre = genresArray[3];
-    this.films = genresArray[4];
-  }
-
-  searchKeywords() {
-    this.api
-      .keyWordsSearch(this.searchTerm)
-      .subscribe((data) => (this.filterResults = data['_embedded'].events));
-
-    return this.filterSearch.emit(this.filterResults);
-  }
-
   optionValue() {
-    console.log(this.formValues);
+    console.log(`working?`);
   }
 
   toggleDropDown(checked) {
