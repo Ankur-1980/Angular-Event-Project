@@ -46,6 +46,11 @@ export class SearchCriteriaComponent implements OnInit {
 
   ngOnInit(): void {
     this.api.getClassifications().subscribe((data) => {
+      this.segments = data['_embedded'].classifications.filter(
+        (x) => x.segment
+      );
+      this.segments.splice(4, 1);
+
       const genresArray = data['_embedded'].classifications
         .filter((x) => x.segment)
         .map((x) => {
@@ -59,13 +64,6 @@ export class SearchCriteriaComponent implements OnInit {
       this.films = genresArray[5];
     });
 
-    this.api.getClassifications().subscribe((data) => {
-      this.segments = data['_embedded'].classifications.filter(
-        (x) => x.segment
-      );
-      this.segments.splice(4, 1);
-    });
-
     this.filterForm = this.fb.group({
       searchBar: [''],
       categoryID: [''],
@@ -75,9 +73,27 @@ export class SearchCriteriaComponent implements OnInit {
       numberOfPosts: ['25'],
     });
 
-    this.filterForm.valueChanges.subscribe(
-      (value) => (this.formValues = value)
-    );
+    // this.filterForm.valueChanges.subscribe((value) => {
+    //   this.searchFilter();
+    // });
+
+    // this.filterForm.valueChanges.subscribe((value) => console.log(value));
+
+    // this.filterForm
+    //   .get('searchBar')
+    //   .valueChanges.subscribe((value) => console.log(value));
+  }
+
+  getGenres() {
+    const genresArray = this.segments.map((x) => {
+      const { _embedded } = x.segment;
+      return _embedded.genres;
+    });
+    this.misc = genresArray[0];
+    this.sports = genresArray[1];
+    this.music = genresArray[2];
+    this.artsTheatre = genresArray[3];
+    this.films = genresArray[4];
   }
 
   searchKeywords() {
@@ -90,9 +106,6 @@ export class SearchCriteriaComponent implements OnInit {
 
   optionValue() {
     console.log(this.formValues);
-    this.filterForm.valueChanges.subscribe(
-      (value) => (this.formValues = value)
-    );
   }
 
   toggleDropDown(checked) {
@@ -102,38 +115,9 @@ export class SearchCriteriaComponent implements OnInit {
     console.log(this.show);
   }
 
-  getCategoryId(value) {
-    this.segmentID = value;
-    this.searchFilter();
-  }
-
-  getStateId(value) {
-    this.stateID = value;
-    console.log(this.stateID);
-    this.searchFilter();
-  }
-
-  getGenreID(value) {
-    this.genreID = value;
-    this.searchFilter();
-  }
-
-  getCountryID(value) {
-    this.countryID = value;
-    this.searchFilter();
-  }
-
   searchFilter() {
-    this.api
-      .filterSearch(
-        this.genreID,
-        this.stateID,
-        this.posts,
-        this.countryID,
-        this.segmentID
-      )
-      .subscribe((data) => (this.filterResults = data['_embedded'].events));
-
-    return this.filterSearch.emit(this.filterResults);
+    this.api.filterSearch(this.filterForm.value).subscribe((data) => {
+      this.filterSearch.emit(data['_embedded'].events);
+    });
   }
 }

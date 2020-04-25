@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -26,6 +27,21 @@ export class TMapiService {
     );
   }
 
+  newGettingClassifications(): any {
+    return this.http
+      .get(
+        `${this.baseUrl}${this.classifications}${this.API_KEY}${this.global}`
+      )
+      .pipe(
+        map((allEventObjects) => {
+          const segments = allEventObjects['_embedded'].classifications.filter(
+            (x) => x.segment
+          );
+          return segments;
+        })
+      );
+  }
+
   getDetails(eventID) {
     return this.http.get(
       `${this.baseUrl}${this.events}/${eventID}${this.API_KEY}${this.global}`
@@ -38,9 +54,16 @@ export class TMapiService {
     );
   }
 
-  filterSearch(genre, state, posts, country, segment): any {
+  filterSearch({
+    searchBar,
+    categoryID,
+    genreID,
+    stateID,
+    countryID,
+    numberOfPosts,
+  }): any {
     return this.http.get(
-      `${this.baseUrl}${this.events}${this.API_KEY}${this.global}&size=${posts}&countryCode=${country}&stateCode=${state}&segmentId=${segment}&genreId=${genre}`
+      `${this.baseUrl}${this.events}${this.API_KEY}&keyword=${searchBar}${this.global}&size=${numberOfPosts}&countryCode=${countryID}&stateCode=${stateID}&segmentId=${categoryID}&genreId=${genreID}`
     );
   }
 }
