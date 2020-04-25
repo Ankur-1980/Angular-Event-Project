@@ -80,6 +80,18 @@ export class SearchCriteriaComponent implements OnInit {
     );
   }
 
+  getGenres() {
+    const genresArray = this.segments.map((x) => {
+      const { _embedded } = x.segment;
+      return _embedded.genres;
+    });
+    this.misc = genresArray[0];
+    this.sports = genresArray[1];
+    this.music = genresArray[2];
+    this.artsTheatre = genresArray[3];
+    this.films = genresArray[4];
+  }
+
   searchKeywords() {
     this.api
       .keyWordsSearch(this.searchTerm)
@@ -90,9 +102,6 @@ export class SearchCriteriaComponent implements OnInit {
 
   optionValue() {
     console.log(this.formValues);
-    this.filterForm.valueChanges.subscribe(
-      (value) => (this.formValues = value)
-    );
   }
 
   toggleDropDown(checked) {
