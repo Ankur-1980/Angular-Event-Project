@@ -49,7 +49,6 @@
             }}</option>
           </select>
         </div>
-
         <!-- music dropdown -->
         <div class="music-dropdown">
           <select name="music" id="music" formControlName="genreID">
@@ -80,51 +79,21 @@
           </select>
         </div>
       </div>
+
+      <!-- states dropdown -->
+      <div class="form-group">
+        <select formControlName="stateID" name="states" id="states">
+          <option *ngFor="let state of states" value="{{ state.abbreviation }}">
+            {{ state.name }}
+          </option>
+        </select>
+      </div>
     </div>
   </div>
 </form>
 
 <div class="container">
-  <!-- sports dropdown -->
-  <select name="sports" id="sports" (change)="getGenreID($event.target.value)">
-    <option value="">CHOOSE GENRE</option>
-    <option *ngFor="let x of sports" value="{{ x.id }}">{{ x.name }}</option>
-  </select>
-
-  <!-- music dropdown -->
-  <select name="music" id="music" (change)="getGenreID($event.target.value)">
-    <option value="">CHOOSE GENRE</option>
-    <option *ngFor="let muse of music" value="{{ muse.id }}">{{
-      muse.name
-    }}</option>
-  </select>
-
-  <!-- arts & theatre dropdown -->
-  <select
-    name="artsTheatre"
-    id="artsTheatre"
-    (change)="getGenreID($event.target.value)"
-  >
-    <option value="">CHOOSE GENRE</option>
-    <option *ngFor="let art of artsTheatre" value="{{ art.id }}">{{
-      art.name
-    }}</option>
-  </select>
-
-  <!-- films dropdown -->
-  <select name="films" id="films" (change)="getGenreID($event.target.value)">
-    <option value="">CHOOSE GENRE</option>
-    <option *ngFor="let film of films" value="{{ film.id }}">{{
-      film.name
-    }}</option>
-  </select>
-
   <!-- states dropdown -->
-  <select (change)="getStateId($event.target.value)" name="states" id="states">
-    <option *ngFor="let state of states" value="{{ state.abbreviation }}">
-      {{ state.name }}
-    </option>
-  </select>
 
   <!-- countries dropdown -->
   <select
