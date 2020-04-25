@@ -1,93 +1,130 @@
-<div class="container">
-  <form action="">
-    <input
-      [(ngModel)]="searchTerm"
-      name="search"
-      placeholder="Search Events..."
-      (keyup.enter)="searchKeywords()"
-      type="text"
-    />
-    <button class="btn btn-primary" (click)="searchKeywords()">
-      Search
-    </button>
-  </form>
+<form [formGroup]="filterForm">
+  <!-- form wrapper-->
+  <div class="form-container">
+    <!-- form header -->
+    <div class="form-header">
+      <h3>Search Filters</h3>
+    </div>
+    <!-- all the search criteria -->
+    <div class="form-body">
+      <!-- search bar -->
+      <div class="form-group">
+        <label for="searchBar">Search Bar</label>
+        <input
+          type="text"
+          id="searchBar"
+          class="form-control"
+          formControlName="searchBar"
+        />
+      </div>
+      <!-- categories -->
+      <div mat-form-field class="form-group">
+        <select (change)="searchFilter()" formControlName="categoryID">
+          <option value="0"> Choose a Category</option>
+          <option
+            *ngFor="let segment of segments"
+            value="{{ segment.segment.id }}"
+            >{{ segment.segment.name }}</option
+          >
+        </select>
+      </div>
 
-  <!-- misc dropdown -->
-  <select name="misc" id="misc" (change)="getGenreID($event.target.value)">
-    <option value="">CHOOSE GENRE</option>
-    <option *ngFor="let x of misc" value="{{ x.id }}">{{ x.name }}</option>
-  </select>
+      <!-- genre dropdowns -->
+      <div class="form-group">
+        <!-- misc dropdown -->
+        <div class="misc-dropdown">
+          <select name="misc" id="misc" formControlName="genreID">
+            <option value="">CHOOSE GENRE</option>
+            <option *ngFor="let mis of misc" value="{{ mis.id }}">{{
+              mis.name
+            }}</option>
+          </select>
+        </div>
+        <!-- sports dropdown -->
+        <div class="sports-dropdown">
+          <select name="sports" id="sports" formControlName="genreID">
+            <option value="">CHOOSE GENRE</option>
+            <option *ngFor="let sport of sports" value="{{ sport.id }}">{{
+              sport.name
+            }}</option>
+          </select>
+        </div>
+        <!-- music dropdown -->
+        <div class="music-dropdown">
+          <select name="music" id="music" formControlName="genreID">
+            <option value="">CHOOSE GENRE</option>
+            <option *ngFor="let muse of music" value="{{ muse.id }}">{{
+              muse.name
+            }}</option>
+          </select>
+        </div>
+        <!-- arts & theatre dropdown -->
+        <div class="artsTheatre-dropdown">
+          <select name="artsTheatre" id="artsTheatre" formControlName="genreID">
+            <option value="">CHOOSE GENRE</option>
+            <option
+              *ngFor="let theatre of artsTheatre"
+              value="{{ theatre.id }}"
+              >{{ theatre.name }}</option
+            >
+          </select>
+        </div>
+        <!-- films dropdown -->
+        <div class="films-dropdown">
+          <select name="films" id="films" formControlName="genreID">
+            <option value="">CHOOSE GENRE</option>
+            <option *ngFor="let film of films" value="{{ film.id }}">{{
+              film.name
+            }}</option>
+          </select>
+        </div>
+      </div>
 
-  <!-- sports dropdown -->
-  <select name="sports" id="sports" (change)="getGenreID($event.target.value)">
-    <option value="">CHOOSE GENRE</option>
-    <option *ngFor="let x of sports" value="{{ x.id }}">{{ x.name }}</option>
-  </select>
+      <!-- states dropdown -->
+      <mat-form-field class="form-group">
+        <mat-label>Choose an State</mat-label>
+        <mat-select
+          matNativeControl
+          formControlName="stateID"
+          name="states"
+          id="states"
+        >
+          <mat-option>None</mat-option>
+          <mat-option
+            *ngFor="let state of states"
+            value="{{ state.abbreviation }}"
+          >
+            {{ state.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
 
-  <!-- music dropdown -->
-  <select name="music" id="music" (change)="getGenreID($event.target.value)">
-    <option value="">CHOOSE GENRE</option>
-    <option *ngFor="let muse of music" value="{{ muse.id }}">{{
-      muse.name
-    }}</option>
-  </select>
-
-  <!-- arts & theatre dropdown -->
-  <select
-    name="artsTheatre"
-    id="artsTheatre"
-    (change)="getGenreID($event.target.value)"
-  >
-    <option value="">CHOOSE GENRE</option>
-    <option *ngFor="let art of artsTheatre" value="{{ art.id }}">{{
-      art.name
-    }}</option>
-  </select>
-
-  <!-- films dropdown -->
-  <select name="films" id="films" (change)="getGenreID($event.target.value)">
-    <option value="">CHOOSE GENRE</option>
-    <option *ngFor="let film of films" value="{{ film.id }}">{{
-      film.name
-    }}</option>
-  </select>
-
-  <!-- states dropdown -->
-  <select (change)="getStateId($event.target.value)" name="states" id="states">
-    <option *ngFor="let state of states" value="{{ state.abbreviation }}">
-      {{ state.name }}
-    </option>
-  </select>
-
-  <!-- countries dropdown -->
-  <select
-    (change)="getCountryID($event.target.value)"
-    name="countries"
-    id="countries"
-  >
-    <option *ngFor="let country of countries" value="{{ country.Code }}">{{
-      country.Name
-    }}</option>
-  </select>
-
-  <!-- pagesize dropdown -->
-  <select
-    (change)="getCategoryId($event.target.value)"
-    name="numberOfPosts"
-    id="numberOfPosts"
-  >
-    <option *ngFor="let number of pageSize" value="{{ number }}">{{
-      number
-    }}</option>
-  </select>
-  <div *ngFor="let segment of segments" class="checkboxes">
-    <input
-      (change)="getCategoryId($event.target)"
-      type="checkbox"
-      id="{{ segment.segment.id }}"
-      name="{{ segment.segment.name }}"
-      value="{{ segment.segment.id }}"
-    />
-    <label for="{{ segment.segment.id }}">{{ segment.segment.name }}</label>
+      <!-- country dropdowns -->
+      <div class="form-group">
+        <select formControlName="countryID" name="countries" id="countries">
+          <option
+            *ngFor="let country of countries"
+            value="{{ country.Code }}"
+            >{{ country.Name }}</option
+          >
+        </select>
+      </div>
+      <!-- number of posts dropdown -->
+      <div class="form-group">
+        <select
+          formControlName="numberOfPosts"
+          name="numberOfPosts"
+          id="numberOfPosts"
+        >
+          <option *ngFor="let number of pageSize" value="{{ number }}">{{
+            number
+          }}</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-footer">
+      <button>Reset Form</button>
+      <button (click)="optionValue()">Testing Form Values</button>
+    </div>
   </div>
-</div>
+</form>
