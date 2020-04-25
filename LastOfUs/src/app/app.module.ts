@@ -10,6 +10,8 @@ import { EventCardComponent } from './components/event-card/event-card.component
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BucketListComponent } from './components/bucket-list/bucket-list.component';
 import { SearchCriteriaComponent } from './components/search-criteria/search-criteria.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { SearchCriteriaComponent } from './components/search-criteria/search-cri
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
+    MatDatepickerModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
