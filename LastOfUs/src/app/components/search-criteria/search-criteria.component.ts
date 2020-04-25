@@ -7,6 +7,7 @@ import { COUNTRIES } from 'src/app/data/countries';
 import { CATEGORIES } from 'src/app/data/categories';
 import { States } from 'src/app/interfaces/states';
 import { Countries } from 'src/app/interfaces/countries';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'search-criteria',
@@ -27,6 +28,8 @@ export class SearchCriteriaComponent implements OnInit {
   segments: any;
   show: any;
 
+  filterForm: FormGroup;
+
   filterResults: string[];
 
   searchTerm: string;
@@ -38,7 +41,7 @@ export class SearchCriteriaComponent implements OnInit {
 
   @Output() filterSearch = new EventEmitter<string[]>();
 
-  constructor(private api: TMapiService) {}
+  constructor(private fb: FormBuilder, private api: TMapiService) {}
 
   ngOnInit(): void {
     this.api.getClassifications().subscribe((data) => {
@@ -60,6 +63,15 @@ export class SearchCriteriaComponent implements OnInit {
         (x) => x.segment
       );
       this.segments.splice(4, 1);
+    });
+
+    this.filterForm = this.fb.group({
+      searchBar: [''],
+      categoryID: [''],
+      genreID: [''],
+      stateID: [''],
+      countryID: [''],
+      numberOfPosts: ['25'],
     });
   }
 
