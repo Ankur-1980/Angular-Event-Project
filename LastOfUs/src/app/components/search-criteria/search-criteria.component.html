@@ -13,7 +13,7 @@
         <input
           type="text"
           id="searchBar"
-          class="formControl"
+          class="form-control"
           formControlName="searchBar"
         />
       </div>
@@ -88,42 +88,29 @@
           </option>
         </select>
       </div>
+
+      <!-- country dropdowns -->
+      <div class="form-group">
+        <select formControlName="countryID" name="countries" id="countries">
+          <option
+            *ngFor="let country of countries"
+            value="{{ country.Code }}"
+            >{{ country.Name }}</option
+          >
+        </select>
+      </div>
+      <!-- number of posts dropdown -->
+      <div class="form-group">
+        <select
+          formControlName="numberOfPosts"
+          name="numberOfPosts"
+          id="numberOfPosts"
+        >
+          <option *ngFor="let number of pageSize" value="{{ number }}">{{
+            number
+          }}</option>
+        </select>
+      </div>
     </div>
   </div>
 </form>
-
-<div class="container">
-  <!-- states dropdown -->
-
-  <!-- countries dropdown -->
-  <select
-    (change)="getCountryID($event.target.value)"
-    name="countries"
-    id="countries"
-  >
-    <option *ngFor="let country of countries" value="{{ country.Code }}">{{
-      country.Name
-    }}</option>
-  </select>
-
-  <!-- pagesize dropdown -->
-  <select
-    (change)="getCategoryId($event.target.value)"
-    name="numberOfPosts"
-    id="numberOfPosts"
-  >
-    <option *ngFor="let number of pageSize" value="{{ number }}">{{
-      number
-    }}</option>
-  </select>
-  <div *ngFor="let segment of segments" class="checkboxes">
-    <input
-      (change)="getCategoryId($event.target)"
-      type="checkbox"
-      id="{{ segment.segment.id }}"
-      name="{{ segment.segment.name }}"
-      value="{{ segment.segment.id }}"
-    />
-    <label for="{{ segment.segment.id }}">{{ segment.segment.name }}</label>
-  </div>
-</div>
