@@ -29,6 +29,7 @@ export class SearchCriteriaComponent implements OnInit {
   show: any;
 
   filterForm: FormGroup;
+  formValues: string[];
 
   filterResults: string[];
 
@@ -73,6 +74,10 @@ export class SearchCriteriaComponent implements OnInit {
       countryID: [''],
       numberOfPosts: ['25'],
     });
+
+    this.filterForm.valueChanges.subscribe(
+      (value) => (this.formValues = value)
+    );
   }
 
   searchKeywords() {
@@ -83,8 +88,11 @@ export class SearchCriteriaComponent implements OnInit {
     return this.filterSearch.emit(this.filterResults);
   }
 
-  optionValue(x) {
-    console.log(x);
+  optionValue() {
+    console.log(this.formValues);
+    this.filterForm.valueChanges.subscribe(
+      (value) => (this.formValues = value)
+    );
   }
 
   toggleDropDown(checked) {
