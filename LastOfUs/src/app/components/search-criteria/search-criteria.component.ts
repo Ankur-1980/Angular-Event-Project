@@ -78,6 +78,12 @@ export class SearchCriteriaComponent implements OnInit {
     this.filterForm.valueChanges.subscribe(
       (value) => (this.formValues = value)
     );
+
+    this.filterForm.valueChanges.subscribe((value) => console.log(value));
+
+    // this.filterForm
+    //   .get('searchBar')
+    //   .valueChanges.subscribe((value) => console.log(value));
   }
 
   getGenres() {

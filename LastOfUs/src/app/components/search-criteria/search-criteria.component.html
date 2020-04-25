@@ -18,8 +18,9 @@
         />
       </div>
       <!-- categories -->
-      <div class="form-group">
-        <select formControlName="categoryID">
+      <div mat-form-field class="form-group">
+        <select>
+          formControlName="categoryID">
           <option value="0"> Choose a Category</option>
           <option
             *ngFor="let segment of segments"
@@ -81,13 +82,23 @@
       </div>
 
       <!-- states dropdown -->
-      <div class="form-group">
-        <select formControlName="stateID" name="states" id="states">
-          <option *ngFor="let state of states" value="{{ state.abbreviation }}">
+      <mat-form-field class="form-group">
+        <mat-label>Choose an State</mat-label>
+        <mat-select
+          matNativeControl
+          formControlName="stateID"
+          name="states"
+          id="states"
+        >
+          <mat-option>None</mat-option>
+          <mat-option
+            *ngFor="let state of states"
+            value="{{ state.abbreviation }}"
+          >
             {{ state.name }}
-          </option>
-        </select>
-      </div>
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
 
       <!-- country dropdowns -->
       <div class="form-group">
