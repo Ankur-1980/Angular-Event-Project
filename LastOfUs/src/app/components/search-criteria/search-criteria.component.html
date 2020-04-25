@@ -7,6 +7,7 @@
     </div>
     <!-- all the search criteria -->
     <div class="form-body">
+      <!-- search bar -->
       <div class="form-group">
         <label for="searchBar">Search Bar</label>
         <input
@@ -15,6 +16,19 @@
           class="formControl"
           formControlName="searchBar"
         />
+      </div>
+      <!-- categories -->
+      <div class="form-group checkboxes" *ngFor="let segment of segments">
+        <label class="checkbox-label">
+          <input
+            formControlName="categoryID"
+            type="checkbox"
+            name="{{ segment.segment.name }}"
+            value="{{ segment.segment.id }}"
+          />
+
+          {{ segment.segment.name }}</label
+        >
       </div>
     </div>
   </div>
