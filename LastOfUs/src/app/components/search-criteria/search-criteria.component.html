@@ -19,8 +19,7 @@
       </div>
       <!-- categories -->
       <div mat-form-field class="form-group">
-        <select>
-          formControlName="categoryID">
+        <select (change)="searchFilter()" formControlName="categoryID">
           <option value="0"> Choose a Category</option>
           <option
             *ngFor="let segment of segments"
