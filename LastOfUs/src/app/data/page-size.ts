@@ -1,1 +1,1 @@
-export const PAGESIZE: string[] = ['10', '25', '50', '100'];
+export const PAGESIZE: string[] = ['10', '20', '40', '60', '80', '100'];

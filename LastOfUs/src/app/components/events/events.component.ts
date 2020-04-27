@@ -18,8 +18,7 @@ export class EventsComponent implements OnInit {
   }
 
   getFilterResults(filterResults) {
-    console.log(`Filter Result: ${this.events}`);
-
     this.events = filterResults;
+    console.log(`Filter Result: ${this.events}`);
   }
 }

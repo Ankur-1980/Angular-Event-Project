@@ -21,7 +21,7 @@
       <!-- categories -->
       <div mat-form-field class="form-group">
         <select (change)="searchFilter()" formControlName="categoryID">
-          <option value="0"> Choose a Category</option>
+          <option value=""> Choose a Category</option>
           <option
             *ngFor="let segment of segments"
             value="{{ segment.segment.id }}"
@@ -110,7 +110,7 @@
       <mat-form-field class="form-group">
         <mat-label>Choose an State</mat-label>
         <mat-select
-          (selectionChange)="searchFilter()"
+          (change)="searchFilter()"
           matNativeControl
           formControlName="stateID"
           name="states"
@@ -157,7 +157,6 @@
     </div>
     <div class="form-footer">
       <button>Reset Form</button>
-      <button>Testing Form Values</button>
     </div>
   </div>
 </form>

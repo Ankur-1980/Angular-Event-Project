@@ -34,11 +34,11 @@ export class SearchCriteriaComponent implements OnInit {
   filterResults: string[];
 
   searchTerm: string;
-  genreID: string = '';
-  stateID: string = '';
-  posts: string = '25';
-  countryID: string = '';
-  segmentID: string = '';
+  // genreID: string = '';
+  // stateID: string = '';
+  // posts: string = '25';
+  // countryID: string = '';
+  // segmentID: string = '';
 
   @Output() filterSearch = new EventEmitter<string[]>();
 
@@ -99,5 +99,9 @@ export class SearchCriteriaComponent implements OnInit {
     this.api.filterSearch(this.filterForm.value).subscribe((data) => {
       this.filterSearch.emit(data['_embedded'].events);
     });
+  }
+
+  resetForm() {
+    this.filterForm.reset();
   }
 }
