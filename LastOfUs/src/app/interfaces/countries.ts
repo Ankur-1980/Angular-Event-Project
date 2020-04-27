@@ -1,4 +1,4 @@
 export interface Countries {
-   Code:string,
-   Name: string,
+  Code: string;
+  Name: string;
 }

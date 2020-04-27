@@ -1,0 +1,30 @@
+.search-container {
+  display: gird;
+  grid-template-rows: 2, 1fr;
+}
+
+.search-here {
+  margin-top: 100px;
+  display: flex;
+  justify-content: space-evenly;
+}
+img{
+  opacity: 7%;
+  align-items: center;
+  margin-bottom: 0;
+  margin-top: 100px;
+}
+.explore-here {
+  margin-left: 200px;
+  margin-bottom: 80px;
+}
+h3 {
+  font-size: 100px;
+  margin-left: 100px;
+  margin-bottom: 50px;
+  opacity: 65%;
+}
+button {
+  border-radius: 5px;
+  margin-left: 10px;
+}

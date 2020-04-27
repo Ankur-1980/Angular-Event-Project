@@ -23,9 +23,9 @@ import { SearchCriteriaComponent } from './components/search-criteria/search-cri
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

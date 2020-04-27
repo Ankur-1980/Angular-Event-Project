@@ -3,14 +3,18 @@
   <p>
     <a routerLink="details/{{ event.id }}">more details</a>
   </p>
-  <p>
+  <p class="city">
     {{ event._embedded.venues[0].city.name }}
   </p>
-  <img src="{{event.images[8].url}}" alt="">
-  <span (click)="addToList()" class="material-icons">
-    favorite
-  </span>
-  <span (click)="removeFromList()" class="material-icons">
-    highlight_off
-  </span>
+  <img src="{{ event.images[8].url }}" alt="" />
+
+  <div (click)="toggleAddRemove()">
+    <span *ngIf="!bucket.containsEvent(event)" class="material-icons">
+      favorite
+    </span>
+    <span *ngIf="bucket.containsEvent(event)" class="material-icons">
+      highlight_off
+    </span>
+  </div>
 </div>
+

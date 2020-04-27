@@ -36,11 +36,13 @@ export class TMapiService {
       `${this.baseUrl}${this.events}${this.API_KEY}&keyword=${searchTerm}`
     );
   }
+
   filterSearch(genre, state, posts, country, segment): any {
     return this.http.get(
-      `${this.baseUrl}${this.events}${this.API_KEY}
-      &keyword=${searchTerm}${this.global}&size=${pageSize}&countryCode=$
-      {country}&stateCode=${state}&segmentId=${segment}&genreId=${genre}`
+      `${this.baseUrl}${this.events}${this.API_KEY}${this.global}&size=${posts}&countryCode=${country}&stateCode=${state}&segmentId=${segment}&genreId=${genre}`
     );
   }
 }
+// app.ticketmaster.com/discovery/v2/
+// events.json?
+// apikey=zMf7gfbAyAigJLCB0a1iMrDv6OK8IDz9&keyword=undefined&locale=*&size=&countryCode=HI&stateCode=25&segmentId=&genreId=
