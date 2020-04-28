@@ -109,22 +109,22 @@
           </mat-select>
         </mat-form-field>
         <!-- films dropdown -->
-        <div
+        <mat-form-field
           *ngIf="categorySwitch === 'KZFzniwnSyZfZ7v7nn'"
           class="films-dropdown"
         >
-          <select
+          <mat-label>Choose a Genre</mat-label>
+          <mat-select
             (change)="searchFilter()"
             name="films"
             id="films"
             formControlName="genreID"
           >
-            <option value="">CHOOSE GENRE</option>
-            <option *ngFor="let film of films" value="{{ film.id }}">{{
+            <mat-option *ngFor="let film of films" value="{{ film.id }}">{{
               film.name
-            }}</option>
-          </select>
-        </div>
+            }}</mat-option>
+          </mat-select>
+        </mat-form-field>
       </div>
 
       <!-- states dropdown -->
