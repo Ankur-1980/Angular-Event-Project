@@ -90,24 +90,24 @@
           </mat-select>
         </mat-form-field>
         <!-- arts & theatre dropdown -->
-        <div
+        <mat-form-field
           *ngIf="categorySwitch === 'KZFzniwnSyZfZ7v7na'"
           class="artsTheatre-dropdown"
         >
-          <select
+          <mat-label>Choose a sub category</mat-label>
+          <mat-select
             (change)="searchFilter()"
             name="artsTheatre"
             id="artsTheatre"
             formControlName="genreID"
           >
-            <option value="">CHOOSE GENRE</option>
-            <option
+            <mat-option
               *ngFor="let theatre of artsTheatre"
               value="{{ theatre.id }}"
-              >{{ theatre.name }}</option
+              >{{ theatre.name }}</mat-option
             >
-          </select>
-        </div>
+          </mat-select>
+        </mat-form-field>
         <!-- films dropdown -->
         <div
           *ngIf="categorySwitch === 'KZFzniwnSyZfZ7v7nn'"
