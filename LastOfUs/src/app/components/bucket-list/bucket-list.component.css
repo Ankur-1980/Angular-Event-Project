@@ -1,0 +1,12 @@
+.container {
+  height: 100vh;
+}
+
+h2 {
+  font-size: 75px;
+  color: aliceblue;
+  opacity: 70%;
+}
+p {
+  color: aliceblue;
+}
