@@ -31,15 +31,23 @@ export class TMapiService {
       `${this.baseUrl}${this.events}/${eventID}${this.API_KEY}${this.global}`
     );
   }
+
   keyWordsSearch(searchTerm): any {
     return this.http.get(
       `${this.baseUrl}${this.events}${this.API_KEY}&keyword=${searchTerm}`
     );
   }
 
-  filterSearch(genre, state, posts, country, segment): any {
+  filterSearch({
+    searchBar,
+    categoryID,
+    genreID,
+    stateID,
+    countryID,
+    numberOfPosts,
+  }): any {
     return this.http.get(
-      `${this.baseUrl}${this.events}${this.API_KEY}${this.global}&size=${posts}&countryCode=${country}&stateCode=${state}&segmentId=${segment}&genreId=${genre}`
+      `${this.baseUrl}${this.events}${this.API_KEY}&keyword=${searchBar}${this.global}&size=${numberOfPosts}&countryCode=${countryID}&stateCode=${stateID}&segmentId=${categoryID}&genreId=${genreID}`
     );
   }
 }
