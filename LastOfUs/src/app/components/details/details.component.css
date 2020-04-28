@@ -1,4 +1,9 @@
+.details-body {
+  height: 100vh;
+}
+
 h1 {
+  font-family: "Righteous", cursive;
   color: aliceblue;
   opacity: 75%;
   font-size: 70px;

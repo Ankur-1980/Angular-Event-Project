@@ -6,38 +6,34 @@
 img {
   opacity: 7%;
 }
-button {
-  float: right;
-}
-
 h3 {
+  font-family: "Spartan", sans-serif;
   font-size: 100px;
-  margin-left: 250px;
+  margin-left: 210px;
   margin-bottom: 50px;
   opacity: 65%;
 }
 
-.search-container {
-  display: flex;
-  position: relative;
-  margin-left: 400px;
-  margin-bottom: 30px;
-}
-input {
-  font-size: 30px;
-}
-
-.filter-here {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  margin-bottom: 10px;
-  font-size: 18px;
-  color: rgba(0, 0, 0, 0.644);
+.form-footer {
   margin-bottom: 20px;
 }
+.reset {
+  margin-right: 20px;
+  background: rgb(157, 11, 230);
+  background: linear-gradient(
+    37deg,
+    rgba(157, 11, 230, 1) 6%,
+    rgba(13, 238, 238, 1) 41%,
+    rgba(59, 66, 63, 1) 69%
+  );
+}
 
-button {
-  border-radius: 5px;
-  margin-left: 10px;
+.bucket {
+  background: rgb(59, 66, 63);
+  background: linear-gradient(
+    37deg,
+    rgba(59, 66, 63, 1) 31%,
+    rgba(13, 238, 238, 1) 60%,
+    rgba(157, 11, 230, 1) 95%
+  );
 }

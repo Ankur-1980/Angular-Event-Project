@@ -13,7 +13,7 @@
   <div class="form-container">
     <!-- form header -->
     <div class="form-header">
-      <h3>Search Filters</h3>
+      <h3>Explore Events</h3>
     </div>
     <!-- all the search criteria -->
     <div class="form-body">
@@ -186,11 +186,11 @@
       </mat-form-field>
     </div>
     <div class="form-footer">
-      <button (click)="filterForm.reset()" mat-raised-button color="warn">
+      <button class="reset" (click)="filterForm.reset()" mat-raised-button color="warn">
         Reset Form
       </button>
       <!-- Entry to bucket List Page -->
-      <button mat-raised-button color="primary" routerLink="/bucket-list">
+      <button class="bucket" mat-raised-button color="primary" routerLink="/bucket-list">
         Bucket List
       </button>
     </div>

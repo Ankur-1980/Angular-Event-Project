@@ -3,10 +3,12 @@
 }
 
 h2 {
+  font-family: "Righteous", cursive;
   font-size: 75px;
   color: aliceblue;
   opacity: 70%;
 }
 p {
-  color: aliceblue
+  color: aliceblue;
+  font-size: 20px;
 }
