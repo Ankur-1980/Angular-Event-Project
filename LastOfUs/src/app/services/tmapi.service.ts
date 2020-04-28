@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -24,6 +25,21 @@ export class TMapiService {
     return this.http.get(
       `${this.baseUrl}${this.classifications}${this.API_KEY}${this.global}`
     );
+  }
+
+  newGettingClassifications(): any {
+    return this.http
+      .get(
+        `${this.baseUrl}${this.classifications}${this.API_KEY}${this.global}`
+      )
+      .pipe(
+        map((allEventObjects) => {
+          const segments = allEventObjects['_embedded'].classifications.filter(
+            (x) => x.segment
+          );
+          return segments;
+        })
+      );
   }
 
   getDetails(eventID) {

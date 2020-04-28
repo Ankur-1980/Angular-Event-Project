@@ -23,24 +23,27 @@ export class SearchCriteriaComponent implements OnInit {
 
   states: States[] = STATES;
   countries: Countries[] = COUNTRIES;
-  pageSize: number[] = PAGESIZE;
+
+  pageSize: string[] = PAGESIZE;
+  categories: Categories[] = CATEGORIES;
   segments: any;
   show: any;
 
   filterForm: FormGroup;
   formValues: string[];
+
   filterResults: string[];
 
   searchTerm: string;
-  genreID: string = '';
-  stateID: string = '';
-  posts: number = 25;
-  countryID: string = '';
-  segmentID: string = '';
+  // genreID: string = '';
+  // stateID: string = '';
+  // posts: string = '25';
+  // countryID: string = '';
+  // segmentID: string = '';
 
   @Output() filterSearch = new EventEmitter<string[]>();
 
-  constructor(private formBuilder: FormBuilder, private api: TMapiService) {}
+  constructor(private fb: FormBuilder, private api: TMapiService) {}
 
   ngOnInit(): void {
     this.api.getClassifications().subscribe((data) => {
@@ -49,20 +52,20 @@ export class SearchCriteriaComponent implements OnInit {
       );
       this.segments.splice(4, 1);
 
-      this.segments = data['_embedded'].classifications
+      const genresArray = data['_embedded'].classifications
         .filter((x) => x.segment)
         .map((x) => {
           const { _embedded } = x.segment;
           return _embedded.genres;
         });
-      this.misc = this.segments[0];
-      this.sports = this.segments[1];
-      this.music = this.segments[2];
-      this.artsTheatre = this.segments[3];
-      this.films = this.segments[4];
+      this.misc = genresArray[0];
+      this.sports = genresArray[1];
+      this.music = genresArray[2];
+      this.artsTheatre = genresArray[3];
+      this.films = genresArray[5];
     });
 
-    this.filterForm = this.formBuilder.group({
+    this.filterForm = this.fb.group({
       searchBar: [''],
       categoryID: [''],
       genreID: [''],
@@ -76,17 +79,19 @@ export class SearchCriteriaComponent implements OnInit {
       .keyWordsSearch(this.searchTerm)
       .subscribe((data) => (this.filterResults = data['_embedded'].events));
 
-    return this.filterSearch.emit(this.filterResults);
-
     // this.filterForm.valueChanges.subscribe((value) => {
     //   this.searchFilter();
     // });
 
     // this.filterForm.valueChanges.subscribe((value) => console.log(value));
+
+    // this.filterForm
+    //   .get('searchBar')
+    //   .valueChanges.subscribe((value) => console.log(value));
   }
 
-  optionValue(x) {
-    console.log(x);
+  optionValue() {
+    console.log(`working?`);
   }
 
   toggleDropDown(checked) {

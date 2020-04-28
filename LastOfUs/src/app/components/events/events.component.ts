@@ -14,9 +14,10 @@ export class EventsComponent implements OnInit {
   ngOnInit(): void {
     this.tmAPI.getEvents().subscribe((data) => {
       this.events = data['_embedded'].events;
-    });
+    }).unsubscribe;
   }
   getFilterResults(filterResults) {
     this.events = filterResults;
+    console.log(`Filter Result: ${this.events}`);
   }
 }
