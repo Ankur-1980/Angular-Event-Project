@@ -7,6 +7,45 @@ h2 {
   color: aliceblue;
   opacity: 70%;
 }
+
 p {
   color: aliceblue;
+}
+
+
+@media only screen and (max-width: 767px) {
+  h2 {
+    font-size: 75px;
+    color: aliceblue;
+    opacity: 70%;
+  }
+
+  p {
+    color: aliceblue;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  h2 {
+    font-size: 75px;
+    color: aliceblue;
+    opacity: 70%;
+  }
+
+  p {
+    color: aliceblue;
+  }
+
+}
+
+@media only screen and (min-width: 1024px) {
+  h2 {
+    font-size: 75px;
+    color: aliceblue;
+    opacity: 70%;
+  }
+
+  p {
+    color: aliceblue;
+  }
 }
