@@ -1,6 +1,4 @@
-body{
-  
-}
+
 .logo {
   display: flex;
 }
@@ -31,7 +29,7 @@ h2 {
   margin-top: 100px;
   color: rgba(49, 210, 231, 0.726);
 }
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+
+.main-title {
+  text-decoration: none;
 }

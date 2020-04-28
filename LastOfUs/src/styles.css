@@ -9,3 +9,9 @@ body {
     rgba(228, 228, 228, 0.8225665266106442) 96%
   );
 }
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
