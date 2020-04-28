@@ -1,69 +1,42 @@
-<a
-href="https://www.freepnglogos.com/images/crowd-27568.html"
-title="Image from freepnglogos.com"
-><img
-  src="https://www.freepnglogos.com/uploads/crowd-png/concert-crowd-hands-png-13.png"
-  width="1200"
-  alt="concert crowd hands png"
-/></a>
+<a href="https://www.freepnglogos.com/images/crowd-27568.html" title="Image from freepnglogos.com"><img
+    src="https://www.freepnglogos.com/uploads/crowd-png/concert-crowd-hands-png-13.png" width="1200"
+    alt="concert crowd hands png" /></a>
 
 <div class="search-container">
   <!-- search section -->
   <div class="search-here">
     <form action="">
-      <input
-        [(ngModel)]="searchTerm"
-        name="search"
-        placeholder="Search Events..."
-        (keyup.enter)="searchKeywords()"
-        type="text"
-      />
+      <input [(ngModel)]="searchTerm" name="search" placeholder="Search Events..." (keyup.enter)="searchKeywords()"
+        type="text" />
       <button (click)="searchKeywords()">
         Search
       </button>
     </form>
 
     <!-- states dropdown -->
-    <select
-      (change)="getStateId($event.target.value)"
-      name="states"
-      id="states"
-    >
+    <select (change)="getStateId($event.target.value)" name="states" id="states">
       <option *ngFor="let state of states" value="{{ state.abbreviation }}">
         {{ state.name }}
       </option>
     </select>
 
     <!-- countries dropdown -->
-    <select
-      (change)="getCountryID($event.target.value)"
-      name="countries"
-      id="countries"
-    >
+    <select (change)="getCountryID($event.target.value)" name="countries" id="countries">
       <option *ngFor="let country of countries" value="{{ country.Code }}">{{
         country.Name
       }}</option>
     </select>
 
     <!-- pagesize dropdown -->
-    <select
-      (change)="getCategoryId($event.target.value)"
-      name="numberOfPosts"
-      id="numberOfPosts"
-    >
+    <select (change)="getCategoryId($event.target.value)" name="numberOfPosts" id="numberOfPosts">
       <option *ngFor="let number of pageSize" value="{{ number }}">{{
         number
       }}</option>
     </select>
     <!-- Filter Check Boxes -->
     <div *ngFor="let segment of segments" class="checkboxes">
-      <input
-        (change)="getCategoryId($event.target)"
-        type="checkbox"
-        id="{{ segment.segment.id }}"
-        name="{{ segment.segment.name }}"
-        value="{{ segment.segment.id }}"
-      />
+      <input (change)="getCategoryId($event.target)" type="checkbox" id="{{ segment.segment.id }}"
+        name="{{ segment.segment.name }}" value="{{ segment.segment.id }}" />
       <label for="{{ segment.segment.id }}">{{ segment.segment.name }}</label>
     </div>
   </div>
@@ -71,11 +44,7 @@ title="Image from freepnglogos.com"
   <div class="explore-here">
     <h3>Explore Events</h3>
     <!-- sports dropdown -->
-    <select
-      name="sports"
-      id="sports"
-      (change)="getGenreID($event.target.value)"
-    >
+    <select name="sports" id="sports" (change)="getGenreID($event.target.value)">
       <option value="">Sports</option>
       <option *ngFor="let x of sports" value="{{ x.id }}">{{ x.name }}</option>
     </select>
@@ -89,11 +58,7 @@ title="Image from freepnglogos.com"
     </select>
 
     <!-- arts & theatre dropdown -->
-    <select
-      name="artsTheatre"
-      id="artsTheatre"
-      (change)="getGenreID($event.target.value)"
-    >
+    <select name="artsTheatre" id="artsTheatre" (change)="getGenreID($event.target.value)">
       <option value="">Arts</option>
       <option *ngFor="let art of artsTheatre" value="{{ art.id }}">{{
         art.name
