@@ -56,39 +56,39 @@
           </mat-select>
         </mat-form-field>
         <!-- sports dropdown -->
-        <div
+        <mat-form-field
           *ngIf="categorySwitch === 'KZFzniwnSyZfZ7v7nE'"
           class="sports-dropdown"
         >
-          <select
+          <mat-label>Choose a Sport</mat-label>
+          <mat-select
             (change)="searchFilter()"
             name="sports"
             id="sports"
             formControlName="genreID"
           >
-            <option value="">CHOOSE GENRE</option>
-            <option *ngFor="let sport of sports" value="{{ sport.id }}">{{
+            <mat-option *ngFor="let sport of sports" value="{{ sport.id }}">{{
               sport.name
-            }}</option>
-          </select>
-        </div>
+            }}</mat-option>
+          </mat-select>
+        </mat-form-field>
         <!-- music dropdown -->
-        <div
+        <mat-form-field
           *ngIf="categorySwitch === 'KZFzniwnSyZfZ7v7nJ'"
           class="music-dropdown"
         >
-          <select
+          <mat-label>Choose a Music Genre</mat-label>
+          <mat-select
             (change)="searchFilter()"
             name="music"
             id="music"
             formControlName="genreID"
           >
-            <option value="">CHOOSE GENRE</option>
-            <option *ngFor="let muse of music" value="{{ muse.id }}">{{
+            <mat-option *ngFor="let muse of music" value="{{ muse.id }}">{{
               muse.name
-            }}</option>
-          </select>
-        </div>
+            }}</mat-option>
+          </mat-select>
+        </mat-form-field>
         <!-- arts & theatre dropdown -->
         <div
           *ngIf="categorySwitch === 'KZFzniwnSyZfZ7v7na'"
