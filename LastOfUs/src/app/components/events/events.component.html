@@ -7,6 +7,9 @@
   </div>
   <search-criteria (filterSearch)="getFilterResults($event)"></search-criteria>
 
+  <!-- need to figure out error message if no events found -->
+  <!-- <h2 *ngIf="events == undefined">No Events Found</h2> -->
+
   <div class="grid-container">
     <app-event-card [event]="event" *ngFor="let event of events">
     </app-event-card>

@@ -4,7 +4,7 @@ import { Categories } from 'src/app/interfaces/categories';
 import { STATES } from '../../data/states';
 import { PAGESIZE } from '../../data/page-size';
 import { COUNTRIES } from 'src/app/data/countries';
-import { CATEGORIES } from 'src/app/data/categories';
+
 import { States } from 'src/app/interfaces/states';
 import { Countries } from 'src/app/interfaces/countries';
 import { FormGroup, FormBuilder } from '@angular/forms';
@@ -25,7 +25,7 @@ export class SearchCriteriaComponent implements OnInit {
   countries: Countries[] = COUNTRIES;
 
   pageSize: string[] = PAGESIZE;
-  categories: Categories[] = CATEGORIES;
+
   segments: any;
   filterForm: FormGroup;
   formValues: string[];
