@@ -39,22 +39,22 @@
       <!-- genre dropdowns -->
       <div class="form-group">
         <!-- misc dropdown -->
-        <div
+        <mat-form-field
           *ngIf="categorySwitch === 'KZFzniwnSyZfZ7v7n1'"
           class="misc-dropdown"
         >
-          <select
+          <mat-label>Choose a sub category</mat-label>
+          <mat-select
             (change)="searchFilter()"
             name="misc"
             id="misc"
             formControlName="genreID"
           >
-            <option value="">CHOOSE GENRE</option>
-            <option *ngFor="let mis of misc" value="{{ mis.id }}">{{
+            <mat-option *ngFor="let mis of misc" value="{{ mis.id }}">{{
               mis.name
-            }}</option>
-          </select>
-        </div>
+            }}</mat-option>
+          </mat-select>
+        </mat-form-field>
         <!-- sports dropdown -->
         <div
           *ngIf="categorySwitch === 'KZFzniwnSyZfZ7v7nE'"
