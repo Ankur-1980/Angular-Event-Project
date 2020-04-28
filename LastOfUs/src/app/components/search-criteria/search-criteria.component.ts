@@ -35,11 +35,8 @@ export class SearchCriteriaComponent implements OnInit {
   filterResults: string[];
 
   searchTerm: string;
-  // genreID: string = '';
-  // stateID: string = '';
-  // posts: string = '25';
-  // countryID: string = '';
-  // segmentID: string = '';
+
+  categorySwitch = '';
 
   @Output() filterSearch = new EventEmitter<string[]>();
 

@@ -3,7 +3,7 @@
 
   <p *ngIf="bucketList.length === 0">Nothing in your bucket list yet</p>
 
-  <div>
+  <div class="grid-container">
     <app-event-card *ngFor="let event of bucketList" [event]="event">
     </app-event-card>
   </div>

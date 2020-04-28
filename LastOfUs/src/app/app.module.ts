@@ -12,6 +12,7 @@ import { BucketListComponent } from './components/bucket-list/bucket-list.compon
 import { SearchCriteriaComponent } from './components/search-criteria/search-criteria.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { MatSelectModule } from '@angular/material/select';
     ReactiveFormsModule,
     MatDatepickerModule,
     MatSelectModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
