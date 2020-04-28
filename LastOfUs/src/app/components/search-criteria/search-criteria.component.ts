@@ -23,14 +23,12 @@ export class SearchCriteriaComponent implements OnInit {
 
   states: States[] = STATES;
   countries: Countries[] = COUNTRIES;
-  pageSize: number[] = PAGESIZE;
+
   pageSize: string[] = PAGESIZE;
   categories: Categories[] = CATEGORIES;
   segments: any;
   show: any;
 
-  filterForm: FormGroup;
-  formValues: string[];
   filterForm: FormGroup;
   formValues: string[];
 
@@ -60,20 +58,13 @@ export class SearchCriteriaComponent implements OnInit {
           const { _embedded } = x.segment;
           return _embedded.genres;
         });
-      this.misc = this.segments[0];
-      this.sports = this.segments[1];
-      this.music = this.segments[2];
-      this.artsTheatre = this.segments[3];
-      this.films = this.segments[4];
+      this.misc = genresArray[0];
+      this.sports = genresArray[1];
+      this.music = genresArray[2];
+      this.artsTheatre = genresArray[3];
+      this.films = genresArray[5];
     });
 
-    this.filterForm = this.formBuilder.group({
-      searchBar: [''],
-      categoryID: [''],
-      genreID: [''],
-      stateID: [''],
-      countryID: [''],
-      numberOfPosts: ['25'],
     this.filterForm = this.fb.group({
       searchBar: [''],
       categoryID: [''],

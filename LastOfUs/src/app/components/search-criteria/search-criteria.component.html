@@ -107,24 +107,21 @@
       </div>
 
       <!-- states dropdown -->
-      <mat-form-field class="form-group">
-        <mat-label>Choose an State</mat-label>
-        <mat-select
+      <div class="form-group">
+        <label>Choose an State</label>
+        <select
           (change)="searchFilter()"
           matNativeControl
           formControlName="stateID"
           name="states"
           id="states"
         >
-          <mat-option>None</mat-option>
-          <mat-option
-            *ngFor="let state of states"
-            value="{{ state.abbreviation }}"
-          >
+          <option>None</option>
+          <option *ngFor="let state of states" value="{{ state.abbreviation }}">
             {{ state.name }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
+          </option>
+        </select>
+      </div>
 
       <!-- country dropdowns -->
       <div class="form-group">
@@ -159,115 +156,6 @@
       <button>Reset Form</button>
     </div>
   </div>
+  <!-- Entry to bucket List Page -->
+  <button routerLink="/bucket-list">Bucket List</button>
 </form>
-
-<div class="search-container">
-  <!-- search section -->
-  <div class="search-here">
-    <form action="">
-      <input
-        [(ngModel)]="searchTerm"
-        name="search"
-        placeholder="Search Events..."
-        (keyup.enter)="searchKeywords()"
-        type="text"
-      />
-      <button (click)="searchKeywords()">
-        Search
-      </button>
-    </form>
-
-    <!-- states dropdown -->
-    <select
-      (change)="getStateId($event.target.value)"
-      name="states"
-      id="states"
-    >
-      <option *ngFor="let state of states" value="{{ state.abbreviation }}">
-        {{ state.name }}
-      </option>
-    </select>
-
-    <!-- countries dropdown -->
-    <select
-      (change)="getCountryID($event.target.value)"
-      name="countries"
-      id="countries"
-    >
-      <option *ngFor="let country of countries" value="{{ country.Code }}">{{
-        country.Name
-      }}</option>
-    </select>
-
-    <!-- pagesize dropdown -->
-    <select
-      (change)="getCategoryId($event.target.value)"
-      name="numberOfPosts"
-      id="numberOfPosts"
-    >
-      <option *ngFor="let number of pageSize" value="{{ number }}">{{
-        number
-      }}</option>
-    </select>
-    <!-- Filter Check Boxes -->
-    <div *ngFor="let segment of segments" class="checkboxes">
-      <input
-        (change)="getCategoryId($event.target)"
-        type="checkbox"
-        id="{{ segment.segment.id }}"
-        name="{{ segment.segment.name }}"
-        value="{{ segment.segment.id }}"
-      />
-      <label for="{{ segment.segment.id }}">{{ segment.segment.name }}</label>
-    </div>
-  </div>
-  <!-- Explore Section -->
-  <div class="explore-here">
-    <h3>Explore Events</h3>
-    <!-- sports dropdown -->
-    <select
-      name="sports"
-      id="sports"
-      (change)="getGenreID($event.target.value)"
-    >
-      <option value="">Sports</option>
-      <option *ngFor="let x of sports" value="{{ x.id }}">{{ x.name }}</option>
-    </select>
-
-    <!-- music dropdown -->
-    <select name="music" id="music" (change)="getGenreID($event.target.value)">
-      <option value="">Music</option>
-      <option *ngFor="let muse of music" value="{{ muse.id }}">{{
-        muse.name
-      }}</option>
-    </select>
-
-    <!-- arts & theatre dropdown -->
-    <select
-      name="artsTheatre"
-      id="artsTheatre"
-      (change)="getGenreID($event.target.value)"
-    >
-      <option value="">Arts</option>
-      <option *ngFor="let art of artsTheatre" value="{{ art.id }}">{{
-        art.name
-      }}</option>
-    </select>
-
-    <!-- films dropdown -->
-    <select name="films" id="films" (change)="getGenreID($event.target.value)">
-      <option value="">Film</option>
-      <option *ngFor="let film of films" value="{{ film.id }}">{{
-        film.name
-      }}</option>
-    </select>
-
-    <!-- misc dropdown -->
-    <select name="misc" id="misc" (change)="getGenreID($event.target.value)">
-      <option value="">Lifestyle</option>
-      <option *ngFor="let x of misc" value="{{ x.id }}">{{ x.name }}</option>
-    </select>
-    <!-- Entry to bucket List Page -->
-    <button routerLink="/bucket-list">Bucket List</button>
-  </div>
-</div>
