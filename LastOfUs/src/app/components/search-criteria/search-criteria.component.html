@@ -20,7 +20,11 @@
       </div>
       <!-- categories -->
       <div mat-form-field class="form-group">
-        <select (change)="searchFilter()" formControlName="categoryID">
+        <select
+          [(ngModel)]="categorySwitch"
+          (change)="searchFilter()"
+          formControlName="categoryID"
+        >
           <option value=""> Choose a Category</option>
           <option
             *ngFor="let segment of segments"
@@ -33,7 +37,10 @@
       <!-- genre dropdowns -->
       <div class="form-group">
         <!-- misc dropdown -->
-        <div class="misc-dropdown">
+        <div
+          *ngIf="categorySwitch === 'KZFzniwnSyZfZ7v7n1'"
+          class="misc-dropdown"
+        >
           <select
             (change)="searchFilter()"
             name="misc"
@@ -47,7 +54,10 @@
           </select>
         </div>
         <!-- sports dropdown -->
-        <div class="sports-dropdown">
+        <div
+          *ngIf="categorySwitch === 'KZFzniwnSyZfZ7v7nE'"
+          class="sports-dropdown"
+        >
           <select
             (change)="searchFilter()"
             name="sports"
@@ -61,7 +71,10 @@
           </select>
         </div>
         <!-- music dropdown -->
-        <div class="music-dropdown">
+        <div
+          *ngIf="categorySwitch === 'KZFzniwnSyZfZ7v7nJ'"
+          class="music-dropdown"
+        >
           <select
             (change)="searchFilter()"
             name="music"
@@ -75,7 +88,10 @@
           </select>
         </div>
         <!-- arts & theatre dropdown -->
-        <div class="artsTheatre-dropdown">
+        <div
+          *ngIf="categorySwitch === 'KZFzniwnSyZfZ7v7na'"
+          class="artsTheatre-dropdown"
+        >
           <select
             (change)="searchFilter()"
             name="artsTheatre"
@@ -91,7 +107,10 @@
           </select>
         </div>
         <!-- films dropdown -->
-        <div class="films-dropdown">
+        <div
+          *ngIf="categorySwitch === 'KZFzniwnSyZfZ7v7nn'"
+          class="films-dropdown"
+        >
           <select
             (change)="searchFilter()"
             name="films"
@@ -153,7 +172,7 @@
       </div>
     </div>
     <div class="form-footer">
-      <button>Reset Form</button>
+      <button (click)="resetForm()">Reset Form</button>
     </div>
   </div>
   <!-- Entry to bucket List Page -->
