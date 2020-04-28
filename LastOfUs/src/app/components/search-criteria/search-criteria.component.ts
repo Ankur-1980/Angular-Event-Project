@@ -70,7 +70,11 @@ export class SearchCriteriaComponent implements OnInit {
 
   searchFilter() {
     this.api.filterSearch(this.filterForm.value).subscribe((data) => {
-      this.filterSearch.emit(data['_embedded'].events);
+      if (data._embedded) {
+        this.filterSearch.emit(data['_embedded'].events);
+      } else {
+        this.filterSearch.emit([]);
+      }
     });
   }
 }
