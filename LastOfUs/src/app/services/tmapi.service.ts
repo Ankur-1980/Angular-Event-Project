@@ -21,6 +21,7 @@ export class TMapiService {
   }
 
   getClassifications() {
+<<<<<<< HEAD
     return this.http.get(`${this.baseUrl}${this.classifications}${this.API_KEY}${this.global}`)
   }
 
@@ -34,5 +35,30 @@ export class TMapiService {
 
   filterSearch(genre, state, posts, country, segment): any {
     return this.http.get(`${this.baseUrl}${this.events}${this.API_KEY}${this.global}&size=${posts}&countryCode=${country}&stateCode=${state}&segmentId=${segment}&genreId=${genre}`);
+=======
+    return this.http.get(
+      `${this.baseUrl}${this.classifications}${this.API_KEY}${this.global}`
+    );
+  }
+
+  getDetails(eventID) {
+    return this.http.get(
+      `${this.baseUrl}${this.events}/${eventID}${this.API_KEY}${this.global}`
+    );
+  }
+  keyWordsSearch(searchTerm): any {
+    return this.http.get(
+      `${this.baseUrl}${this.events}${this.API_KEY}&keyword=${searchTerm}`
+    );
+  }
+
+  filterSearch(genre, state, posts, country, segment): any {
+    return this.http.get(
+      `${this.baseUrl}${this.events}${this.API_KEY}${this.global}&size=${posts}&countryCode=${country}&stateCode=${state}&segmentId=${segment}&genreId=${genre}`
+    );
+>>>>>>> origin/master
   }
 }
+// app.ticketmaster.com/discovery/v2/
+// events.json?
+// apikey=zMf7gfbAyAigJLCB0a1iMrDv6OK8IDz9&keyword=undefined&locale=*&size=&countryCode=HI&stateCode=25&segmentId=&genreId=

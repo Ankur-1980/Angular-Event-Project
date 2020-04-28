@@ -7,20 +7,23 @@ import { TMapiService } from 'src/app/services/tmapi.service';
   styleUrls: ['./events.component.css'],
 })
 export class EventsComponent implements OnInit {
-  events;
+  events: any[];
 
   constructor(private tmAPI: TMapiService) { }
 
   ngOnInit(): void {
     this.tmAPI.getEvents().subscribe((data) => {
-      // console.log(data);
       this.events = data['_embedded'].events;
-      console.log(this.events);
     });
   }
+<<<<<<< HEAD
 
   getAPI(filterResults) {
     this.events = filterResults
     console.log('getApi working?');
+=======
+  getFilterResults(filterResults) {
+    this.events = filterResults;
+>>>>>>> origin/master
   }
 }

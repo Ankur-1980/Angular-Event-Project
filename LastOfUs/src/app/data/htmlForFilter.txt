@@ -3,6 +3,10 @@ https://app.ticketmaster.com/discovery/v2/
 events
 
 .json?apikey=7elxdku9GGG5k8j0Xm8KWdANDgecHMV0
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
 &keyword=detroit
 &locale=*
 &size=35
@@ -33,4 +37,8 @@ keyWordsSearch(searchTerm): any {
   return this.http.get(
     `${this.baseUrl}${this.events}${this.API_KEY}&keyword=${searchTerm}`
   );
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/master
