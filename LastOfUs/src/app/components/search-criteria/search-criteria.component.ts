@@ -103,8 +103,4 @@ export class SearchCriteriaComponent implements OnInit {
       this.filterSearch.emit(data['_embedded'].events);
     });
   }
-
-  resetForm() {
-    this.filterForm.reset();
-  }
 }

@@ -23,11 +23,10 @@
       <mat-form-field class="cat-select form-group">
         <mat-label>Choose a Category</mat-label>
         <mat-select
-          [(ngModel)]="categorySwitch"
+          [(value)]="categorySwitch"
           (change)="searchFilter()"
           formControlName="categoryID"
         >
-          <mat-option value="">None</mat-option>
           <mat-option
             *ngFor="let segment of segments"
             value="{{ segment.segment.id }}"
@@ -37,11 +36,11 @@
       </mat-form-field>
 
       <!-- genre dropdowns -->
-      <div class="form-group">
+      <div class="genre-group form-group">
         <!-- misc dropdown -->
         <mat-form-field
           *ngIf="categorySwitch === 'KZFzniwnSyZfZ7v7n1'"
-          class="misc-dropdown"
+          class="genre-dropdown"
         >
           <mat-label>Choose a sub category</mat-label>
           <mat-select
@@ -58,7 +57,7 @@
         <!-- sports dropdown -->
         <mat-form-field
           *ngIf="categorySwitch === 'KZFzniwnSyZfZ7v7nE'"
-          class="sports-dropdown"
+          class="genre-dropdown"
         >
           <mat-label>Choose a Sport</mat-label>
           <mat-select
@@ -75,7 +74,7 @@
         <!-- music dropdown -->
         <mat-form-field
           *ngIf="categorySwitch === 'KZFzniwnSyZfZ7v7nJ'"
-          class="music-dropdown"
+          class="genre-dropdown"
         >
           <mat-label>Choose a Music Genre</mat-label>
           <mat-select
@@ -92,7 +91,7 @@
         <!-- arts & theatre dropdown -->
         <mat-form-field
           *ngIf="categorySwitch === 'KZFzniwnSyZfZ7v7na'"
-          class="artsTheatre-dropdown"
+          class="genre-dropdown"
         >
           <mat-label>Choose a sub category</mat-label>
           <mat-select
@@ -111,7 +110,7 @@
         <!-- films dropdown -->
         <mat-form-field
           *ngIf="categorySwitch === 'KZFzniwnSyZfZ7v7nn'"
-          class="films-dropdown"
+          class="genre-dropdown"
         >
           <mat-label>Choose a Genre</mat-label>
           <mat-select
@@ -128,55 +127,62 @@
       </div>
 
       <!-- states dropdown -->
-      <div class="form-group">
-        <label>Choose an State</label>
-        <select
+      <mat-form-field class="form-group">
+        <mat-label>Choose an State</mat-label>
+        <mat-select
           (change)="searchFilter()"
-          matNativeControl
           formControlName="stateID"
           name="states"
           id="states"
         >
-          <option>None</option>
-          <option *ngFor="let state of states" value="{{ state.abbreviation }}">
+          <mat-option
+            *ngFor="let state of states"
+            value="{{ state.abbreviation }}"
+          >
             {{ state.name }}
-          </option>
-        </select>
-      </div>
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
 
       <!-- country dropdowns -->
-      <div class="form-group">
-        <select
+      <mat-form-field class="form-group">
+        <mat-label>Choose a Country</mat-label>
+        <mat-select
           (change)="searchFilter()"
           formControlName="countryID"
           name="countries"
           id="countries"
         >
-          <option
+          <mat-option
             *ngFor="let country of countries"
             value="{{ country.Code | lowercase }}"
-            >{{ country.Name }}</option
+            >{{ country.Name }}</mat-option
           >
-        </select>
-      </div>
+        </mat-select>
+      </mat-form-field>
       <!-- number of posts dropdown -->
-      <div class="form-group">
-        <select
+      <mat-form-field class="form-group">
+        <mat-label>Number of Events</mat-label>
+        <mat-select
           (change)="searchFilter()"
           formControlName="numberOfPosts"
           name="numberOfPosts"
           id="numberOfPosts"
         >
-          <option *ngFor="let number of pageSize" value="{{ number }}">{{
+          <mat-option *ngFor="let number of pageSize" value="{{ number }}">{{
             number
-          }}</option>
-        </select>
-      </div>
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
     <div class="form-footer">
-      <button (click)="resetForm()">Reset Form</button>
+      <button (click)="filterForm.reset()" mat-raised-button color="warn">
+        Reset Form
+      </button>
+      <!-- Entry to bucket List Page -->
+      <button mat-raised-button color="primary" routerLink="/bucket-list">
+        Bucket List
+      </button>
     </div>
   </div>
-  <!-- Entry to bucket List Page -->
-  <button routerLink="/bucket-list">Bucket List</button>
 </form>
