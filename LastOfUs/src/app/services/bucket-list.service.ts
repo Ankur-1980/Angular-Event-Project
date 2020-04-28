@@ -19,6 +19,8 @@ export class BucketListService {
     let index = this.bucketList.findIndex((b) => b.id === event.id);
     this.bucketList.splice(index, 1);
     return this.bucketList;
+
+    // // don't understand why this doesn't work
     // this.bucketList = this.bucketList.filter((b) => b.id !== event.id);
     // console.log(this.bucketList);
     // return this.bucketList;

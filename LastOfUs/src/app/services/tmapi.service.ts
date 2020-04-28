@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -25,21 +24,6 @@ export class TMapiService {
     return this.http.get(
       `${this.baseUrl}${this.classifications}${this.API_KEY}${this.global}`
     );
-  }
-
-  newGettingClassifications(): any {
-    return this.http
-      .get(
-        `${this.baseUrl}${this.classifications}${this.API_KEY}${this.global}`
-      )
-      .pipe(
-        map((allEventObjects) => {
-          const segments = allEventObjects['_embedded'].classifications.filter(
-            (x) => x.segment
-          );
-          return segments;
-        })
-      );
   }
 
   getDetails(eventID) {
@@ -67,6 +51,7 @@ export class TMapiService {
     );
   }
 }
+
 // app.ticketmaster.com/discovery/v2/
 // events.json?
 // apikey=zMf7gfbAyAigJLCB0a1iMrDv6OK8IDz9&keyword=undefined&locale=*&size=&countryCode=HI&stateCode=25&segmentId=&genreId=

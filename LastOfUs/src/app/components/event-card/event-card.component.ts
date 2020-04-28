@@ -13,14 +13,6 @@ export class EventCardComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  addToList() {
-    this.bucket.addToBucketList(this.event);
-  }
-
-  removeFromList() {
-    this.bucket.removeFromBucketList(this.event);
-  }
-
   toggleAddRemove() {
     if (this.bucket.containsEvent(this.event)) {
       this.bucket.removeFromBucketList(this.event);
