@@ -68,7 +68,7 @@ export class SearchCriteriaComponent implements OnInit {
       genreID: [''],
       stateID: [''],
       countryID: [''],
-      numberOfPosts: ['25'],
+      numberOfPosts: ['20'],
     });
   }
   searchKeywords() {
@@ -99,12 +99,10 @@ export class SearchCriteriaComponent implements OnInit {
   }
 
   searchFilter() {
+    console.log('SearchTS working?');
+
     this.api.filterSearch(this.filterForm.value).subscribe((data) => {
       this.filterSearch.emit(data['_embedded'].events);
     });
-  }
-
-  resetForm() {
-    this.filterForm.reset();
   }
 }

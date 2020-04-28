@@ -8,173 +8,181 @@
     <!-- all the search criteria -->
     <div class="form-body">
       <!-- search bar -->
-      <div class="form-group">
-        <label for="searchBar">Search Bar</label>
+      <mat-form-field class="search-bar form-group">
+        <mat-label for="searchBar">Search Bar</mat-label>
         <input
+          matInput
           (keyup)="searchFilter()"
           type="text"
           id="searchBar"
           class="form-control"
           formControlName="searchBar"
         />
-      </div>
+      </mat-form-field>
       <!-- categories -->
-      <div mat-form-field class="form-group">
-        <select
-          [(ngModel)]="categorySwitch"
-          (change)="searchFilter()"
+      <mat-form-field class="cat-select form-group">
+        <mat-label>Choose a Category</mat-label>
+        <mat-select
+          [(value)]="categorySwitch"
+          (selectionChange)="searchFilter()"
           formControlName="categoryID"
         >
-          <option value=""> Choose a Category</option>
-          <option
+          <mat-option
             *ngFor="let segment of segments"
             value="{{ segment.segment.id }}"
-            >{{ segment.segment.name }}</option
+            >{{ segment.segment.name }}</mat-option
           >
-        </select>
-      </div>
+        </mat-select>
+      </mat-form-field>
 
       <!-- genre dropdowns -->
-      <div class="form-group">
+      <div class="genre-group form-group">
         <!-- misc dropdown -->
-        <div
+        <mat-form-field
           *ngIf="categorySwitch === 'KZFzniwnSyZfZ7v7n1'"
-          class="misc-dropdown"
+          class="genre-dropdown"
         >
-          <select
-            (change)="searchFilter()"
+          <mat-label>Choose a sub category</mat-label>
+          <mat-select
+            (selectionChange)="searchFilter()"
             name="misc"
             id="misc"
             formControlName="genreID"
           >
-            <option value="">CHOOSE GENRE</option>
-            <option *ngFor="let mis of misc" value="{{ mis.id }}">{{
+            <mat-option *ngFor="let mis of misc" value="{{ mis.id }}">{{
               mis.name
-            }}</option>
-          </select>
-        </div>
+            }}</mat-option>
+          </mat-select>
+        </mat-form-field>
         <!-- sports dropdown -->
-        <div
+        <mat-form-field
           *ngIf="categorySwitch === 'KZFzniwnSyZfZ7v7nE'"
-          class="sports-dropdown"
+          class="genre-dropdown"
         >
-          <select
-            (change)="searchFilter()"
+          <mat-label>Choose a Sport</mat-label>
+          <mat-select
+            (selectionChange)="searchFilter()"
             name="sports"
             id="sports"
             formControlName="genreID"
           >
-            <option value="">CHOOSE GENRE</option>
-            <option *ngFor="let sport of sports" value="{{ sport.id }}">{{
+            <mat-option *ngFor="let sport of sports" value="{{ sport.id }}">{{
               sport.name
-            }}</option>
-          </select>
-        </div>
+            }}</mat-option>
+          </mat-select>
+        </mat-form-field>
         <!-- music dropdown -->
-        <div
+        <mat-form-field
           *ngIf="categorySwitch === 'KZFzniwnSyZfZ7v7nJ'"
-          class="music-dropdown"
+          class="genre-dropdown"
         >
-          <select
-            (change)="searchFilter()"
+          <mat-label>Choose a Music Genre</mat-label>
+          <mat-select
+            (selectionChange)="searchFilter()"
             name="music"
             id="music"
             formControlName="genreID"
           >
-            <option value="">CHOOSE GENRE</option>
-            <option *ngFor="let muse of music" value="{{ muse.id }}">{{
+            <mat-option *ngFor="let muse of music" value="{{ muse.id }}">{{
               muse.name
-            }}</option>
-          </select>
-        </div>
+            }}</mat-option>
+          </mat-select>
+        </mat-form-field>
         <!-- arts & theatre dropdown -->
-        <div
+        <mat-form-field
           *ngIf="categorySwitch === 'KZFzniwnSyZfZ7v7na'"
-          class="artsTheatre-dropdown"
+          class="genre-dropdown"
         >
-          <select
-            (change)="searchFilter()"
+          <mat-label>Choose a sub category</mat-label>
+          <mat-select
+            (selectionChange)="searchFilter()"
             name="artsTheatre"
             id="artsTheatre"
             formControlName="genreID"
           >
-            <option value="">CHOOSE GENRE</option>
-            <option
+            <mat-option
               *ngFor="let theatre of artsTheatre"
               value="{{ theatre.id }}"
-              >{{ theatre.name }}</option
+              >{{ theatre.name }}</mat-option
             >
-          </select>
-        </div>
+          </mat-select>
+        </mat-form-field>
         <!-- films dropdown -->
-        <div
+        <mat-form-field
           *ngIf="categorySwitch === 'KZFzniwnSyZfZ7v7nn'"
-          class="films-dropdown"
+          class="genre-dropdown"
         >
-          <select
-            (change)="searchFilter()"
+          <mat-label>Choose a Genre</mat-label>
+          <mat-select
+            (selectionChange)="searchFilter()"
             name="films"
             id="films"
             formControlName="genreID"
           >
-            <option value="">CHOOSE GENRE</option>
-            <option *ngFor="let film of films" value="{{ film.id }}">{{
+            <mat-option *ngFor="let film of films" value="{{ film.id }}">{{
               film.name
-            }}</option>
-          </select>
-        </div>
+            }}</mat-option>
+          </mat-select>
+        </mat-form-field>
       </div>
 
       <!-- states dropdown -->
-      <div class="form-group">
-        <label>Choose an State</label>
-        <select
-          (change)="searchFilter()"
-          matNativeControl
+      <mat-form-field class="form-group">
+        <mat-label>Choose an State</mat-label>
+        <mat-select
+          (selectionChange)="searchFilter()"
           formControlName="stateID"
           name="states"
           id="states"
         >
-          <option>None</option>
-          <option *ngFor="let state of states" value="{{ state.abbreviation }}">
+          <mat-option
+            *ngFor="let state of states"
+            value="{{ state.abbreviation }}"
+          >
             {{ state.name }}
-          </option>
-        </select>
-      </div>
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
 
       <!-- country dropdowns -->
-      <div class="form-group">
-        <select
-          (change)="searchFilter()"
+      <mat-form-field class="form-group">
+        <mat-label>Choose a Country</mat-label>
+        <mat-select
+          (selectionChange)="searchFilter()"
           formControlName="countryID"
           name="countries"
           id="countries"
         >
-          <option
+          <mat-option
             *ngFor="let country of countries"
             value="{{ country.Code | lowercase }}"
-            >{{ country.Name }}</option
+            >{{ country.Name }}</mat-option
           >
-        </select>
-      </div>
+        </mat-select>
+      </mat-form-field>
       <!-- number of posts dropdown -->
-      <div class="form-group">
-        <select
-          (change)="searchFilter()"
+      <mat-form-field class="form-group">
+        <mat-label>Number of Events</mat-label>
+        <mat-select
+          (selectionChange)="searchFilter()"
           formControlName="numberOfPosts"
           name="numberOfPosts"
           id="numberOfPosts"
         >
-          <option *ngFor="let number of pageSize" value="{{ number }}">{{
+          <mat-option *ngFor="let number of pageSize" value="{{ number }}">{{
             number
-          }}</option>
-        </select>
-      </div>
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
     <div class="form-footer">
-      <button (click)="resetForm()">Reset Form</button>
+      <button (click)="filterForm.reset()" mat-raised-button color="warn">
+        Reset Form
+      </button>
+      <!-- Entry to bucket List Page -->
+      <button mat-raised-button color="primary" routerLink="/bucket-list">
+        Bucket List
+      </button>
     </div>
   </div>
-  <!-- Entry to bucket List Page -->
-  <button routerLink="/bucket-list">Bucket List</button>
 </form>
