@@ -7,7 +7,7 @@ import { BucketListService } from '../../services/bucket-list.service';
   styleUrls: ['./event-card.component.css'],
 })
 export class EventCardComponent implements OnInit {
-  @Input() event;
+  @Input() event
 
   constructor(public bucket: BucketListService) { }
 

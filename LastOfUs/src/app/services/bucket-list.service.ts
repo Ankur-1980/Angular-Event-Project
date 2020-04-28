@@ -26,7 +26,6 @@ export class BucketListService {
   }
 
   containsEvent(event): boolean {
-    console.log(this.bucketList.includes(event));
     return this.bucketList.includes(event);
   }
 

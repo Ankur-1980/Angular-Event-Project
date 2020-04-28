@@ -1,14 +1,12 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { TMapiService } from '../../services/tmapi.service';
-import { ActivatedRoute } from '@angular/router';
 import { Catergories } from 'src/app/interfaces/catergories';
 import { Countries } from 'src/app/interfaces/countries';
 import { States } from 'src/app/interfaces/states';
 import { PAGESIZE } from 'src/app/data/page-size';
 import { COUNTRIES } from 'src/app/data/countries';
 import { STATES } from 'src/app/data/state';
-import { CATEGORIES } from 'src/app/data/catergories';
-import { BucketListService } from 'src/app/services/bucket-list.service';
+import { CATEGORIES } from 'src/app/data/categories';
 
 
 @Component({
@@ -24,12 +22,13 @@ export class SearchCriteriaComponent implements OnInit {
   films: Catergories[];
 
   countryId = '';
-  segment = '';
+  segmentId = '';
   searchTerm: string;
   genreId = '';
   stateId = '';
-  getCategoryId: string;
+  categoryId: string;
   eventPost: number = 25;
+  events;
 
   states: States[] = STATES;
   countries: Countries[] = COUNTRIES;
@@ -43,7 +42,7 @@ export class SearchCriteriaComponent implements OnInit {
   @Output() filterSearch = new EventEmitter<string[]>()
 
 
-  constructor(private api: TMapiService, private route: ActivatedRoute, ) { }
+  constructor(private api: TMapiService) { }
 
   ngOnInit(): void {
     this.api.getClassifications().subscribe((data) => {
@@ -80,21 +79,36 @@ export class SearchCriteriaComponent implements OnInit {
 
   searchKeys() {
     this.api.searchKeys(this.searchTerm).subscribe((data) => (this.filterResults = data['_embedded'].events));
-    console.log('SearchKeys working?');
     return this.filterSearch.emit(this.filterResults);
   }
 
   getGenreId(value) {
     this.genreId = value;
+    this.searchFilter();
   }
 
   getStateId(value) {
     this.stateId = value;
+    this.searchFilter();
   }
 
-  filterState(state): any {
+  getCategoryId(value) {
+    this.segmentId = value;
+    this.searchFilter();
   }
 
+  getCountryId(value) {
+    this.countryId = value;
+    this.searchFilter();
+  }
 
+  searchFilter() {
+    this.api.filterSearch(this.genreId, this.stateId, this.eventPost, this.countryId, this.segmentId
+    ).subscribe((data) => {
+      this.filterResults = data['_embedded'];
+      console.log('response', data);
+    });
+
+    return this.filterSearch.emit(this.filterResults);
+  }
 }
-

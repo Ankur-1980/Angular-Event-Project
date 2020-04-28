@@ -6,11 +6,11 @@
   <p>
     {{ event._embedded.venues[0].city.name }}
   </p>
-  <div>
-    <span *ngIf="!bucket.containsEvent(event)" (click)="toggleAddRemove()" class="material-icons">
+  <div (click)="toggleAddRemove()">
+    <span *ngIf="!bucket.containsEvent(event)" class="material-icons">
       favorite
     </span>
-    <span *ngIf="bucket.containsEvent(event)" (click)="toggleAddRemove()" class="material-icons">
+    <span *ngIf="bucket.containsEvent(event)" class="material-icons">
       highlight_off
     </span>
   </div>
