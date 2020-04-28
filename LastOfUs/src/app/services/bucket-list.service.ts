@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class BucketListService {
   bucketList = [];
 
-  constructor() {}
+  constructor() { }
 
   addToBucketList(event) {
     this.bucketList.push(event);
