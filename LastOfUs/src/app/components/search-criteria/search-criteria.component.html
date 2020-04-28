@@ -8,31 +8,33 @@
     <!-- all the search criteria -->
     <div class="form-body">
       <!-- search bar -->
-      <div class="form-group">
-        <label for="searchBar">Search Bar</label>
+      <mat-form-field class="search-bar form-group">
+        <mat-label for="searchBar">Search Bar</mat-label>
         <input
+          matInput
           (keyup)="searchFilter()"
           type="text"
           id="searchBar"
           class="form-control"
           formControlName="searchBar"
         />
-      </div>
+      </mat-form-field>
       <!-- categories -->
-      <div mat-form-field class="form-group">
-        <select
+      <mat-form-field class="cat-select form-group">
+        <mat-label>Choose a Category</mat-label>
+        <mat-select
           [(ngModel)]="categorySwitch"
           (change)="searchFilter()"
           formControlName="categoryID"
         >
-          <option value=""> Choose a Category</option>
-          <option
+          <mat-option value="">None</mat-option>
+          <mat-option
             *ngFor="let segment of segments"
             value="{{ segment.segment.id }}"
-            >{{ segment.segment.name }}</option
+            >{{ segment.segment.name }}</mat-option
           >
-        </select>
-      </div>
+        </mat-select>
+      </mat-form-field>
 
       <!-- genre dropdowns -->
       <div class="form-group">
