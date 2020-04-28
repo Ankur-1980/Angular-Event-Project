@@ -27,14 +27,8 @@ export class SearchCriteriaComponent implements OnInit {
   pageSize: string[] = PAGESIZE;
   categories: Categories[] = CATEGORIES;
   segments: any;
-  show: any;
-
   filterForm: FormGroup;
   formValues: string[];
-
-  filterResults: string[];
-
-  searchTerm: string;
 
   categorySwitch = '';
 
@@ -70,37 +64,11 @@ export class SearchCriteriaComponent implements OnInit {
       countryID: [''],
       numberOfPosts: ['20'],
     });
-  }
-  searchKeywords() {
-    this.api
-      .keyWordsSearch(this.searchTerm)
-      .subscribe((data) => (this.filterResults = data['_embedded'].events));
-
-    // this.filterForm.valueChanges.subscribe((value) => {
-    //   this.searchFilter();
-    // });
-
-    // this.filterForm.valueChanges.subscribe((value) => console.log(value));
-
-    // this.filterForm
-    //   .get('searchBar')
-    //   .valueChanges.subscribe((value) => console.log(value));
-  }
-
-  optionValue() {
-    console.log(`working?`);
-  }
-
-  toggleDropDown(checked) {
-    this.show = checked.name;
-    console.log(checked.id);
-
-    console.log(this.show);
+    // // testing for reactive form changes
+    //     this.filterForm.valueChanges.subscribe((value) => console.log(value))
   }
 
   searchFilter() {
-    console.log('SearchTS working?');
-
     this.api.filterSearch(this.filterForm.value).subscribe((data) => {
       this.filterSearch.emit(data['_embedded'].events);
     });
