@@ -6,27 +6,35 @@
 img {
   opacity: 7%;
 }
-
-.search-container {
-  display: gird;
-  grid-template-rows: 2, 1fr;
+button {
+  float: right;
 }
+
 h3 {
   font-size: 100px;
-  margin-left: 100px;
+  margin-left: 250px;
   margin-bottom: 50px;
   opacity: 65%;
 }
 
-.search-here {
-  margin-top: 100px;
+.search-container {
   display: flex;
-  justify-content: space-evenly;
+  position: relative;
+  margin-left: 400px;
+  margin-bottom: 30px;
+}
+input {
+  font-size: 30px;
 }
 
-.explore-here {
-  margin-left: 200px;
-  margin-bottom: 80px;
+.filter-here {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: rgba(0, 0, 0, 0.644);
+  margin-bottom: 20px;
 }
 
 button {
