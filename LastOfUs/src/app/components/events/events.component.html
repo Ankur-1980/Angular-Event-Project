@@ -1,16 +1,14 @@
 <div class="event-container">
   <div class="logo">
     <img src="../../../assets/Images/Leaf.png" alt="Leaf" />
-    <h1>last of us</h1>
+    <a class="main-title" routerLink="/"><h1>last of us</h1></a>
+
     <H2>TICKETS</H2>
-  
   </div>
   <search-criteria (filterSearch)="getFilterResults($event)"></search-criteria>
-  
-  
-  
+
   <div class="grid-container">
     <app-event-card [event]="event" *ngFor="let event of events">
     </app-event-card>
   </div>
-  </div>
+</div>

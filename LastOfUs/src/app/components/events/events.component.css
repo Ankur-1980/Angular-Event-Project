@@ -30,3 +30,7 @@ h2 {
   margin-top: 100px;
   color: rgba(49, 210, 231, 0.726);
 }
+
+.main-title {
+  text-decoration: none;
+}

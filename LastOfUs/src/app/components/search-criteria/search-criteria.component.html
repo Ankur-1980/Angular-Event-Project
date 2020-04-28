@@ -24,7 +24,7 @@
         <mat-label>Choose a Category</mat-label>
         <mat-select
           [(value)]="categorySwitch"
-          (change)="searchFilter()"
+          (selectionChange)="searchFilter()"
           formControlName="categoryID"
         >
           <mat-option
@@ -44,7 +44,7 @@
         >
           <mat-label>Choose a sub category</mat-label>
           <mat-select
-            (change)="searchFilter()"
+            (selectionChange)="searchFilter()"
             name="misc"
             id="misc"
             formControlName="genreID"
@@ -61,7 +61,7 @@
         >
           <mat-label>Choose a Sport</mat-label>
           <mat-select
-            (change)="searchFilter()"
+            (selectionChange)="searchFilter()"
             name="sports"
             id="sports"
             formControlName="genreID"
@@ -78,7 +78,7 @@
         >
           <mat-label>Choose a Music Genre</mat-label>
           <mat-select
-            (change)="searchFilter()"
+            (selectionChange)="searchFilter()"
             name="music"
             id="music"
             formControlName="genreID"
@@ -95,7 +95,7 @@
         >
           <mat-label>Choose a sub category</mat-label>
           <mat-select
-            (change)="searchFilter()"
+            (selectionChange)="searchFilter()"
             name="artsTheatre"
             id="artsTheatre"
             formControlName="genreID"
@@ -114,7 +114,7 @@
         >
           <mat-label>Choose a Genre</mat-label>
           <mat-select
-            (change)="searchFilter()"
+            (selectionChange)="searchFilter()"
             name="films"
             id="films"
             formControlName="genreID"
@@ -130,7 +130,7 @@
       <mat-form-field class="form-group">
         <mat-label>Choose an State</mat-label>
         <mat-select
-          (change)="searchFilter()"
+          (selectionChange)="searchFilter()"
           formControlName="stateID"
           name="states"
           id="states"
@@ -148,7 +148,7 @@
       <mat-form-field class="form-group">
         <mat-label>Choose a Country</mat-label>
         <mat-select
-          (change)="searchFilter()"
+          (selectionChange)="searchFilter()"
           formControlName="countryID"
           name="countries"
           id="countries"
@@ -164,7 +164,7 @@
       <mat-form-field class="form-group">
         <mat-label>Number of Events</mat-label>
         <mat-select
-          (change)="searchFilter()"
+          (selectionChange)="searchFilter()"
           formControlName="numberOfPosts"
           name="numberOfPosts"
           id="numberOfPosts"
