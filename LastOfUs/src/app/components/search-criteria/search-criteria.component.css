@@ -1,3 +1,9 @@
+img {
+  opacity: 7%;
+  align-items: center;
+  margin-bottom: 0;
+  margin-top: 70px;
+}
 .search-container {
   display: gird;
   grid-template-rows: 2, 1fr;
@@ -8,12 +14,7 @@
   display: flex;
   justify-content: space-evenly;
 }
-img{
-  opacity: 7%;
-  align-items: center;
-  margin-bottom: 0;
-  margin-top: 100px;
-}
+
 .explore-here {
   margin-left: 200px;
   margin-bottom: 80px;
