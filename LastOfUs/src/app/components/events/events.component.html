@@ -8,7 +8,9 @@
   <search-criteria (filterSearch)="getFilterResults($event)"></search-criteria>
 
   <div *ngIf="events">
-    <!-- this is where a loading spinner goes -->
+    <div *ngIf="!events">
+      <mat-spinner></mat-spinner>
+    </div>
     <!-- below this is the error for when no results are found -->
     <h2 *ngIf="events.length === 0">No results found</h2>
     <!-- below this is the displayed events -->

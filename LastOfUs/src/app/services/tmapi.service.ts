@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -11,6 +12,8 @@ export class TMapiService {
   baseUrl = 'https://app.ticketmaster.com/discovery/v2/';
   API_KEY = '.json?apikey=zMf7gfbAyAigJLCB0a1iMrDv6OK8IDz9';
   global = '&locale=*';
+
+  private subject = new Subject<any>();
 
   constructor(private http: HttpClient) {}
 
@@ -49,6 +52,14 @@ export class TMapiService {
     return this.http.get(
       `${this.baseUrl}${this.events}${this.API_KEY}&keyword=${searchBar}${this.global}&size=${numberOfPosts}&countryCode=${countryID}&stateCode=${stateID}&segmentId=${categoryID}&genreId=${genreID}`
     );
+  }
+
+  sendClickEvent() {
+    this.subject.next();
+  }
+
+  getClickEvent(): Observable<any> {
+    return this.subject.asObservable();
   }
 }
 

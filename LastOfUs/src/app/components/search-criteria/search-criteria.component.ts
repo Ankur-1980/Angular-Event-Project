@@ -68,6 +68,11 @@ export class SearchCriteriaComponent implements OnInit {
     //     this.filterForm.valueChanges.subscribe((value) => console.log(value))
   }
 
+  resetForm() {
+    this.api.sendClickEvent();
+    this.filterForm.reset();
+  }
+
   searchFilter() {
     this.api.filterSearch(this.filterForm.value).subscribe((data) => {
       if (data._embedded) {
