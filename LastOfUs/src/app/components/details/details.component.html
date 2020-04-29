@@ -8,11 +8,21 @@
   </div>
 
   <div class="detail-info">
-    <p>Category: {{ (details?.classifications)[0].segment.name }}, {{ (details?.classifications)[0].subGenre.name }}</p>
+    <p>
+      Category: {{ (details?.classifications)[0].segment.name }},
+      {{ (details?.classifications)[0].subGenre.name }}
+    </p>
     <img src="{{ (details?.images)[0].url }}" />
     <p>Event Date: {{ details?.dates.start.localDate | date }}</p>
-    <p>Ticket Price Range: ${{ (details?.priceRanges)[0].min }} - ${{(details?.priceRanges)[0].max}}</p>
-    <p>Location: {{ (details?._embedded.venues)[0].name }} @ {{ (details?._embedded.venues)[0].city.name }} ,
-      {{ (details?._embedded.venues)[0].state.name }}</p>
+    <p>
+      Ticket Price Range: ${{ (details?.priceRanges)[0].min }} - ${{
+        (details?.priceRanges)[0].max
+      }}
+    </p>
+    <p>
+      Location: {{ (details?._embedded.venues)[0].name }} @
+      {{ (details?._embedded.venues)[0].city.name }} ,
+      {{ (details?._embedded.venues)[0].state.name }}
+    </p>
   </div>
 </div>

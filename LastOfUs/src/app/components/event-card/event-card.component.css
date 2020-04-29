@@ -1,8 +1,14 @@
 .card-container {
-  margin-top: 50px;
   border: solid 1px aliceblue;
   border-radius: 20px;
   margin-right: 10px;
+}
+
+img {
+  height: 150px;
+  width: 225px;
+  border-radius: 100px;
+  margin: 13px;
 }
 
 h3 {
@@ -25,20 +31,23 @@ span {
   margin-left: 5px;
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 719px) {
+  img {
+    height: 150px;
+    width: 225px;
+  }
 }
 
-@media only screen and (min-width: 768px) and (max-width: 1023px) {
-  .card-container {
-    border: solid 1px aliceblue;
-    border-radius: 20px;
-    margin-right: 10px;
-  }
-
+@media only screen and (min-width: 720px) and (max-width: 1075px) {
   img {
-    height: 200px;
-    width: 300px;
-    border-radius: 100px;
-    padding: 5px;
+    height: 100px;
+    width: 175px;
+  }
+}
+
+@media only screen and (min-width: 1076px) and (max-width: 1199px) {
+  img {
+    height: 120px;
+    width: 200px;
   }
 }
