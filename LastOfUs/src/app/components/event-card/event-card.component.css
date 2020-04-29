@@ -1,5 +1,5 @@
 .card-container {
-  border: solid 1px aliceblue;
+  border: solid 1px rgb(4, 0, 69);
   border-radius: 20px;
   margin-right: 10px;
 }
@@ -12,22 +12,22 @@ img {
 }
 
 h3 {
-  color: aliceblue;
+  color: rgb(4, 0, 69);
   margin-left: 10px;
 }
 
 a {
-  color: aliceblue;
+  color: rgb(4, 0, 69);
   margin-left: 10px;
 }
 
 .city {
-  color: aliceblue;
+  color: rgb(4, 0, 69);
   margin-left: 10px;
 }
 
 span {
-  color: aliceblue;
+  color: rgb(4, 0, 69);
   margin-left: 5px;
 }
 

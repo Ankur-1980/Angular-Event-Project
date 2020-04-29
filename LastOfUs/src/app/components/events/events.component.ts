@@ -23,13 +23,6 @@ export class EventsComponent implements OnInit {
     }).unsubscribe;
   }
   getFilterResults(filterResults) {
-    console.log(filterResults);
-
     this.events = filterResults;
-    console.log(`Filter Result: ${this.events}`);
-  }
-
-  working() {
-    console.log(`are you working?`);
   }
 }
