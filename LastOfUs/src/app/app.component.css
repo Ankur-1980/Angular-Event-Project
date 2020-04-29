@@ -17,7 +17,7 @@ header .banner .title {
   font-size: 72px;
 }
 
-@keyframes slide-in {
+/* @keyframes slide-in {
   from {
     margin-left: 100%;
     width: 400px;
@@ -27,7 +27,7 @@ header .banner .title {
     margin-left: 0%;
     width: 200px;
   }
-}
+} */
 
 a {
   text-decoration: none;

@@ -1,20 +1,53 @@
-<div class="card-container">
-  <h3>{{ event.name }}</h3>
-  <p>
-    <a routerLink="details/{{ event.id }}">more details</a>
-  </p>
-  <p class="city">
-    {{ event._embedded.venues[0].city.name }}
-  </p>
-  <img src="{{ event.images[8].url }}" alt="" />
+<div class="event-card">
+  <div class="img-box">
+    <img
+      src="{{ (event?.images)[0].url }}"
+      alt="{{ event?.name }}"
+      class="details-image"
+    />
+  </div>
+  <div class="event-details">
+    <div class="event-details-header">
+      <h2 class="details-name">
+        {{ event?.name }}
+      </h2>
+      <div class="favorites">
+        <div (click)="toggleAddRemove()">
+          <span *ngIf="!bucket.containsEvent(event)" class="material-icons">
+            favorite
+          </span>
+          <span *ngIf="bucket.containsEvent(event)" class="material-icons">
+            highlight_off
+          </span>
+        </div>
+      </div>
+    </div>
 
-  <div (click)="toggleAddRemove()">
-    <span *ngIf="!bucket.containsEvent(event)" class="material-icons">
-      favorite
-    </span>
-    <span *ngIf="bucket.containsEvent(event)" class="material-icons">
-      highlight_off
-    </span>
+    <div class="event-details-grid">
+      <p>
+        {{ event._embedded.venues[0]?.city.name }},
+        {{ event._embedded.venues[0]?.state.name }}
+      </p>
+      <p class="just-right">
+        {{ (event?._embedded.venues)[0]?.name }}
+      </p>
+      <p>{{ event?.dates.start.localDate | date }}</p>
+      <p class="just-right">
+        {{ (event?.classifications)[0].genre.name }}/{{
+          (event?.classifications)[0].subGenre.name
+        }}
+      </p>
+      <a routerLink="details/{{ event?.id }}" class="btn">
+        More Details
+      </a>
+
+      <a
+        href="{{ event?.url }}"
+        target="_blank"
+        class="btn btn-outline-primary"
+      >
+        TicketMaster
+      </a>
+    </div>
   </div>
 </div>
-
