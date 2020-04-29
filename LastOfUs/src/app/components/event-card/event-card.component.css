@@ -1,21 +1,29 @@
 .card-container {
+  margin-top: 500px;
   margin-bottom: 100px;
+  border: solid 1px aliceblue;
+  border-radius: 20px;
+  margin-right: 10px;
 }
 
 h3 {
   color: aliceblue;
+  margin-left: 10px;
 }
 
 a {
   color: aliceblue;
+  margin-left: 10px;
 }
 
 .city {
   color: aliceblue;
+  margin-left: 10px;
 }
 
 span {
   color: aliceblue;
+  margin-left: 5px;
 }
 
 img {
