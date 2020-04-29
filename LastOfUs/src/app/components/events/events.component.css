@@ -8,17 +8,6 @@ img {
   margin-top: 30px;
 }
 
-@keyframes slidein {
-  from {
-    margin-left: 100%;
-    width: 100%;
-  }
-
-  to {
-    margin-left: 0%;
-    width: 35%;
-  }
-}
 
 h1 {
   text-align: center;
@@ -34,44 +23,11 @@ h2 {
 }
 
 
-@media only screen and (max-width: 767px) {
-  .logo {
-    display: flex;
-  }
-
-  img {
-    width: 400px;
-    margin-top: 30px;
-  }
-
-  h1 {
-    text-align: center;
-    margin-top: 100px;
-    font-size: 100px;
-    color: azure;
-  }
-
-  h2 {
-    text-align: center;
-    margin-top: 100px;
-    color: rgba(49, 210, 231, 0.726);
-  }
-
-  .grid-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
+@media only screen and (max-width: 767px) {}
 
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
-  .logo {
-    display: flex;
-  }
-
   img {
-    width: 400px;
     animation: 3s linear 1s slidein;
-    margin-top: 30px;
   }
 
   @keyframes slidein {
@@ -84,36 +40,12 @@ h2 {
       margin-left: 0%;
       width: 35%;
     }
-  }
-
-  h1 {
-    text-align: center;
-    margin-top: 100px;
-    font-size: 100px;
-    color: azure;
-  }
-
-  h2 {
-    text-align: center;
-    margin-top: 100px;
-    color: rgba(49, 210, 231, 0.726);
-  }
-
-  .grid-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
   }
 }
 
 @media only screen and (min-width: 1024px) {
-  .logo {
-    display: flex;
-  }
-
   img {
-    width: 400px;
     animation: 3s linear 1s slidein;
-    margin-top: 30px;
   }
 
   @keyframes slidein {
@@ -126,23 +58,5 @@ h2 {
       margin-left: 0%;
       width: 35%;
     }
-  }
-
-  h1 {
-    text-align: center;
-    margin-top: 100px;
-    font-size: 100px;
-    color: azure;
-  }
-
-  h2 {
-    text-align: center;
-    margin-top: 100px;
-    color: rgba(49, 210, 231, 0.726);
-  }
-
-  .grid-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
   }
 }
