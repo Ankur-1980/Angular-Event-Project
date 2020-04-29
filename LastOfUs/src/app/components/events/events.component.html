@@ -1,11 +1,16 @@
 <div class="event-container">
   <search-criteria (filterSearch)="getFilterResults($event)"></search-criteria>
 
-  <!-- need to figure out error message if no events found -->
-  <!-- <h2 *ngIf="events == undefined">No Events Found</h2> -->
-
-  <div class="grid-container">
-    <app-event-card [event]="event" *ngFor="let event of events">
-    </app-event-card>
+  <div *ngIf="events">
+    <div *ngIf="!events">
+      <mat-spinner></mat-spinner>
+    </div>
+    <!-- below this is the error for when no results are found -->
+    <h2 *ngIf="events.length === 0">No results found</h2>
+    <!-- below this is the displayed events -->
+    <div class="grid-container">
+      <app-event-card [event]="event" *ngFor="let event of events">
+      </app-event-card>
+    </div>
   </div>
 </div>

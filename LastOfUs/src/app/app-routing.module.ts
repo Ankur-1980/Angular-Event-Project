@@ -8,11 +8,10 @@ const routes: Routes = [
   { path: '', component: EventsComponent },
   { path: 'details/:eventID', component: DetailsComponent },
   { path: 'bucket-list', component: BucketListComponent },
-  { path: 'details/:eventId', component: DetailsComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
