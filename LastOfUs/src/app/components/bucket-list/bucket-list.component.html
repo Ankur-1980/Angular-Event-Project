@@ -2,9 +2,11 @@
   <h2>Bucket List</h2>
   <button routerLink="">Return to Event Page</button>
 
+  <!--the ngIf is set as a condition that uses the arr length to notify users if the need to add events to the array-->
   <p *ngIf="bucketList.length === 0">Nothing in your bucket list yet</p>
 
   <div class="grid-container">
+    <!--the app-event-card is being used to style the "let event" object in this page. The [event] binding is what helps add the button-->
     <app-event-card *ngFor="let event of bucketList" [event]="event">
     </app-event-card>
   </div>

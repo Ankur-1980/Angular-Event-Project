@@ -9,6 +9,7 @@
     <h2 *ngIf="events.length === 0">No results found</h2>
     <!-- below this is the displayed events -->
     <div class="grid-container">
+      <!--The "event" is being used to display the events we want returned on the card-->
       <app-event-card [event]="event" *ngFor="let event of events">
       </app-event-card>
     </div>
