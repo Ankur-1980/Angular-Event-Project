@@ -61,7 +61,7 @@ h2 {
   grid-area: 1/4/2/5;
   align-self: center;
   margin: 0 20px;
-  width: 50px;
+  width: 100px;
 }
 
 .cat-select {
