@@ -1,1 +1,44 @@
+header .banner {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
 
+header .banner .flower {
+  width: 200px;
+  animation: 3s ease-in-out 1s slide-in;
+}
+
+header .banner .title {
+  display: flex;
+}
+
+.main-title h1 {
+  font-size: 72px;
+}
+
+@keyframes slide-in {
+  from {
+    margin-left: 100%;
+    width: 400px;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 200px;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+h1 {
+  text-transform: lowercase;
+  color: azure;
+}
+
+h2 {
+  text-transform: uppercase;
+  color: rgba(49, 210, 231, 0.726);
+}

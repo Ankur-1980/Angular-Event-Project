@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@300&display=swap");
+
 body {
   font-family: "Londrina Solid", cursive;
   background: rgb(4, 0, 69);
@@ -8,6 +10,9 @@ body {
     rgba(0, 212, 255, 0.7077205882352942) 72%,
     rgba(228, 228, 228, 0.8225665266106442) 96%
   );
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .grid-container {

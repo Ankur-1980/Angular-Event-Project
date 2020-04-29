@@ -1,15 +1,13 @@
-<a
-  href="https://www.freepnglogos.com/images/crowd-27568.html"
-  title="Image from freepnglogos.com"
-  ><img
-    src="https://www.freepnglogos.com/uploads/crowd-png/concert-crowd-hands-png-13.png"
-    width="1200"
-    alt="concert crowd hands png"
-/></a>
+<div class="form-container">
+  <form [formGroup]="filterForm">
+    <img
+      class="crowd-pic"
+      src="https://www.freepnglogos.com/uploads/crowd-png/concert-crowd-hands-png-13.png"
+      width="1200"
+      alt="concert crowd hands png"
+    />
+    <!-- form wrapper-->
 
-<form [formGroup]="filterForm">
-  <!-- form wrapper-->
-  <div class="form-container">
     <!-- form header -->
     <div class="form-header">
       <h3>Search Filters</h3>
@@ -193,5 +191,5 @@
         Bucket List
       </button>
     </div>
-  </div>
-</form>
+  </form>
+</div>
