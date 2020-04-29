@@ -1,13 +1,13 @@
-/* .logo-search {
+.logo-search {
   display: flex;
   position: relative;
-  justify-content: center;
 }
 
 .logo {
   display: flex;
   position: absolute;
-} */
+  margin-left: 100px;
+}
 
 img {
   width: 250px;
@@ -15,16 +15,10 @@ img {
   margin-top: 30px;
 }
 
-/* @keyframes slidein {
-  from {
-    margin-left: 100%;
-    width: 100%;
-  }
-  to {
-    margin-left: 0%;
-    width: 35%;
-  }
-} */
+.main-title {
+  text-decoration: none;
+}
+
 h1 {
   font-family: "Righteous", cursive;
   text-align: center;
@@ -40,8 +34,35 @@ h2 {
   color: rgba(49, 210, 231, 0.726);
 }
 
-.main-title {
-  text-decoration: none;
+/* @keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 100%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 35%;
+  }
+} */
+
+.form-container {
+  margin-top: 50px;
+  width: 100%;
+}
+
+.form-body {
+  border: 1px solid black;
+  width: 100%;
+  height: 300px;
+  position: relative;
+  padding: 25px;
+  margin-top: 175px;
+}
+
+.form-grid {
+  display: grid;
+  width: 100%;
 }
 
 .form-body {
@@ -53,10 +74,6 @@ h2 {
   padding: 0 25px 25px 25px;
 }
 
-.form-grid {
-  display: grid;
-}
-
 .search-bar {
   grid-area: 1/1/2/4;
 }
@@ -65,7 +82,7 @@ h2 {
   grid-area: 1/4/2/5;
   align-self: center;
   margin: 0 20px;
-  width: 100px;
+  width: 50px;
 }
 
 .cat-select {
@@ -74,7 +91,6 @@ h2 {
 
 .genre-group {
   grid-area: 2/3/3/4;
-  justify-self: center;
 }
 
 .state-select {
