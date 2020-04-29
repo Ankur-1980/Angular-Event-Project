@@ -1,28 +1,20 @@
 .logo-search {
-  /* display: flex;
+  display: flex;
   position: relative;
-  justify-content: center; */
 }
 .logo {
-  /* display: flex;
-  position: absolute; */
+  display: flex;
+  position: absolute;
+  margin-left: 100px;
 }
 img {
   width: 250px;
   animation: 3s linear 1s slidein;
   margin-top: 30px;
 }
-/* @keyframes slidein {
-  from {
-    margin-left: 100%;
-    width: 100%;
-  }
-
-  to {
-    margin-left: 0%;
-    width: 35%;
-  }
-} */
+.main-title {
+  text-decoration: none;
+}
 h1 {
   font-family: "Righteous", cursive;
   text-align: center;
@@ -36,21 +28,34 @@ h2 {
   margin-top: 100px;
   color: rgba(49, 210, 231, 0.726);
 }
+/* @keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 100%;
+  }
 
-.main-title {
-  text-decoration: none;
+  to {
+    margin-left: 0%;
+    width: 35%;
+  }
+} */
+
+.form-container {
+  margin-top: 50px;
+  width: 100%;
 }
-
 .form-body {
   border: 1px solid black;
   width: 100%;
   height: 300px;
   position: relative;
   padding: 25px;
+  margin-top: 175px;
 }
 
 .form-grid {
   display: grid;
+  width: 100%;
 }
 
 .search-bar {
@@ -106,12 +111,6 @@ h2 {
     rgba(13, 238, 238, 1) 41%,
     rgba(59, 66, 63, 1) 69%
   );
-}
-h3 {
-  font-size: 100px;
-  margin-left: 100px;
-  margin-bottom: 50px;
-  opacity: 65%;
 }
 
 button {
