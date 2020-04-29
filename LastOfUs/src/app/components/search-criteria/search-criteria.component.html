@@ -1,215 +1,212 @@
 <div class="logo-search">
-<div class="logo">
-  <img src="../../../assets/Images/Leaf.png" alt="Leaf" />
-  <a class="main-title" routerLink="/"><h1>last of us</h1></a>
-  <H2>TICKETS</H2>
-</div>
-<!-- <div class="crowd">
-  <a
-    href="https://www.freepnglogos.com/images/crowd-27568.html"
-    title="Image from freepnglogos.com"
-    ><img
-      src="https://www.freepnglogos.com/uploads/crowd-png/concert-crowd-hands-png-13.png"
-      width="1500"
-      alt="concert crowd hands png"
-  /></a>
-</div> -->
-<form [formGroup]="filterForm">
-  <!-- form wrapper-->
-  <div class="form-container">
-    <!-- form header -->
-    <!-- <div class="form-header">
-      <h3>Explore Events</h3>
-    </div> -->
-    <!-- all the search criteria -->
-    <div class="form-body">
-      <!-- search bar -->
-      <mat-form-field class="search-bar form-group">
-        <mat-label for="searchBar">Search</mat-label>
-        <input
-          matInput
-          (keyup)="searchFilter()"
-          type="text"
-          id="searchBar"
-          class="form-control"
-          formControlName="searchBar"
-        />
-      </mat-form-field>
-      <!-- categories -->
-      <mat-form-field class="cat-select form-group">
-        <mat-label>Choose a Category</mat-label>
-        <mat-select
-          [(value)]="categorySwitch"
-          (selectionChange)="searchFilter()"
-          formControlName="categoryID"
-        >
-          <mat-option
-            *ngFor="let segment of segments"
-            value="{{ segment.segment.id }}"
-            >{{ segment.segment.name }}</mat-option
-          >
-        </mat-select>
-      </mat-form-field>
-
-      <!-- genre dropdowns -->
-      <div class="genre-group form-group">
-        <!-- misc dropdown -->
-        <mat-form-field
-          *ngIf="categorySwitch === 'KZFzniwnSyZfZ7v7n1'"
-          class="genre-dropdown"
-        >
-          <mat-label>Choose a sub category</mat-label>
-          <mat-select
-            (selectionChange)="searchFilter()"
-            name="misc"
-            id="misc"
-            formControlName="genreID"
-          >
-            <mat-option *ngFor="let mis of misc" value="{{ mis.id }}">{{
-              mis.name
-            }}</mat-option>
-          </mat-select>
-        </mat-form-field>
-        <!-- sports dropdown -->
-        <mat-form-field
-          *ngIf="categorySwitch === 'KZFzniwnSyZfZ7v7nE'"
-          class="genre-dropdown"
-        >
-          <mat-label>Choose a Sport</mat-label>
-          <mat-select
-            (selectionChange)="searchFilter()"
-            name="sports"
-            id="sports"
-            formControlName="genreID"
-          >
-            <mat-option *ngFor="let sport of sports" value="{{ sport.id }}">{{
-              sport.name
-            }}</mat-option>
-          </mat-select>
-        </mat-form-field>
-        <!-- music dropdown -->
-        <mat-form-field
-          *ngIf="categorySwitch === 'KZFzniwnSyZfZ7v7nJ'"
-          class="genre-dropdown"
-        >
-          <mat-label>Choose a Music Genre</mat-label>
-          <mat-select
-            (selectionChange)="searchFilter()"
-            name="music"
-            id="music"
-            formControlName="genreID"
-          >
-            <mat-option *ngFor="let muse of music" value="{{ muse.id }}">{{
-              muse.name
-            }}</mat-option>
-          </mat-select>
-        </mat-form-field>
-        <!-- arts & theatre dropdown -->
-        <mat-form-field
-          *ngIf="categorySwitch === 'KZFzniwnSyZfZ7v7na'"
-          class="genre-dropdown"
-        >
-          <mat-label>Choose a sub category</mat-label>
-          <mat-select
-            (selectionChange)="searchFilter()"
-            name="artsTheatre"
-            id="artsTheatre"
-            formControlName="genreID"
-          >
-            <mat-option
-              *ngFor="let theatre of artsTheatre"
-              value="{{ theatre.id }}"
-              >{{ theatre.name }}</mat-option
-            >
-          </mat-select>
-        </mat-form-field>
-        <!-- films dropdown -->
-        <mat-form-field
-          *ngIf="categorySwitch === 'KZFzniwnSyZfZ7v7nn'"
-          class="genre-dropdown"
-        >
-          <mat-label>Choose a Genre</mat-label>
-          <mat-select
-            (selectionChange)="searchFilter()"
-            name="films"
-            id="films"
-            formControlName="genreID"
-          >
-            <mat-option *ngFor="let film of films" value="{{ film.id }}">{{
-              film.name
-            }}</mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
-
-      <!-- states dropdown -->
-      <mat-form-field class="form-group">
-        <mat-label>Choose an State</mat-label>
-        <mat-select
-          (selectionChange)="searchFilter()"
-          formControlName="stateID"
-          name="states"
-          id="states"
-        >
-          <mat-option
-            *ngFor="let state of states"
-            value="{{ state.abbreviation }}"
-          >
-            {{ state.name }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-
-      <!-- country dropdowns -->
-      <mat-form-field class="form-group">
-        <mat-label>Choose a Country</mat-label>
-        <mat-select
-          (selectionChange)="searchFilter()"
-          formControlName="countryID"
-          name="countries"
-          id="countries"
-        >
-          <mat-option
-            *ngFor="let country of countries"
-            value="{{ country.Code | lowercase }}"
-            >{{ country.Name }}</mat-option
-          >
-        </mat-select>
-      </mat-form-field>
-      <!-- number of posts dropdown -->
-      <mat-form-field class="form-group">
-        <mat-label>Number of Events</mat-label>
-        <mat-select
-          (selectionChange)="searchFilter()"
-          formControlName="numberOfPosts"
-          name="numberOfPosts"
-          id="numberOfPosts"
-        >
-          <mat-option *ngFor="let number of pageSize" value="{{ number }}">{{
-            number
-          }}</mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-    <div class="form-footer">
-      <button
-        class="reset"
-        (click)="filterForm.reset()"
-        mat-raised-button
-        color="warn"
-      >
-        Reset Form
-      </button>
-      <!-- Entry to bucket List Page -->
-      <button
-        class="bucket"
-        mat-raised-button
-        color="primary"
-        routerLink="/bucket-list"
-      >
-        Bucket List
-      </button>
-    </div>
+  <div class="logo">
+    <img src="../../../assets/Images/Leaf.png" alt="Leaf" />
+    <a class="main-title" routerLink="/"><h1>last of us</h1></a>
+    <h2>TICKETS</h2>
   </div>
-</form>
+  <div class="form-container">
+    <form [formGroup]="filterForm">
+      <!-- <img
+      class="crowd-pic"
+      src="https://www.freepnglogos.com/uploads/crowd-png/concert-crowd-hands-png-13.png"
+      width="1200"
+      alt="concert crowd hands png"
+    /> -->
+      <!-- form wrapper-->
+
+      <!-- all the search criteria -->
+      <div class="form-body">
+        <div class="form-grid">
+          <!-- form header -->
+          <!-- <div class="form-header">
+        <h3>Search Filters</h3>
+      </div> -->
+          <!-- search bar -->
+          <mat-form-field class="search-bar form-group">
+            <mat-label for="searchBar">Search Bar</mat-label>
+            <input
+              matInput
+              (keyup)="searchFilter()"
+              type="text"
+              id="searchBar"
+              class="form-control"
+              formControlName="searchBar"
+            />
+          </mat-form-field>
+          <!-- categories -->
+          <mat-form-field class="cat-select form-group">
+            <mat-label>Choose a Category</mat-label>
+            <mat-select
+              [(value)]="categorySwitch"
+              (selectionChange)="searchFilter()"
+              formControlName="categoryID"
+            >
+              <mat-option
+                *ngFor="let segment of segments"
+                value="{{ segment.segment.id }}"
+                >{{ segment.segment.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <!-- genre dropdowns -->
+          <div class="genre-group form-group">
+            <!-- misc dropdown -->
+            <mat-form-field
+              *ngIf="categorySwitch === 'KZFzniwnSyZfZ7v7n1'"
+              class="genre-dropdown"
+            >
+              <mat-label>Choose a sub category</mat-label>
+              <mat-select
+                (selectionChange)="searchFilter()"
+                name="misc"
+                id="misc"
+                formControlName="genreID"
+              >
+                <mat-option *ngFor="let mis of misc" value="{{ mis.id }}">{{
+                  mis.name
+                }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <!-- sports dropdown -->
+            <mat-form-field
+              *ngIf="categorySwitch === 'KZFzniwnSyZfZ7v7nE'"
+              class="genre-dropdown"
+            >
+              <mat-label>Choose a Sport</mat-label>
+              <mat-select
+                (selectionChange)="searchFilter()"
+                name="sports"
+                id="sports"
+                formControlName="genreID"
+              >
+                <mat-option
+                  *ngFor="let sport of sports"
+                  value="{{ sport.id }}"
+                  >{{ sport.name }}</mat-option
+                >
+              </mat-select>
+            </mat-form-field>
+            <!-- music dropdown -->
+            <mat-form-field
+              *ngIf="categorySwitch === 'KZFzniwnSyZfZ7v7nJ'"
+              class="genre-dropdown"
+            >
+              <mat-label>Choose a Music Genre</mat-label>
+              <mat-select
+                (selectionChange)="searchFilter()"
+                name="music"
+                id="music"
+                formControlName="genreID"
+              >
+                <mat-option *ngFor="let muse of music" value="{{ muse.id }}">{{
+                  muse.name
+                }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <!-- arts & theatre dropdown -->
+            <mat-form-field
+              *ngIf="categorySwitch === 'KZFzniwnSyZfZ7v7na'"
+              class="genre-dropdown"
+            >
+              <mat-label>Choose a sub category</mat-label>
+              <mat-select
+                (selectionChange)="searchFilter()"
+                name="artsTheatre"
+                id="artsTheatre"
+                formControlName="genreID"
+              >
+                <mat-option
+                  *ngFor="let theatre of artsTheatre"
+                  value="{{ theatre.id }}"
+                  >{{ theatre.name }}</mat-option
+                >
+              </mat-select>
+            </mat-form-field>
+            <!-- films dropdown -->
+            <mat-form-field
+              *ngIf="categorySwitch === 'KZFzniwnSyZfZ7v7nn'"
+              class="genre-dropdown"
+            >
+              <mat-label>Choose a Genre</mat-label>
+              <mat-select
+                (selectionChange)="searchFilter()"
+                name="films"
+                id="films"
+                formControlName="genreID"
+              >
+                <mat-option *ngFor="let film of films" value="{{ film.id }}">{{
+                  film.name
+                }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <!-- states dropdown -->
+          <mat-form-field class="state-select form-group">
+            <mat-label>Choose an State</mat-label>
+            <mat-select
+              (selectionChange)="searchFilter()"
+              formControlName="stateID"
+              name="states"
+              id="states"
+            >
+              <mat-option
+                *ngFor="let state of states"
+                value="{{ state.abbreviation }}"
+              >
+                {{ state.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <!-- country dropdowns -->
+          <mat-form-field class="country-select form-group">
+            <mat-label>Choose a Country</mat-label>
+            <mat-select
+              (selectionChange)="searchFilter()"
+              formControlName="countryID"
+              name="countries"
+              id="countries"
+            >
+              <mat-option
+                *ngFor="let country of countries"
+                value="{{ country.Code | lowercase }}"
+                >{{ country.Name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <!-- number of posts dropdown -->
+          <mat-form-field class="number-select form-group">
+            <mat-label>Number</mat-label>
+            <mat-select
+              (selectionChange)="searchFilter()"
+              formControlName="numberOfPosts"
+              name="numberOfPosts"
+              id="numberOfPosts"
+            >
+              <mat-option
+                *ngFor="let number of pageSize"
+                value="{{ number }}"
+                >{{ number }}</mat-option
+              >
+            </mat-select>
+          </mat-form-field>
+
+          <button class="reset-button" mat-raised-button color="warn">
+            Reset Form
+          </button>
+          <!-- Entry to bucket List Page -->
+          <button
+            mat-raised-button
+            color="primary"
+            class="bucket-button"
+            routerLink="/bucket-list"
+          >
+            Bucket List
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>
