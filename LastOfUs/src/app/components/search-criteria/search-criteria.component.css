@@ -1,13 +1,13 @@
-.logo-search {
-  /* display: flex;
+/* .logo-search {
+  display: flex;
   position: relative;
-  justify-content: center; */
+  justify-content: center;
 }
 
 .logo {
-  /* display: flex;
-  position: absolute; */
-}
+  display: flex;
+  position: absolute;
+} */
 
 img {
   width: 250px;
@@ -44,10 +44,6 @@ h2 {
   text-decoration: none;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 3dc9263b29966ccee65e46a64f19f36758a76634
 .form-body {
   border: 1px solid rgb(157, 11, 230);
   border-radius: 10px;
@@ -107,22 +103,12 @@ h2 {
   grid-area: 5/4/6/5;
   place-self: center center;
   background: rgb(157, 11, 230);
-<<<<<<< HEAD
   background: linear-gradient(37deg,
       rgba(157, 11, 230, 1) 6%,
       rgba(13, 238, 238, 1) 41%,
       rgba(59, 66, 63, 1) 69%);
 }
 
-=======
-  background: linear-gradient(
-    37deg,
-    rgba(157, 11, 230, 1) 6%,
-    rgba(13, 238, 238, 1) 41%,
-    rgba(59, 66, 63, 1) 69%
-  );
-}
->>>>>>> 3dc9263b29966ccee65e46a64f19f36758a76634
 h3 {
   font-size: 100px;
   margin-left: 100px;
@@ -132,7 +118,6 @@ h3 {
 
 button {
   border-radius: 5px;
-<<<<<<< HEAD
   margin-left: 10px;
 }
 
@@ -160,6 +145,4 @@ button {
     display: flex;
     flex-direction: row;
   }
-=======
->>>>>>> 3dc9263b29966ccee65e46a64f19f36758a76634
 }
