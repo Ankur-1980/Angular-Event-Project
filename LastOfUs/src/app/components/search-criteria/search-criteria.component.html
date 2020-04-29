@@ -153,7 +153,7 @@
         </mat-form-field>
 
         <!-- country dropdowns -->
-        <mat-form-field class="form-group">
+        <mat-form-field class="country-select form-group">
           <mat-label>Choose a Country</mat-label>
           <mat-select
             (selectionChange)="searchFilter()"
@@ -169,8 +169,8 @@
           </mat-select>
         </mat-form-field>
         <!-- number of posts dropdown -->
-        <mat-form-field class="form-group">
-          <mat-label>Number of Events</mat-label>
+        <mat-form-field class="number-select form-group">
+          <mat-label>Number</mat-label>
           <mat-select
             (selectionChange)="searchFilter()"
             formControlName="numberOfPosts"
@@ -182,15 +182,24 @@
             }}</mat-option>
           </mat-select>
         </mat-form-field>
-        <div class="form-footer">
-          <button (click)="resetForm()" mat-raised-button color="warn">
-            Reset Form
-          </button>
-          <!-- Entry to bucket List Page -->
-          <button mat-raised-button color="primary" routerLink="/bucket-list">
-            Bucket List
-          </button>
-        </div>
+
+        <button
+          (click)="resetForm()"
+          class="reset-button"
+          mat-raised-button
+          color="warn"
+        >
+          Reset Form
+        </button>
+        <!-- Entry to bucket List Page -->
+        <button
+          mat-raised-button
+          color="primary"
+          class="bucket-button"
+          routerLink="/bucket-list"
+        >
+          Bucket List
+        </button>
       </div>
     </div>
   </form>

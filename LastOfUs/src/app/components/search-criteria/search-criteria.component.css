@@ -7,14 +7,12 @@
 .form-body {
   border: 1px solid black;
   width: 100%;
-  height: 200px;
-  display: grid;
+  height: 300px;
   position: relative;
+  padding: 25px;
 }
 
 .form-body::after {
-  content: "";
-  background-image: url(https://www.freepnglogos.com/uploads/crowd-png/concert-crowd-hands-png-13.png);
   opacity: 0.05;
   top: 0;
   left: 0;
@@ -26,33 +24,45 @@
 
 .form-grid {
   display: grid;
-  grid-template-columns: auto auto;
 }
 
 .search-bar {
-  grid-area: searchBar;
-}
-
-.cat-select {
-  grid-area: categories;
-}
-
-.genre-group {
-  grid-area: genres;
-}
-
-.state-select {
-  grid-area: states;
-}
-
-.country-select {
-  grid-area: countries;
+  grid-area: 1/1/2/4;
 }
 
 .number-select {
-  grid-area: numberOfPosts;
+  grid-area: 1/4/2/5;
+  align-self: center;
+  margin: 0 20px;
+  width: 50px;
+}
+
+.cat-select {
+  grid-area: 2/1/3/3;
+}
+
+.genre-group {
+  grid-area: 2/3/3/4;
+}
+
+.state-select {
+  grid-area: 3/1/4/3;
+}
+
+.country-select {
+  grid-area: 3/4/4/5;
 }
 
 .form-footer {
-  grid-area: footer;
+  grid-area: 4/1/5/4;
+}
+
+.reset-button {
+  grid-area: 5/1/6/2;
+  place-self: center center;
+}
+
+.bucket-button {
+  grid-area: 5/4/6/5;
+  place-self: center center;
 }
