@@ -25,20 +25,20 @@ span {
   margin-left: 5px;
 }
 
-img {
-  height: 200px;
-  width: 300px;
-  border-radius: 100px;
-  padding: 5px;
+@media only screen and (max-width: 767px) {
 }
 
-@media only screen and (max-width: 767px) {
-  img {
-    display: none;
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .card-container {
+    border: solid 1px aliceblue;
+    border-radius: 20px;
+    margin-right: 10px;
   }
 
+  img {
+    height: 200px;
+    width: 300px;
+    border-radius: 100px;
+    padding: 5px;
+  }
 }
-
-@media only screen and (min-width: 768px) and (max-width: 1023px) {}
-
-@media only screen and (min-width: 1024px) {}

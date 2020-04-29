@@ -1,24 +1,18 @@
 <div class="details-body">
-  <section>
+  <section class="page-routes">
     <h1>{{ details?.name }}</h1>
     <a href="{{ details?.url }}" target="_blank">Buy @ TicketMaster</a>
   </section>
   <div>
     <button routerLink="">Return to Event Page</button>
   </div>
-  <div>
-    <p>Date: {{ details?.dates.start.localDate | date }}</p>
-    <p>Category: {{ (details?.classifications)[0].segment.name }}</p>
-    <p>{{ (details?.classifications)[0].subGenre.name }}</p>
+
+  <div class="detail-info">
+    <p>Category: {{ (details?.classifications)[0].segment.name }}, {{ (details?.classifications)[0].subGenre.name }}</p>
     <img src="{{ (details?.images)[0].url }}" />
-    <p>
-      Ticket Price Range: ${{ (details?.priceRanges)[0].min }} - ${{
-        (details?.priceRanges)[0].max
-      }}
-    </p>
-    <p>
-      {{ (details?._embedded.venues)[0].city.name }} ,
-      {{ (details?._embedded.venues)[0].state.name }}
-    </p>
+    <p>Event Date: {{ details?.dates.start.localDate | date }}</p>
+    <p>Ticket Price Range: ${{ (details?.priceRanges)[0].min }} - ${{(details?.priceRanges)[0].max}}</p>
+    <p>Location: {{ (details?._embedded.venues)[0].name }} @ {{ (details?._embedded.venues)[0].city.name }} ,
+      {{ (details?._embedded.venues)[0].state.name }}</p>
   </div>
 </div>
