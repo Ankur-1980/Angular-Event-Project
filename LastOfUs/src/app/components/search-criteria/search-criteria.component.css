@@ -4,8 +4,9 @@ img {
   margin-bottom: 0;
   margin-top: 70px;
 }
+
 .search-container {
-  display: gird;
+  display: grid;
   grid-template-rows: 2, 1fr;
 }
 
@@ -19,13 +20,41 @@ img {
   margin-left: 200px;
   margin-bottom: 80px;
 }
+
 h3 {
   font-size: 100px;
   margin-left: 100px;
   margin-bottom: 50px;
   opacity: 65%;
 }
+
 button {
   border-radius: 5px;
   margin-left: 10px;
+}
+
+@media only screen and (max-width: 767px) {
+  .form-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  h3 {
+    font-size: 35px;
+    text-align: center;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .form-body {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .form-body {
+    display: flex;
+    flex-direction: row;
+  }
 }
