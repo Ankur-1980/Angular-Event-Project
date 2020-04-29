@@ -1,6 +1,24 @@
 .details-body {
   height: 100vh;
 }
+p {
+  color: white;
+}
+
+button {
+  background-color: blue;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  padding: 10px 24px;
+}
+
+img {
+  height: 200px;
+  width: 300px;
+  border-radius: 100px;
+  padding: 5px;
+}
 
 h1 {
   font-family: "Righteous", cursive;
@@ -14,41 +32,8 @@ a {
   font-size: 20px;
 }
 
-@media only screen and (max-width: 767px) {
-  h1 {
-    color: aliceblue;
-    opacity: 75%;
-    font-size: 70px;
-  }
+@media only screen and (max-width: 767px) {}
 
-  a {
-    color: aliceblue;
-    font-size: 20px;
-  }
-}
+@media only screen and (min-width: 768px) and (max-width: 1023px) {}
 
-@media only screen and (min-width: 768px) and (max-width: 1023px) {
-  h1 {
-    color: aliceblue;
-    opacity: 75%;
-    font-size: 70px;
-  }
-
-  a {
-    color: aliceblue;
-    font-size: 20px;
-  }
-}
-
-@media only screen and (min-width: 1024px) {
-  h1 {
-    color: aliceblue;
-    opacity: 75%;
-    font-size: 70px;
-  }
-
-  a {
-    color: aliceblue;
-    font-size: 20px;
-  }
-}
+@media only screen and (min-width: 1024px) {}

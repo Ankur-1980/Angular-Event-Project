@@ -1,16 +1,32 @@
 body {
   background: rgb(4, 0, 69);
-  background: linear-gradient(
-    0deg,
-    rgba(4, 0, 69, 0.8309698879551821) 6%,
-    rgba(121, 9, 113, 0.9178046218487395) 34%,
-    rgba(0, 212, 255, 0.7077205882352942) 72%,
-    rgba(228, 228, 228, 0.8225665266106442) 96%
-  );
+  background: linear-gradient(0deg,
+      rgba(4, 0, 69, 0.8309698879551821) 6%,
+      rgba(121, 9, 113, 0.9178046218487395) 34%,
+      rgba(0, 212, 255, 0.7077205882352942) 72%,
+      rgba(228, 228, 228, 0.8225665266106442) 96%);
 }
 
 .grid-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
+}
+
+@media only screen and (max-width: 767px) {
+  .grid-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .grid-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .grid-container {
+    grid-template-columns: repeat(6, 1fr);
+  }
 }

@@ -11,14 +11,15 @@ export class DetailsComponent implements OnInit {
   details;
   eventID;
 
-  constructor(private api: TMapiService, private route: ActivatedRoute) {}
+  constructor(private api: TMapiService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.eventID = this.route.snapshot.params.eventID;
 
     this.api.getDetails(this.eventID).subscribe((data) => {
       this.details = data;
-      console.log(this.details);
+      console.log('look inside', data);
+
     });
   }
 }

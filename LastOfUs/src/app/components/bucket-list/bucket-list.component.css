@@ -2,6 +2,14 @@
   height: 100vh;
 }
 
+button {
+  background-color: blue;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  padding: 10px 24px;
+}
+
 h2 {
   font-family: "Righteous", cursive;
   font-size: 75px;
@@ -15,39 +23,8 @@ p {
 }
 
 
-@media only screen and (max-width: 767px) {
-  h2 {
-    font-size: 75px;
-    color: aliceblue;
-    opacity: 70%;
-  }
+@media only screen and (max-width: 767px) {}
 
-  p {
-    color: aliceblue;
-  }
-}
+@media only screen and (min-width: 768px) and (max-width: 1023px) {}
 
-@media only screen and (min-width: 768px) and (max-width: 1023px) {
-  h2 {
-    font-size: 75px;
-    color: aliceblue;
-    opacity: 70%;
-  }
-
-  p {
-    color: aliceblue;
-  }
-
-}
-
-@media only screen and (min-width: 1024px) {
-  h2 {
-    font-size: 75px;
-    color: aliceblue;
-    opacity: 70%;
-  }
-
-  p {
-    color: aliceblue;
-  }
-}
+@media only screen and (min-width: 1024px) {}

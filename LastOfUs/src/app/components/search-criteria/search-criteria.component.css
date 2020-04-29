@@ -41,6 +41,7 @@ h2 {
   text-decoration: none;
 }
 
+<<<<<<< HEAD
 
 .form-body {
   border: 1px solid black;
@@ -107,4 +108,42 @@ h2 {
     rgba(13, 238, 238, 1) 41%,
     rgba(59, 66, 63, 1) 69%
   );
+=======
+h3 {
+  font-size: 100px;
+  margin-left: 100px;
+  margin-bottom: 50px;
+  opacity: 65%;
+}
+
+button {
+  border-radius: 5px;
+  margin-left: 10px;
+>>>>>>> b584e5e9bb893399a105d11d415eddef73370edd
+}
+
+@media only screen and (max-width: 767px) {
+  .form-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  h3 {
+    font-size: 35px;
+    text-align: center;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .form-body {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .form-body {
+    display: flex;
+    flex-direction: row;
+  }
 }
