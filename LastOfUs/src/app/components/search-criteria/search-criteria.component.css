@@ -20,7 +20,6 @@ img {
     margin-left: 100%;
     width: 100%;
   }
-
   to {
     margin-left: 0%;
     width: 35%;
@@ -45,13 +44,17 @@ h2 {
   text-decoration: none;
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3dc9263b29966ccee65e46a64f19f36758a76634
 .form-body {
-  border: 1px solid black;
+  border: 1px solid rgb(157, 11, 230);
+  border-radius: 10px;
   width: 100%;
   height: 300px;
   position: relative;
-  padding: 25px;
+  padding: 0 25px 25px 25px;
 }
 
 .form-grid {
@@ -66,7 +69,7 @@ h2 {
   grid-area: 1/4/2/5;
   align-self: center;
   margin: 0 20px;
-  width: 50px;
+  width: 100px;
 }
 
 .cat-select {
@@ -75,6 +78,7 @@ h2 {
 
 .genre-group {
   grid-area: 2/3/3/4;
+  justify-self: center;
 }
 
 .state-select {
@@ -103,12 +107,22 @@ h2 {
   grid-area: 5/4/6/5;
   place-self: center center;
   background: rgb(157, 11, 230);
+<<<<<<< HEAD
   background: linear-gradient(37deg,
       rgba(157, 11, 230, 1) 6%,
       rgba(13, 238, 238, 1) 41%,
       rgba(59, 66, 63, 1) 69%);
 }
 
+=======
+  background: linear-gradient(
+    37deg,
+    rgba(157, 11, 230, 1) 6%,
+    rgba(13, 238, 238, 1) 41%,
+    rgba(59, 66, 63, 1) 69%
+  );
+}
+>>>>>>> 3dc9263b29966ccee65e46a64f19f36758a76634
 h3 {
   font-size: 100px;
   margin-left: 100px;
@@ -118,6 +132,7 @@ h3 {
 
 button {
   border-radius: 5px;
+<<<<<<< HEAD
   margin-left: 10px;
 }
 
@@ -145,4 +160,6 @@ button {
     display: flex;
     flex-direction: row;
   }
+=======
+>>>>>>> 3dc9263b29966ccee65e46a64f19f36758a76634
 }

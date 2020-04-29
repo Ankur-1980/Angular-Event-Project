@@ -7,10 +7,7 @@ export const STATES = [
     name: 'Alaska',
     abbreviation: 'AK',
   },
-  {
-    name: 'American Samoa',
-    abbreviation: 'AS',
-  },
+
   {
     name: 'Arizona',
     abbreviation: 'AZ',
@@ -39,10 +36,7 @@ export const STATES = [
     name: 'District Of Columbia',
     abbreviation: 'DC',
   },
-  {
-    name: 'Federated States Of Micronesia',
-    abbreviation: 'FM',
-  },
+
   {
     name: 'Florida',
     abbreviation: 'FL',
@@ -51,10 +45,7 @@ export const STATES = [
     name: 'Georgia',
     abbreviation: 'GA',
   },
-  {
-    name: 'Guam',
-    abbreviation: 'GU',
-  },
+
   {
     name: 'Hawaii',
     abbreviation: 'HI',
@@ -91,10 +82,7 @@ export const STATES = [
     name: 'Maine',
     abbreviation: 'ME',
   },
-  {
-    name: 'Marshall Islands',
-    abbreviation: 'MH',
-  },
+
   {
     name: 'Maryland',
     abbreviation: 'MD',
@@ -155,10 +143,7 @@ export const STATES = [
     name: 'North Dakota',
     abbreviation: 'ND',
   },
-  {
-    name: 'Northern Mariana Islands',
-    abbreviation: 'MP',
-  },
+
   {
     name: 'Ohio',
     abbreviation: 'OH',
@@ -171,18 +156,12 @@ export const STATES = [
     name: 'Oregon',
     abbreviation: 'OR',
   },
-  {
-    name: 'Palau',
-    abbreviation: 'PW',
-  },
+
   {
     name: 'Pennsylvania',
     abbreviation: 'PA',
   },
-  {
-    name: 'Puerto Rico',
-    abbreviation: 'PR',
-  },
+
   {
     name: 'Rhode Island',
     abbreviation: 'RI',
@@ -211,10 +190,7 @@ export const STATES = [
     name: 'Vermont',
     abbreviation: 'VT',
   },
-  {
-    name: 'Virgin Islands',
-    abbreviation: 'VI',
-  },
+
   {
     name: 'Virginia',
     abbreviation: 'VA',
