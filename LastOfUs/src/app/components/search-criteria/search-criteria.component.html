@@ -1,3 +1,12 @@
+<a
+  href="https://www.freepnglogos.com/images/crowd-27568.html"
+  title="Image from freepnglogos.com"
+  ><img
+    src="https://www.freepnglogos.com/uploads/crowd-png/concert-crowd-hands-png-13.png"
+    width="1200"
+    alt="concert crowd hands png"
+/></a>
+
 <form [formGroup]="filterForm">
   <!-- form wrapper-->
   <div class="form-container">
@@ -30,8 +39,8 @@
           <mat-option
             *ngFor="let segment of segments"
             value="{{ segment.segment.id }}"
-            >{{ segment.segment.name }}</mat-option
-          >
+            >{{ segment.segment.name }}
+          </mat-option>
         </mat-select>
       </mat-form-field>
 
@@ -156,8 +165,8 @@
           <mat-option
             *ngFor="let country of countries"
             value="{{ country.Code | lowercase }}"
-            >{{ country.Name }}</mat-option
-          >
+            >{{ country.Name }}
+          </mat-option>
         </mat-select>
       </mat-form-field>
       <!-- number of posts dropdown -->
@@ -176,7 +185,7 @@
       </mat-form-field>
     </div>
     <div class="form-footer">
-      <button (click)="filterForm.reset()" mat-raised-button color="warn">
+      <button (click)="resetForm()" mat-raised-button color="warn">
         Reset Form
       </button>
       <!-- Entry to bucket List Page -->
