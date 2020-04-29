@@ -3,15 +3,18 @@
   position: relative;
   justify-content: center; */
 }
+
 .logo {
   /* display: flex;
   position: absolute; */
 }
+
 img {
   width: 250px;
   animation: 3s linear 1s slidein;
   margin-top: 30px;
 }
+
 /* @keyframes slidein {
   from {
     margin-left: 100%;
@@ -30,6 +33,7 @@ h1 {
   font-size: 100px;
   color: azure;
 }
+
 h2 {
   font-family: "Spartan", sans-serif;
   text-align: center;
@@ -41,7 +45,6 @@ h2 {
   text-decoration: none;
 }
 
-<<<<<<< HEAD
 
 .form-body {
   border: 1px solid black;
@@ -90,25 +93,22 @@ h2 {
   grid-area: 5/1/6/2;
   place-self: center center;
   background: rgb(157, 11, 230);
-  background: linear-gradient(
-    37deg,
-    rgba(157, 11, 230, 1) 6%,
-    rgba(13, 238, 238, 1) 41%,
-    rgba(59, 66, 63, 1) 69%
-  );
+  background: linear-gradient(37deg,
+      rgba(157, 11, 230, 1) 6%,
+      rgba(13, 238, 238, 1) 41%,
+      rgba(59, 66, 63, 1) 69%);
 }
 
 .bucket-button {
   grid-area: 5/4/6/5;
   place-self: center center;
   background: rgb(157, 11, 230);
-  background: linear-gradient(
-    37deg,
-    rgba(157, 11, 230, 1) 6%,
-    rgba(13, 238, 238, 1) 41%,
-    rgba(59, 66, 63, 1) 69%
-  );
-=======
+  background: linear-gradient(37deg,
+      rgba(157, 11, 230, 1) 6%,
+      rgba(13, 238, 238, 1) 41%,
+      rgba(59, 66, 63, 1) 69%);
+}
+
 h3 {
   font-size: 100px;
   margin-left: 100px;
@@ -119,7 +119,6 @@ h3 {
 button {
   border-radius: 5px;
   margin-left: 10px;
->>>>>>> b584e5e9bb893399a105d11d415eddef73370edd
 }
 
 @media only screen and (max-width: 767px) {
