@@ -8,7 +8,7 @@
   border: 1px solid black;
   width: 100%;
   height: 200px;
-  display: block;
+  display: grid;
   position: relative;
 }
 
@@ -22,4 +22,37 @@
   right: 0;
   position: absolute;
   z-index: -1;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.search-bar {
+  grid-area: searchBar;
+}
+
+.cat-select {
+  grid-area: categories;
+}
+
+.genre-group {
+  grid-area: genres;
+}
+
+.state-select {
+  grid-area: states;
+}
+
+.country-select {
+  grid-area: countries;
+}
+
+.number-select {
+  grid-area: numberOfPosts;
+}
+
+.form-footer {
+  grid-area: footer;
 }
