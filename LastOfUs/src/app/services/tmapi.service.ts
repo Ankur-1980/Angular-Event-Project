@@ -31,6 +31,7 @@ export class TMapiService {
   getClassifications() {
     this.apiCalls++;
     console.log(this.apiCalls);
+
     return this.http.get(
       `${this.baseUrl}${this.classifications}${this.API_KEY}${this.global}`
     );
@@ -39,6 +40,7 @@ export class TMapiService {
   getDetails(eventID) {
     this.apiCalls++;
     console.log(this.apiCalls);
+
     return this.http.get(
       `${this.baseUrl}${this.events}/${eventID}${this.API_KEY}${this.global}`
     );
@@ -62,6 +64,7 @@ export class TMapiService {
   }): any {
     this.apiCalls++;
     console.log(this.apiCalls);
+
     return this.http.get(
       `${this.baseUrl}${this.events}${this.API_KEY}&keyword=${searchBar}${this.global}&size=${numberOfPosts}&countryCode=${countryID}&stateCode=${stateID}&segmentId=${categoryID}&genreId=${genreID}`
     );
