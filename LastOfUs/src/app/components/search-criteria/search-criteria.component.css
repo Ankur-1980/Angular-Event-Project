@@ -4,28 +4,22 @@
   margin: 0;
 }
 
-.search-container {
-  display: gird;
-  grid-template-rows: 2, 1fr;
+.form-body {
+  border: 1px solid black;
+  width: 100%;
+  height: 200px;
+  display: block;
+  position: relative;
 }
 
-.search-here {
-  margin-top: 100px;
-  display: flex;
-  justify-content: space-evenly;
-}
-
-.explore-here {
-  margin-left: 200px;
-  margin-bottom: 80px;
-}
-h3 {
-  font-size: 100px;
-  margin-left: 100px;
-  margin-bottom: 50px;
-  opacity: 65%;
-}
-button {
-  border-radius: 5px;
-  margin-left: 10px;
+.form-body::after {
+  content: "";
+  background-image: url(https://www.freepnglogos.com/uploads/crowd-png/concert-crowd-hands-png-13.png);
+  opacity: 0.05;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
 }
