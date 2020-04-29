@@ -19,7 +19,6 @@ export class DetailsComponent implements OnInit {
     this.api.getDetails(this.eventID).subscribe((data) => {
       this.details = data;
       console.log('look inside', data);
-
     });
   }
 }

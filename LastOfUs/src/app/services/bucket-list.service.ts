@@ -6,13 +6,11 @@ import { Injectable } from '@angular/core';
 export class BucketListService {
   bucketList = [];
 
-  constructor() { }
+  constructor() {}
 
   addToBucketList(event) {
     //A method used to push new events to the bucketlist[], and then return the [] with its updated items
     this.bucketList.push(event);
-    console.log(this.bucketList);
-
     return this.bucketList;
   }
 

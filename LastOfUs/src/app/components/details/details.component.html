@@ -9,10 +9,10 @@
 
   <div class="detail-info">
     <p>
-      Category: {{ (details?.classifications)[0].segment.name }},
-      {{ (details?.classifications)[0].subGenre.name }}
+      Category: {{ (details?.classifications)[0].segment.name }} -
+      {{ (details?.classifications)[0].genre.name }}
     </p>
-    <img src="{{ (details?.images)[0].url }}" />
+    <img src="{{ (details?.images)[0].url }}" alt="{{ details?.name }}" />
     <p>Event Date: {{ details?.dates.start.localDate | date }}</p>
     <p>
       Ticket Price Range: ${{ (details?.priceRanges)[0].min }} - ${{

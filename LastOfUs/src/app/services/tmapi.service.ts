@@ -6,6 +6,7 @@ import { Observable, Subject } from 'rxjs';
   providedIn: 'root',
 })
 export class TMapiService {
+  //apiCalls is used to track how many times we actually call the api
   apiCalls = 0;
 
   events = 'events';
@@ -17,7 +18,7 @@ export class TMapiService {
 
   private subject = new Subject<any>();
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getEvents() {
     this.apiCalls++;
@@ -27,10 +28,11 @@ export class TMapiService {
       `${this.baseUrl}${this.events}${this.API_KEY}${this.global}`
     );
   }
-
+  //Classifications are used to call a genre/category
   getClassifications() {
     this.apiCalls++;
     console.log(this.apiCalls);
+
     return this.http.get(
       `${this.baseUrl}${this.classifications}${this.API_KEY}${this.global}`
     );
@@ -39,18 +41,11 @@ export class TMapiService {
   getDetails(eventID) {
     this.apiCalls++;
     console.log(this.apiCalls);
+
     return this.http.get(
       `${this.baseUrl}${this.events}/${eventID}${this.API_KEY}${this.global}`
     );
   }
-
-  // keyWordsSearch(searchTerm): any {
-  //   this.apiCalls++;
-  //   console.log(this.apiCalls);
-  //   return this.http.get(
-  //     `${this.baseUrl}${this.events}${this.API_KEY}&keyword=${searchTerm}`
-  //   );
-  // }
 
   filterSearch({
     searchBar,
@@ -62,6 +57,7 @@ export class TMapiService {
   }): any {
     this.apiCalls++;
     console.log(this.apiCalls);
+
     return this.http.get(
       `${this.baseUrl}${this.events}${this.API_KEY}&keyword=${searchBar}${this.global}&size=${numberOfPosts}&countryCode=${countryID}&stateCode=${stateID}&segmentId=${categoryID}&genreId=${genreID}`
     );
@@ -75,7 +71,3 @@ export class TMapiService {
     return this.subject.asObservable();
   }
 }
-
-// app.ticketmaster.com/discovery/v2/
-// events.json?
-// apikey=zMf7gfbAyAigJLCB0a1iMrDv6OK8IDz9&keyword=undefined&locale=*&size=&countryCode=HI&stateCode=25&segmentId=&genreId=

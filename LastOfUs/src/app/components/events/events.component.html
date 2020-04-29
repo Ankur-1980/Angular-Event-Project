@@ -6,7 +6,7 @@
       <mat-spinner></mat-spinner>
     </div>
     <!-- below this is the error for when no results are found -->
-    <h2 *ngIf="events.length === 0">No results found</h2>
+    <h2 class="no-results" *ngIf="events.length === 0">No results found</h2>
     <!-- below this is the displayed events -->
     <div class="grid-container">
       <!--The "event" is being used to display the events we want returned on the card-->

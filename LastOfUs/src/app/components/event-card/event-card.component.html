@@ -6,7 +6,8 @@
   <p class="city">
     {{ event._embedded.venues[0].city.name }}
   </p>
-  <img src="{{ event.images[8].url }}" alt="" />
+  <p class="city">{{ event?.dates.start.localDate | date }}</p>
+  <img src="{{ event.images[8].url }}" alt="{{ event.name }}" />
 
   <div (click)="toggleAddRemove()">
     <span *ngIf="!bucket.containsEvent(event)" class="material-icons">
