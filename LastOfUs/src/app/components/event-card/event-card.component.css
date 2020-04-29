@@ -4,6 +4,13 @@
   margin-right: 10px;
 }
 
+img {
+  height: 150px;
+  width: 225px;
+  border-radius: 100px;
+  margin: 13px;
+}
+
 h3 {
   color: aliceblue;
   margin-left: 10px;
@@ -27,17 +34,11 @@ span {
 @media only screen and (max-width: 767px) {
 }
 
-@media only screen and (min-width: 768px) and (max-width: 1023px) {
-  .card-container {
-    border: solid 1px aliceblue;
-    border-radius: 20px;
-    margin-right: 10px;
-  }
-
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
   img {
-    height: 200px;
-    width: 300px;
+    height: 120px;
+    width: 200px;
     border-radius: 100px;
-    padding: 5px;
+    margin: 13px;
   }
 }
