@@ -1,4 +1,10 @@
-<div class="crowd">
+<div class="logo-search">
+<div class="logo">
+  <img src="../../../assets/Images/Leaf.png" alt="Leaf" />
+  <a class="main-title" routerLink="/"><h1>last of us</h1></a>
+  <H2>TICKETS</H2>
+</div>
+<!-- <div class="crowd">
   <a
     href="https://www.freepnglogos.com/images/crowd-27568.html"
     title="Image from freepnglogos.com"
@@ -7,19 +13,19 @@
       width="1500"
       alt="concert crowd hands png"
   /></a>
-</div>
+</div> -->
 <form [formGroup]="filterForm">
   <!-- form wrapper-->
   <div class="form-container">
     <!-- form header -->
-    <div class="form-header">
+    <!-- <div class="form-header">
       <h3>Explore Events</h3>
-    </div>
+    </div> -->
     <!-- all the search criteria -->
     <div class="form-body">
       <!-- search bar -->
       <mat-form-field class="search-bar form-group">
-        <mat-label for="searchBar">Search Bar</mat-label>
+        <mat-label for="searchBar">Search</mat-label>
         <input
           matInput
           (keyup)="searchFilter()"
@@ -186,13 +192,24 @@
       </mat-form-field>
     </div>
     <div class="form-footer">
-      <button class="reset" (click)="filterForm.reset()" mat-raised-button color="warn">
+      <button
+        class="reset"
+        (click)="filterForm.reset()"
+        mat-raised-button
+        color="warn"
+      >
         Reset Form
       </button>
       <!-- Entry to bucket List Page -->
-      <button class="bucket" mat-raised-button color="primary" routerLink="/bucket-list">
+      <button
+        class="bucket"
+        mat-raised-button
+        color="primary"
+        routerLink="/bucket-list"
+      >
         Bucket List
       </button>
     </div>
   </div>
 </form>
+</div>
