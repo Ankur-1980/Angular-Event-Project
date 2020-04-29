@@ -6,6 +6,8 @@ import { Observable, Subject } from 'rxjs';
   providedIn: 'root',
 })
 export class TMapiService {
+  apiCalls = 0;
+
   events = 'events';
   classifications = 'classifications';
 
@@ -18,28 +20,37 @@ export class TMapiService {
   constructor(private http: HttpClient) {}
 
   getEvents() {
+    this.apiCalls++;
+    console.log(this.apiCalls);
+
     return this.http.get(
       `${this.baseUrl}${this.events}${this.API_KEY}${this.global}`
     );
   }
 
   getClassifications() {
+    this.apiCalls++;
+    console.log(this.apiCalls);
     return this.http.get(
       `${this.baseUrl}${this.classifications}${this.API_KEY}${this.global}`
     );
   }
 
   getDetails(eventID) {
+    this.apiCalls++;
+    console.log(this.apiCalls);
     return this.http.get(
       `${this.baseUrl}${this.events}/${eventID}${this.API_KEY}${this.global}`
     );
   }
 
-  keyWordsSearch(searchTerm): any {
-    return this.http.get(
-      `${this.baseUrl}${this.events}${this.API_KEY}&keyword=${searchTerm}`
-    );
-  }
+  // keyWordsSearch(searchTerm): any {
+  //   this.apiCalls++;
+  //   console.log(this.apiCalls);
+  //   return this.http.get(
+  //     `${this.baseUrl}${this.events}${this.API_KEY}&keyword=${searchTerm}`
+  //   );
+  // }
 
   filterSearch({
     searchBar,
@@ -49,6 +60,8 @@ export class TMapiService {
     countryID,
     numberOfPosts,
   }): any {
+    this.apiCalls++;
+    console.log(this.apiCalls);
     return this.http.get(
       `${this.baseUrl}${this.events}${this.API_KEY}&keyword=${searchBar}${this.global}&size=${numberOfPosts}&countryCode=${countryID}&stateCode=${stateID}&segmentId=${categoryID}&genreId=${genreID}`
     );

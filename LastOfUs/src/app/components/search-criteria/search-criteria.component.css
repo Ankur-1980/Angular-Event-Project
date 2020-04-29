@@ -85,6 +85,7 @@ h2 {
 
 .genre-group {
   grid-area: 2/3/3/4;
+  margin-left: 25px;
 }
 
 .state-select {
